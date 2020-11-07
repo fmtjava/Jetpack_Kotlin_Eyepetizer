@@ -1,0 +1,7 @@
+<resources>
+
+    <string name="home_paper">日报</string>
+    <string name="home_discover">发现</string>
+    <string name="home_hot">热门</string>
+    <string name="home_person">我的</string>
+</resources>

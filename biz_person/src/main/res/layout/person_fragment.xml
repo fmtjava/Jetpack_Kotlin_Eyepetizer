@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bind="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/white"
+        android:orientation="vertical">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="@dimen/dp_80"
+            android:layout_height="@dimen/dp_80"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/dp_30"
+            android:gravity="center"
+            bind:isCircle="@{true}"
+            bind:resourceId="@{@drawable/person_ic_img_avatar}"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/dp_5"
+            android:text="fmtJava"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/sp_20"
+            android:textStyle="bold" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_view_homepage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/dp_4"
+            android:text="@string/person_go_homepage"
+            android:textColor="@color/color_grey"
+            android:textSize="@dimen/sp_12" />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_40"
+            android:layout_marginTop="@dimen/dp_20">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center">
+
+                <com.fmt.kotlin.eyepetizer.common.view.IconFontTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="@string/icon_love_text"
+                    android:textColor="@color/color_grey"
+                    android:textSize="@dimen/sp_18" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="@dimen/dp_7"
+                    android:gravity="center"
+                    android:text="@string/person_collection" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="@dimen/dp_0_5"
+                android:layout_height="@dimen/dp_30"
+                android:layout_gravity="center_vertical"
+                android:background="@color/color_grey" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center">
+
+                <com.fmt.kotlin.eyepetizer.common.view.IconFontTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="@dimen/dp_15"
+                    android:gravity="center"
+                    android:text="@string/icon_comment_text"
+                    android:textColor="@color/color_grey"
+                    android:textSize="@dimen/sp_18" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="@dimen/dp_7"
+                    android:gravity="center"
+                    android:text="@string/person_comment" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_0_5"
+            android:layout_marginTop="@dimen/dp_15"
+            android:background="@color/color_grey" />
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="@dimen/dp_50"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_mine_message"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_50"
+                    android:gravity="center|center_horizontal"
+                    android:text="@string/person_mine_message"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/tv_mine_attention"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:gravity="center|center_horizontal"
+                    android:text="@string/person_mine_attention"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/tv_mine_cache"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_50"
+                    android:gravity="center|center_horizontal"
+                    android:text="@string/person_mine_cache"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/tv_watch_history"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_50"
+                    android:gravity="center|center_horizontal"
+                    android:text="@string/person_view_history"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/tv_feedback"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_50"
+                    android:gravity="center|center_horizontal"
+                    android:text="@string/person_feedback"
+                    android:textSize="@dimen/sp_14" />
+            </LinearLayout>
+
+
+        </androidx.core.widget.NestedScrollView>
+
+
+    </LinearLayout>
+</layout>

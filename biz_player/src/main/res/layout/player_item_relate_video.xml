@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="com.fmt.kotlin.eyepetizer.common.util.DateUtils" />
+
+        <variable
+            name="model"
+            type="com.fmt.kotlin.eyepetizer.provider.model.Data" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_10"
+        android:layout_marginBottom="@dimen/dp_15">
+
+        <FrameLayout
+            android:id="@+id/fl_cover"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/iv_cover"
+                android:layout_width="@dimen/dp_135"
+                android:layout_height="@dimen/dp_80"
+                android:scaleType="fitXY"
+                bind:borderRadius="@{4}"
+                bind:url="@{model.component8().feed}" />
+
+
+            <com.minminaya.widget.GeneralRoundFrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end|bottom"
+                android:layout_marginEnd="@dimen/dp_5"
+                android:layout_marginBottom="@dimen/dp_5"
+                android:background="@color/color_black_54"
+                android:padding="@dimen/dp_3"
+                app:corner_radius="@dimen/dp_5"
+                app:layout_constraintBottom_toTopOf="@id/iv_author"
+                app:layout_constraintRight_toRightOf="parent">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@{DateUtils.INSTANCE.formatDateMsByMS(model.duration * 1000)}"
+                    android:textColor="@android:color/white"
+                    android:textSize="@dimen/sp_10"
+                    android:textStyle="bold" />
+
+            </com.minminaya.widget.GeneralRoundFrameLayout>
+
+        </FrameLayout>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_title"
+            android:layout_width="0dp"
+            app:layout_constraintHorizontal_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dp_10"
+            android:gravity="start"
+            android:text="@{model.title}"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/sp_14"
+            android:textStyle="bold"
+            app:layout_constraintLeft_toRightOf="@id/fl_cover"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_10"
+            android:layout_marginTop="@dimen/dp_15"
+            android:gravity="center"
+            android:text="@{`#` + model.category +` / ` + (model.author == null ? `` : model.author.name)}"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/sp_12"
+            android:textStyle="bold"
+            app:layout_constraintLeft_toRightOf="@id/fl_cover"
+            app:layout_constraintTop_toBottomOf="@id/tv_title" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

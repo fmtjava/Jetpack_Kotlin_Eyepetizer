@@ -1,0 +1,18 @@
+apply from: "../common.module.config.gradle"
+
+android {
+
+    resourcePrefix "discover_"
+}
+
+dependencies {
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    api project(path: ':biz_provider')
+    testImplementation rootProject.ext.androidx["junit"]
+    androidTestImplementation rootProject.ext.androidx["androidx.test.ext-junit"]
+    androidTestImplementation rootProject.ext.androidx["androidx.test.espresso:espresso-core"]
+
+    kapt rootProject.ext.dependencies["arouter-compiler"]
+
+}

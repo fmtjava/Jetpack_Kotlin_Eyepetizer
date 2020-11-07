@@ -1,0 +1,63 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+
+android {
+    compileSdkVersion rootProject.ext.android.compileSdkVersion
+    buildToolsVersion rootProject.ext.android.buildToolsVersion
+
+    defaultConfig {
+        minSdkVersion rootProject.ext.android.minSdkVersion
+        targetSdkVersion rootProject.ext.android.targetSdkVersion
+        versionCode rootProject.ext.android.versionCode
+        versionName rootProject.ext.android.versionName
+
+        consumerProguardFiles 'consumer-rules.pro'
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    dataBinding {
+        enabled = true
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    testImplementation rootProject.ext.androidx["junit"]
+    androidTestImplementation rootProject.ext.androidx["androidx.test.ext-junit"]
+    androidTestImplementation rootProject.ext.androidx["androidx.test.espresso:espresso-core"]
+
+    api rootProject.ext.androidx["androidx-appcompat"]
+    api rootProject.ext.androidx["androidx.swiperefreshlayout"]
+    api rootProject.ext.androidx["androidx.recyclerview"]
+    api rootProject.ext.androidx["androidx.constraintlayout"]
+    api rootProject.ext.androidx["android.material"]
+    api rootProject.ext.androidx["androidx.lifecycle"]
+    api rootProject.ext.androidx["androidx.fragment"]
+    api rootProject.ext.androidx["androidx.core"]
+    api rootProject.ext.androidx["androidx.lifecycle-runtime"]
+    api rootProject.ext.androidx["androidx.lifecycle-viewmodel"]
+    api rootProject.ext.androidx["androidx.lifecycle-livedata"]
+
+    api rootProject.ext.dependencies["logging-interceptor"]
+    api rootProject.ext.dependencies["retrofit2"]
+    api rootProject.ext.dependencies["converter-gson"]
+    api rootProject.ext.dependencies["immersionbar"]
+    api rootProject.ext.dependencies["immersionbar-ktx"]
+    api rootProject.ext.dependencies["BaseRecyclerViewAdapterHelper"]
+    api rootProject.ext.dependencies["GenaralRoundLayout"]
+    api rootProject.ext.dependencies["glide"]
+    api rootProject.ext.dependencies["tastytoast"]
+    api rootProject.ext.dependencies["banner"]
+    api rootProject.ext.dependencies["recycler-view-divider"]
+    api rootProject.ext.dependencies["jiaozivideoplayer"]
+    api rootProject.ext.dependencies["arouter-api"]
+}

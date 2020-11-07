@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="daily_share_icon">&#xe6c0;</string>
+    <string name="icon_love_text">&#xe735;</string>
+    <string name="icon_comment_text">&#xe6ec;</string>
+</resources>

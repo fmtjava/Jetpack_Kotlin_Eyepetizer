@@ -1,0 +1,10 @@
+include ':biz_provider'
+include ':lib_common'
+include ':biz_player'
+include ':biz_person'
+include ':biz_hot'
+include ':biz_discover'
+include ':biz_daily'
+include ':biz_home'
+include ':app'
+rootProject.name = "Kotlin_Eyepetizer"

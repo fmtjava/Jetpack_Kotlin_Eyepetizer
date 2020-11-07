@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <import type="com.fmt.kotlin.eyepetizer.common.util.DateUtils" />
+
+        <variable
+            name="model"
+            type="com.fmt.kotlin.eyepetizer.provider.model.Item" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:bind="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dp_15"
+        android:layout_marginTop="@dimen/dp_5"
+        android:layout_marginRight="@dimen/dp_15"
+        android:layout_marginBottom="@dimen/dp_10"
+        android:orientation="vertical">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_cover"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_200"
+            android:scaleType="fitXY"
+            android:transitionName="@string/share_image"
+            app:layout_constraintTop_toTopOf="parent"
+            bind:borderRadius="@{4}"
+            bind:url="@{model.data.component8().feed}" />
+
+        <!-- 5.0以上使用ViewOutlineProvider裁剪，5.0以下使用PorterDuffXfermode混合模式-->
+        <com.minminaya.widget.GeneralRoundFrameLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:layout_width="@dimen/dp_44"
+            android:layout_height="@dimen/dp_44"
+            android:layout_marginStart="@dimen/dp_10"
+            android:layout_marginTop="@dimen/dp_10"
+            android:background="@color/color_white_54"
+            app:corner_radius="@dimen/dp_22"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="@{model.data.category}"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/sp_14" />
+
+        </com.minminaya.widget.GeneralRoundFrameLayout>
+
+        <com.minminaya.widget.GeneralRoundFrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/dp_15"
+            android:layout_marginBottom="@dimen/dp_18"
+            android:background="@color/color_black_54"
+            android:padding="@dimen/dp_5"
+            app:corner_radius="@dimen/dp_5"
+            app:layout_constraintBottom_toTopOf="@id/iv_author"
+            app:layout_constraintRight_toRightOf="parent">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@{DateUtils.INSTANCE.formatDateMsByMS(model.data.duration * 1000)}"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/sp_12"
+                android:textStyle="bold" />
+
+        </com.minminaya.widget.GeneralRoundFrameLayout>
+
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_author"
+            android:layout_width="@dimen/dp_40"
+            android:layout_height="@dimen/dp_40"
+            android:layout_marginTop="@dimen/dp_10"
+            app:isCircle="@{true}"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/iv_cover"
+            app:url="@{model.data.author == null ? model.data.tags[0].headerImage : model.data.author.icon}" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_10"
+            android:layout_marginTop="@dimen/dp_10"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="@{model.data.title}"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/sp_14"
+            android:textStyle="bold"
+            app:layout_constraintLeft_toRightOf="@id/iv_author"
+            app:layout_constraintTop_toBottomOf="@id/iv_cover" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_10"
+            android:layout_marginTop="@dimen/dp_2"
+            android:text="@{model.data.author == null ? model.data.tags[0].name : model.data.author.name}"
+            android:textColor="@color/common_sub_title_color"
+            android:textSize="@dimen/sp_12"
+            app:layout_constraintLeft_toRightOf="@id/iv_author"
+            app:layout_constraintTop_toBottomOf="@id/tv_title" />
+
+        <com.fmt.kotlin.eyepetizer.common.view.IconFontTextView
+            android:id="@+id/tv_share"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/daily_share_icon"
+            android:textColor="@color/common_share_icon_color"
+            android:textSize="@dimen/sp_20"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/iv_cover" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_0_5"
+            android:layout_marginTop="@dimen/dp_10"
+            android:background="@color/common_divider_line_color"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/iv_author" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

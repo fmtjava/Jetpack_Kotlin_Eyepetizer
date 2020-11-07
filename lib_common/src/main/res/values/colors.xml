@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="common_sub_title_color">#9a9a9a</color>
+    <color name="common_divider_line_color">#e6e6e6</color>
+    <color name="common_share_icon_color">#61000000</color>
+    <color name="color_white_24">#3DFFFFFF</color>
+    <color name="color_black_12">#1F000000</color>
+    <color name="color_black_26">#42000000</color>
+    <color name="color_black_54">#8A000000</color>
+    <color name="color_white_54">#8AFFFFFF</color>
+    <color name="color_grey">#FF9E9E9E</color>
+</resources>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bind="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="categoryModel"
+            type="com.fmt.kotlin.eyepetizer.discover.model.CategoryModel" />
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_200">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="fitXY"
+            bind:borderRadius="@{4}"
+            bind:url="@{categoryModel.bgPicture}" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@{`#` + categoryModel.name}"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/sp_22"
+            android:textStyle="bold" />
+
+    </FrameLayout>
+</layout>

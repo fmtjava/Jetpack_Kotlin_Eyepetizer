@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="model"
+            type="com.fmt.kotlin.eyepetizer.provider.model.Item" />
+
+        <variable
+            name="activity"
+            type="android.app.Activity" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_author"
+            android:layout_width="@dimen/dp_40"
+            android:layout_height="@dimen/dp_40"
+            android:layout_marginStart="@dimen/dp_15"
+            android:layout_marginTop="@dimen/dp_10"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            bind:isCircle="@{true}"
+            bind:url="@{model.data.header.icon}" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_10"
+            android:layout_marginTop="@dimen/dp_10"
+            android:text="@{model.data.header.title}"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/sp_14"
+            app:layout_constraintLeft_toRightOf="@id/iv_author"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_des"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_10"
+            android:layout_marginTop="@dimen/dp_3"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="@{model.data.header.description}"
+            android:textColor="@color/color_black_26"
+            android:textSize="@dimen/sp_12"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintLeft_toRightOf="@id/iv_author"
+            app:layout_constraintRight_toLeftOf="@id/tv_category"
+            app:layout_constraintTop_toBottomOf="@id/tv_title" />
+
+        <com.minminaya.widget.GeneralRoundFrameLayout
+            android:id="@+id/tv_category"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_15"
+            android:layout_marginEnd="@dimen/dp_15"
+            android:background="@color/discover_color_follow_bg"
+            android:padding="@dimen/dp_5"
+            app:corner_radius="@dimen/dp_5"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/discover_add_follow"
+                android:textColor="@color/color_grey"
+                android:textSize="@dimen/sp_12" />
+
+        </com.minminaya.widget.GeneralRoundFrameLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_230"
+            android:layout_marginTop="@dimen/dp_10"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/iv_author"
+            bind:activity="@{activity}"
+            bind:dataList="@{model.data.itemList}" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_0_5"
+            android:background="@color/common_divider_line_color"
+            app:layout_constraintBottom_toBottomOf="parent"
+            bind:layout_constraintTop_toBottomOf="@id/recyclerView" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

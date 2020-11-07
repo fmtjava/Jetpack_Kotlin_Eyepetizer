@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="person_go_homepage">查看个人主页 ></string>
+    <string name="person_collection">收藏</string>
+    <string name="person_comment">评论</string>
+    <string name="person_mine_message">我的消息</string>
+    <string name="person_mine_attention">我的关注</string>
+    <string name="person_mine_cache">我的缓存</string>
+    <string name="person_view_history">观看记录</string>
+    <string name="person_feedback">意见反馈</string>
+</resources>
