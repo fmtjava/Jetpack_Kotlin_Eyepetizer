@@ -49,6 +49,10 @@
   <img src="https://github.com/fmtjava/flutter_eyepetizer/blob/master/images/function.png"/>
 </div>
 
+# 模块化基础架构图
+<div>
+  <img src="https://github.com/fmtjava/Kotlin_Eyepetizer/blob/master/image/structure.png"/>
+</div>
 
 # 下载体验(Android版本) 
  - 点击[![](https://img.shields.io/badge/Download-apk-green.svg)](https://www.pgyer.com/Bbn8)
