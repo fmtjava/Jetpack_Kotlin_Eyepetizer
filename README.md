@@ -56,7 +56,7 @@
    <img src="https://www.pgyer.com/app/qrcode/Bbn8"/>
    
  # 更新日志
- ### v1.0.0
+ ### v1.0
    * 初始化项目，完成开眼视频App核心功能，目前实现首页、发现、热门、分类、我的、视频详情、视频播放等功能，后续持续完善中...
 # Thanks
   - [ARouter](https://github.com/alibaba/ARouter) 
