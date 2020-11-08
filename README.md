@@ -49,7 +49,7 @@
   <img src="https://github.com/fmtjava/flutter_eyepetizer/blob/master/images/function.png"/>
 </div>
 
-# 模块化基础架构图
+# 组件化架构图
 <div>
   <img src="https://github.com/fmtjava/Kotlin_Eyepetizer/blob/master/image/structure.png"/>
 </div>
