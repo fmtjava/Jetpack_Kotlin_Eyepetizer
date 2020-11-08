@@ -39,6 +39,8 @@ ext {
             "tastytoast"                   : "com.sdsmdg.tastytoast:tastytoast:0.1.1",
             "banner"                       : "com.youth.banner:banner:2.1.0",
             "recycler-view-divider"        : "com.github.fondesa:recycler-view-divider:3.3.0",
+            "SwipeRecyclerView"            : "com.yanzhenjie.recyclerview:x:1.3.2",
+            "mmkv"                         : "com.tencent:mmkv-static:1.2.4",
             "jiaozivideoplayer"            : "cn.jzvd:jiaozivideoplayer:7.5.0",
             "arouter-api"                  : "com.alibaba:arouter-api:1.5.0",
             "arouter-compiler"             : "com.alibaba:arouter-compiler:1.2.2",

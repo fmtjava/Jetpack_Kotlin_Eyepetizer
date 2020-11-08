@@ -12,6 +12,7 @@ import com.fmt.kotlin.eyepetizer.common.base.activity.BaseBindActivity
 import com.fmt.kotlin.eyepetizer.player.R
 import com.fmt.kotlin.eyepetizer.player.adapter.VideoRelateAdapter
 import com.fmt.kotlin.eyepetizer.player.databinding.PlayerActivityVideoBinding
+import com.fmt.kotlin.eyepetizer.player.util.VideoWatchManager
 import com.fmt.kotlin.eyepetizer.player.viewmodel.VideoPlayerViewModel
 import com.fmt.kotlin.eyepetizer.provider.constant.BaseConstant
 import com.fmt.kotlin.eyepetizer.provider.model.Data
@@ -57,6 +58,7 @@ class VideoPlayerActivity : BaseBindActivity<PlayerActivityVideoBinding, VideoPl
     override fun initData() {
         ARouter.getInstance().inject(this)
         mBind.videoModel = videoModel
+        VideoWatchManager.addVideoWatchRecord(videoModel)
 
         if (fromRelate) {
             getRelateVideoList()

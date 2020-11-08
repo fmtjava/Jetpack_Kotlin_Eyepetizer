@@ -1,5 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.fmt.kotlin.eyepetizer.person">
 
-    /
+    <application>
+        <activity
+            android:name=".activity.VideoWatchRecordActivity"
+            android:screenOrientation="portrait" />
+    </application>
+
 </manifest>

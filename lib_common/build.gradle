@@ -57,7 +57,9 @@ dependencies {
     api rootProject.ext.dependencies["glide"]
     api rootProject.ext.dependencies["tastytoast"]
     api rootProject.ext.dependencies["banner"]
+    api rootProject.ext.dependencies["mmkv"]
     api rootProject.ext.dependencies["recycler-view-divider"]
+    api rootProject.ext.dependencies["SwipeRecyclerView"]
     api rootProject.ext.dependencies["jiaozivideoplayer"]
     api rootProject.ext.dependencies["arouter-api"]
 }

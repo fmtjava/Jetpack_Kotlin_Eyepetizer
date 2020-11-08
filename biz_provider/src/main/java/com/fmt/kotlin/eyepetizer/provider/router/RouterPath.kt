@@ -32,6 +32,7 @@ object RouterPath {
     class Video {
         companion object {
             const val PATH_VIDEO_HOME = "/video/home"
+            const val PATH_VIDEO_WATCH = "/video/watch"
         }
     }
 

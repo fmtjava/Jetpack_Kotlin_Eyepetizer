@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="person_red_normal">#FF0000</color>
+    <color name="person_red_pressed">#FF6666</color>
+</resources>

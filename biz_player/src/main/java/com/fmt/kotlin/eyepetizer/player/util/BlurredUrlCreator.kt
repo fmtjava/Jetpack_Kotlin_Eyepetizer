@@ -13,7 +13,7 @@ object BlurredUrlCreator {
         val height: Int
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.R) {
             width = wm.currentWindowMetrics.bounds.width()
-            height = wm.currentWindowMetrics.bounds.height()
+            height = wm.currentWindowMetrics.bounds.height() - dp2px(250f)
         } else {
             width = wm.defaultDisplay.width
             height = wm.defaultDisplay.height - dp2px(250f)

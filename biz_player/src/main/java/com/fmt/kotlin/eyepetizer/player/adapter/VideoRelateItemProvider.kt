@@ -5,7 +5,7 @@ import com.chad.library.adapter.base.provider.BaseItemProvider
 import com.chad.library.adapter.base.viewholder.BaseDataBindingHolder
 import com.chad.library.adapter.base.viewholder.BaseViewHolder
 import com.fmt.kotlin.eyepetizer.player.R
-import com.fmt.kotlin.eyepetizer.player.databinding.PlayerItemRelateVideoBinding
+import com.fmt.kotlin.eyepetizer.provider.databinding.ItemRelateVideoBinding
 import com.fmt.kotlin.eyepetizer.provider.model.Item
 import com.fmt.kotlin.eyepetizer.provider.router.go2VideoPlayerActivity
 
@@ -14,11 +14,11 @@ class VideoRelateItemProvider(private val mActivity: Activity) : BaseItemProvide
     override val itemViewType: Int
         get() = VideoRelateAdapter.TYPE_VIDEO
     override val layoutId: Int
-        get() = R.layout.player_item_relate_video
+        get() = R.layout.item_relate_video
 
     override fun convert(helper: BaseViewHolder, item: Item) {
         val baseDataBindingHolder =
-            BaseDataBindingHolder<PlayerItemRelateVideoBinding>(helper.itemView)
+            BaseDataBindingHolder<ItemRelateVideoBinding>(helper.itemView)
         baseDataBindingHolder.dataBinding?.model = item.data
         baseDataBindingHolder.dataBinding?.root?.setOnClickListener {
             go2VideoPlayerActivity(
