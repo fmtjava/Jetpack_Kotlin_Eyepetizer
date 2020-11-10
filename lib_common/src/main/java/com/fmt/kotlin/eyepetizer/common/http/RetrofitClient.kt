@@ -9,9 +9,20 @@ import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-object RetrofitClient {
+/**
+ * 静态内部类方式实现单列模式
+ */
+class RetrofitClient private constructor() {
 
     private val TAG = RetrofitClient::class.java.simpleName
+
+    companion object {
+        val instance = SingleTonProvider.holder
+    }
+
+    private object SingleTonProvider {
+        val holder = RetrofitClient()
+    }
 
     private val httpLoggingInterceptor = HttpLoggingInterceptor(object :
         HttpLoggingInterceptor.Logger {
