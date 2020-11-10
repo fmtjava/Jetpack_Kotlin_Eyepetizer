@@ -11,7 +11,7 @@ class DailyAdapter(activity: Activity, owner: LifecycleOwner) :
     BaseProviderMultiAdapter<ProviderMultiModel>(), LoadMoreModule {
 
     init {
-        addItemProvider(BannerItemProvider(owner))
+        addItemProvider(BannerItemProvider(owner, activity))
         addItemProvider(HeadTextItemProvider())
         addItemProvider(ImageTextProvider(activity))
     }

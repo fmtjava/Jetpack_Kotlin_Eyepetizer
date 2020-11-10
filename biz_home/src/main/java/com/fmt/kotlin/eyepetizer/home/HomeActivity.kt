@@ -7,8 +7,8 @@ import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import androidx.viewpager2.widget.ViewPager2
 import com.alibaba.android.arouter.launcher.ARouter
+import com.fmt.kotlin.eyepetizer.common.ext.immersionStatusBar
 import com.fmt.kotlin.eyepetizer.provider.router.RouterPath
-import com.gyf.immersionbar.ktx.immersionBar
 import kotlinx.android.synthetic.main.home_activity.*
 
 class HomeActivity : AppCompatActivity() {
@@ -17,12 +17,7 @@ class HomeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.home_activity)
 
-        immersionBar {
-            fitsSystemWindows(true)
-            statusBarColor(android.R.color.white)
-            statusBarDarkFont(true, 0.2f)
-        }
-
+        immersionStatusBar(true,android.R.color.white,true,0.2f)
         initViewPager()
         initBottomNavigation()
     }

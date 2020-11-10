@@ -4,11 +4,12 @@ import android.content.Context
 import android.content.Intent
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.fmt.kotlin.eyepetizer.common.base.activity.BaseBindActivity
+import com.fmt.kotlin.eyepetizer.common.ext.immersionStatusBar
+import com.fmt.kotlin.eyepetizer.common.ext.setToolBar
 import com.fmt.kotlin.eyepetizer.discover.R
 import com.fmt.kotlin.eyepetizer.discover.databinding.DiscoverActivityCategoryDetailBinding
 import com.fmt.kotlin.eyepetizer.discover.viewmodel.CategoryViewModel
 import com.fmt.kotlin.eyepetizer.provider.adapter.RankListAdapter
-import com.gyf.immersionbar.ktx.immersionBar
 import kotlinx.android.synthetic.main.discover_activity_category_detail.*
 
 class CategoryDetailActivity :
@@ -35,11 +36,8 @@ class CategoryDetailActivity :
     }
 
     override fun initView() {
-        immersionBar()
-        setSupportActionBar(mToolbar)
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        supportActionBar?.setHomeButtonEnabled(true)
-        mToolbar.setNavigationOnClickListener { onBackPressed() }
+        immersionStatusBar()
+        setToolBar(mToolbar)
 
         mRecyclerView.layoutManager = LinearLayoutManager(this)
         mAdapter.loadMoreModule.isEnableLoadMoreIfNotFullPage = false

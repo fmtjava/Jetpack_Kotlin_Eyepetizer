@@ -9,6 +9,7 @@ import com.alibaba.android.arouter.facade.annotation.Autowired
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.alibaba.android.arouter.launcher.ARouter
 import com.fmt.kotlin.eyepetizer.common.base.activity.BaseBindActivity
+import com.fmt.kotlin.eyepetizer.common.ext.immersionStatusBar
 import com.fmt.kotlin.eyepetizer.player.R
 import com.fmt.kotlin.eyepetizer.player.adapter.VideoRelateAdapter
 import com.fmt.kotlin.eyepetizer.player.databinding.PlayerActivityVideoBinding
@@ -17,7 +18,6 @@ import com.fmt.kotlin.eyepetizer.player.viewmodel.VideoPlayerViewModel
 import com.fmt.kotlin.eyepetizer.provider.constant.BaseConstant
 import com.fmt.kotlin.eyepetizer.provider.model.Data
 import com.fmt.kotlin.eyepetizer.provider.router.RouterPath
-import com.gyf.immersionbar.ktx.immersionBar
 import kotlinx.android.synthetic.main.player_activity_video.*
 
 @Route(path = RouterPath.Video.PATH_VIDEO_HOME)
@@ -38,7 +38,7 @@ class VideoPlayerActivity : BaseBindActivity<PlayerActivityVideoBinding, VideoPl
         get() = R.layout.player_activity_video
 
     override fun initView() {
-        immersionBar()
+        immersionStatusBar()
         mSwipeRefreshLayout.setOnRefreshListener {
             getRelateVideoList()
         }

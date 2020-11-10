@@ -7,10 +7,11 @@ import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.fmt.kotlin.eyepetizer.common.ext.dp2px
+import com.fmt.kotlin.eyepetizer.common.ext.immersionStatusBar
+import com.fmt.kotlin.eyepetizer.common.ext.setToolBar
 import com.fmt.kotlin.eyepetizer.person.R
 import com.fmt.kotlin.eyepetizer.person.adapter.VideoWatchRecordAdapter
 import com.fmt.kotlin.eyepetizer.provider.service.warp.VideoWatchWarp
-import com.gyf.immersionbar.ktx.immersionBar
 import com.yanzhenjie.recyclerview.OnItemMenuClickListener
 import com.yanzhenjie.recyclerview.SwipeMenuCreator
 import com.yanzhenjie.recyclerview.SwipeMenuItem
@@ -35,17 +36,9 @@ class VideoWatchRecordActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        immersionBar {
-            fitsSystemWindows(true)
-            statusBarColor(android.R.color.white)
-            statusBarDarkFont(true, 0.2f)
-        }
+        immersionStatusBar(true,android.R.color.white,true,0.2f)
         setContentView(R.layout.person_activity_video_watch_record)
-        setSupportActionBar(mToolbar)
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        supportActionBar?.setHomeButtonEnabled(true)
-        mToolbar.setNavigationOnClickListener { onBackPressed() }
-
+        setToolBar(mToolbar)
         initSwipeMenu()
     }
 

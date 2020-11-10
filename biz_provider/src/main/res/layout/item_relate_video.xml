@@ -16,7 +16,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/dp_10"
-        android:layout_marginBottom="@dimen/dp_15">
+        android:layout_marginTop="@dimen/dp_15">
 
         <FrameLayout
             android:id="@+id/fl_cover"
