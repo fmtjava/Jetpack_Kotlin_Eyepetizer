@@ -31,58 +31,48 @@
             app:shapeAppearance="@style/roundedCornerStyle"
             bind:url="@{model.data.component8().feed}" />
 
-        <!-- 5.0以上使用ViewOutlineProvider裁剪，5.0以下使用PorterDuffXfermode混合模式-->
-        <com.minminaya.widget.GeneralRoundFrameLayout
+        <com.google.android.material.button.MaterialButton
+            style="@style/Widget.MaterialComponents.Button.TextButton"
+            android:insetTop="@dimen/dp_0"
+            android:insetBottom="@dimen/dp_0"
+            android:padding="@dimen/dp_0"
             android:layout_width="@dimen/dp_44"
             android:layout_height="@dimen/dp_44"
             android:layout_marginStart="@dimen/dp_10"
             android:layout_marginTop="@dimen/dp_10"
-            android:background="@color/color_white_54"
-            app:corner_radius="@dimen/dp_22"
+            android:text="@{model.data.category}"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/sp_14"
+            app:backgroundTint="@color/color_white_54"
+            app:cornerRadius="@dimen/dp_22"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toTopOf="parent" />
 
-            <androidx.appcompat.widget.AppCompatTextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center"
-                android:text="@{model.data.category}"
-                android:textColor="@android:color/white"
-                android:textSize="@dimen/sp_14" />
-
-        </com.minminaya.widget.GeneralRoundFrameLayout>
-
-        <com.minminaya.widget.GeneralRoundFrameLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+        <com.google.android.material.button.MaterialButton
+            style="@style/Widget.MaterialComponents.Button.TextButton"
+            android:insetTop="@dimen/dp_0"
+            android:insetBottom="@dimen/dp_0"
+            android:padding="@dimen/dp_0"
+            android:layout_width="@dimen/dp_44"
+            android:layout_height="@dimen/dp_25"
             android:layout_marginEnd="@dimen/dp_15"
             android:layout_marginBottom="@dimen/dp_18"
-            android:background="@color/color_black_54"
-            android:padding="@dimen/dp_5"
-            app:corner_radius="@dimen/dp_5"
+            android:text="@{DateUtils.INSTANCE.formatDateMsByMS(model.data.duration * 1000)}"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/sp_12"
+            app:backgroundTint="@color/color_black_54"
+            app:cornerRadius="@dimen/dp_5"
             app:layout_constraintBottom_toTopOf="@id/iv_author"
-            app:layout_constraintRight_toRightOf="parent">
-
-            <androidx.appcompat.widget.AppCompatTextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="@{DateUtils.INSTANCE.formatDateMsByMS(model.data.duration * 1000)}"
-                android:textColor="@android:color/white"
-                android:textSize="@dimen/sp_12"
-                android:textStyle="bold" />
-
-        </com.minminaya.widget.GeneralRoundFrameLayout>
-
+            app:layout_constraintRight_toRightOf="parent" />
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/iv_author"
             android:layout_width="@dimen/dp_40"
             android:layout_height="@dimen/dp_40"
             android:layout_marginTop="@dimen/dp_10"
-           app:shapeAppearance="@style/circleStyle"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toBottomOf="@id/iv_cover"
+            app:shapeAppearance="@style/circleStyle"
             app:url="@{model.data.author == null ? model.data.tags[0].headerImage : model.data.author.icon}" />
 
         <androidx.appcompat.widget.AppCompatTextView

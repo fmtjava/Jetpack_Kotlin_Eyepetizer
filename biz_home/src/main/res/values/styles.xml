@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="Home_LaunchTheme" parent="Theme.AppCompat.Light.NoActionBar">
+    <style name="Home_LaunchTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
         <item name="android:windowBackground">@mipmap/home_launch_screen</item>
         <item name="android:windowNoTitle">true</item>
     </style>

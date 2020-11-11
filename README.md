@@ -70,8 +70,7 @@
   - [Banner](https://github.com/youth5201314/banner)
   - [SwipeRecyclerView](https://github.com/yanzhenjie/SwipeRecyclerView)
   - [recycler-view-divider](https://github.com/fondesa/recycler-view-divider) 
-  - [TastyToast](https://github.com/yadav-rahul/TastyToast) 
-  - [GenaralRoundLayout](https://github.com/minminaya/GenaralRoundLayout) 
+  - [TastyToast](https://github.com/yadav-rahul/TastyToast)
   - [retrofit2](https://github.com/square/retrofit)
   - [MMKV](https://github.com/Tencent/MMKV)
 

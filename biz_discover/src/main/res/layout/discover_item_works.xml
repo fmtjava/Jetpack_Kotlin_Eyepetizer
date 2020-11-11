@@ -32,26 +32,22 @@
                 app:shapeAppearance="@style/roundedCornerStyle"
                 bind:url="@{model.data.cover.feed}" />
 
-            <com.minminaya.widget.GeneralRoundFrameLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+            <com.google.android.material.button.MaterialButton
+                style="@style/Widget.MaterialComponents.Button.TextButton"
+                android:layout_width="@dimen/dp_40"
+                android:layout_height="@dimen/dp_30"
                 android:layout_gravity="end"
                 android:layout_marginTop="@dimen/dp_8"
                 android:layout_marginEnd="@dimen/dp_8"
-                android:background="@color/color_white_54"
-                android:padding="@dimen/dp_6"
-                app:corner_radius="@dimen/dp_5">
-
-                <androidx.appcompat.widget.AppCompatTextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:text="@{model.data.category}"
-                    android:textColor="@android:color/black"
-                    android:textSize="@dimen/sp_13"
-                    android:textStyle="bold" />
-
-            </com.minminaya.widget.GeneralRoundFrameLayout>
+                app:backgroundTint="@color/color_white_54"
+                android:insetTop="@dimen/dp_0"
+                android:insetBottom="@dimen/dp_0"
+                android:padding="@dimen/dp_0"
+                android:text="@{model.data.category}"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/sp_13"
+                android:textStyle="bold"
+                app:cornerRadius="@dimen/dp_5" />
 
         </FrameLayout>
 
