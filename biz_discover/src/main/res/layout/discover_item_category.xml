@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:bind="http://schemas.android.com/apk/res-auto">
 
     <data>
@@ -13,11 +14,11 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/dp_200">
 
-        <androidx.appcompat.widget.AppCompatImageView
+        <com.google.android.material.imageview.ShapeableImageView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:scaleType="fitXY"
-            bind:borderRadius="@{4}"
+            android:scaleType="centerCrop"
+            app:shapeAppearance="@style/roundedCornerStyle"
             bind:url="@{categoryModel.bgPicture}" />
 
         <androidx.appcompat.widget.AppCompatTextView

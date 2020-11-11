@@ -20,14 +20,14 @@
         android:layout_marginBottom="@dimen/dp_10"
         android:orientation="vertical">
 
-        <androidx.appcompat.widget.AppCompatImageView
+        <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/iv_cover"
             android:layout_width="match_parent"
             android:layout_height="@dimen/dp_200"
-            android:scaleType="fitXY"
+            android:scaleType="centerCrop"
             android:transitionName="@string/share_image"
             app:layout_constraintTop_toTopOf="parent"
-            bind:borderRadius="@{4}"
+            app:shapeAppearance="@style/roundedCornerStyle"
             bind:url="@{model.item.data.component8().feed}" />
 
         <!-- 5.0以上使用ViewOutlineProvider裁剪，5.0以下使用PorterDuffXfermode混合模式-->
@@ -74,12 +74,12 @@
         </com.minminaya.widget.GeneralRoundFrameLayout>
 
 
-        <androidx.appcompat.widget.AppCompatImageView
+        <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/iv_author"
             android:layout_width="@dimen/dp_40"
             android:layout_height="@dimen/dp_40"
             android:layout_marginTop="@dimen/dp_10"
-            app:isCircle="@{true}"
+            app:shapeAppearance="@style/circleStyle"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toBottomOf="@id/iv_cover"
             app:url="@{model.item.data.author == null ? model.item.data.tags[0].headerImage : model.item.data.author.icon}" />

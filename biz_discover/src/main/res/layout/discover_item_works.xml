@@ -13,6 +13,7 @@
     </data>
 
     <LinearLayout
+        android:id="@+id/ll_cover"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:orientation="vertical"
@@ -22,13 +23,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
 
-            <androidx.appcompat.widget.AppCompatImageView
+            <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/iv_cover"
                 android:layout_width="@dimen/dp_300"
                 android:layout_height="@dimen/dp_180"
-                android:scaleType="fitXY"
+                android:scaleType="centerCrop"
                 android:transitionName="@string/share_image"
-                bind:borderRadius="@{4}"
+                app:shapeAppearance="@style/roundedCornerStyle"
                 bind:url="@{model.data.cover.feed}" />
 
             <com.minminaya.widget.GeneralRoundFrameLayout

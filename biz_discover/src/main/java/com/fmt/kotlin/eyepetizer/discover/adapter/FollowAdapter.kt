@@ -8,6 +8,7 @@ import com.chad.library.adapter.base.BaseQuickAdapter
 import com.chad.library.adapter.base.module.LoadMoreModule
 import com.chad.library.adapter.base.viewholder.BaseDataBindingHolder
 import com.chad.library.adapter.base.viewholder.BaseViewHolder
+import com.fmt.kotlin.eyepetizer.common.ext.dp2px
 import com.fmt.kotlin.eyepetizer.discover.R
 import com.fmt.kotlin.eyepetizer.discover.databinding.DiscoverItemFollowBinding
 import com.fmt.kotlin.eyepetizer.discover.databinding.DiscoverItemWorksBinding
@@ -35,6 +36,9 @@ class FollowAdapter(private val mActivity: Activity) :
                     it,
                     item.data
                 )
+            }
+            if (data.indexOf(item) == data.size - 1) {
+                bindingHolder.dataBinding?.llCover?.setPadding(dp2px(15f), 0, dp2px(15f), 0)
             }
         }
     }

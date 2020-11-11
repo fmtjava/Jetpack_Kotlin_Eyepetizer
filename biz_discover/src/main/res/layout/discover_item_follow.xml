@@ -18,7 +18,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <androidx.appcompat.widget.AppCompatImageView
+        <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/iv_author"
             android:layout_width="@dimen/dp_40"
             android:layout_height="@dimen/dp_40"
@@ -26,7 +26,7 @@
             android:layout_marginTop="@dimen/dp_10"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            bind:isCircle="@{true}"
+            app:shapeAppearance="@style/circleStyle"
             bind:url="@{model.data.header.icon}" />
 
         <androidx.appcompat.widget.AppCompatTextView

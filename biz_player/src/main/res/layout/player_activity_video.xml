@@ -151,7 +151,7 @@
                             android:paddingTop="@dimen/dp_10"
                             android:paddingBottom="@dimen/dp_10">
 
-                            <androidx.appcompat.widget.AppCompatImageView
+                            <com.google.android.material.imageview.ShapeableImageView
                                 android:id="@+id/iv_author"
                                 android:layout_width="@dimen/dp_40"
                                 android:layout_height="@dimen/dp_40"
@@ -159,7 +159,7 @@
                                 app:layout_constraintBottom_toBottomOf="parent"
                                 app:layout_constraintLeft_toLeftOf="parent"
                                 app:layout_constraintTop_toTopOf="parent"
-                                bind:isCircle="@{true}"
+                                app:shapeAppearance="@style/circleStyle"
                                 bind:url="@{videoModel.author.icon}" />
 
                             <androidx.appcompat.widget.AppCompatTextView

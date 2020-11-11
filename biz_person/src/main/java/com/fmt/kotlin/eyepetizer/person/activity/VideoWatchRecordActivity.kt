@@ -63,11 +63,12 @@ class VideoWatchRecordActivity : AppCompatActivity() {
                 }
             }
 
-        mSwipeRecyclerView.setSwipeMenuCreator(mSwipeMenuCreator)
-        mSwipeRecyclerView.setOnItemMenuClickListener(mItemMenuClickListener)
-
-        mSwipeRecyclerView.isSwipeItemMenuEnabled = true
-        mSwipeRecyclerView.layoutManager = LinearLayoutManager(this)
-        mSwipeRecyclerView.adapter = mAdapter
+        mSwipeRecyclerView.apply {
+            setSwipeMenuCreator(mSwipeMenuCreator)
+            setOnItemMenuClickListener(mItemMenuClickListener)
+            isSwipeItemMenuEnabled = true
+            layoutManager = LinearLayoutManager(this@VideoWatchRecordActivity)
+            adapter = mAdapter
+        }
     }
 }
