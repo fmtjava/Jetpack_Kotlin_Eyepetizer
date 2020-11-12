@@ -51,7 +51,8 @@ class CategoryFragment : BaseVMFragment<CategoryViewModel>(), OnItemClickListene
             mActivity,
             mAdapter.data[position].id,
             mAdapter.data[position].name,
-            mAdapter.data[position].headerImage
+            mAdapter.data[position].headerImage,
+            view.findViewById(R.id.fl_content)
         )
     }
 }

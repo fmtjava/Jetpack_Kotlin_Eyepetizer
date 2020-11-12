@@ -26,6 +26,14 @@ android {
     dataBinding {
         enabled = true
     }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions{
+        jvmTarget = "1.8"
+    }
 }
 
 dependencies {
@@ -40,7 +48,6 @@ dependencies {
     api rootProject.ext.androidx["androidx.recyclerview"]
     api rootProject.ext.androidx["androidx.constraintlayout"]
     api rootProject.ext.androidx["android.material"]
-    api rootProject.ext.androidx["androidx.lifecycle"]
     api rootProject.ext.androidx["androidx.fragment"]
     api rootProject.ext.androidx["androidx.core"]
     api rootProject.ext.androidx["androidx.lifecycle-runtime"]

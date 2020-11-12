@@ -9,15 +9,18 @@ import androidx.viewpager2.widget.ViewPager2
 import com.alibaba.android.arouter.launcher.ARouter
 import com.fmt.kotlin.eyepetizer.common.ext.immersionStatusBar
 import com.fmt.kotlin.eyepetizer.provider.router.RouterPath
+import com.google.android.material.transition.platform.MaterialContainerTransformSharedElementCallback
 import kotlinx.android.synthetic.main.home_activity.*
 
 class HomeActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        setExitSharedElementCallback(MaterialContainerTransformSharedElementCallback())
+        window.sharedElementsUseOverlay = false
         super.onCreate(savedInstanceState)
         setContentView(R.layout.home_activity)
 
-        immersionStatusBar(true,android.R.color.white,true,0.2f)
+        immersionStatusBar(true, android.R.color.white, true, 0.2f)
         initViewPager()
         initBottomNavigation()
     }

@@ -13,6 +13,7 @@ import com.fmt.kotlin.eyepetizer.common.ext.immersionStatusBar
 import com.fmt.kotlin.eyepetizer.player.R
 import com.fmt.kotlin.eyepetizer.player.adapter.VideoRelateAdapter
 import com.fmt.kotlin.eyepetizer.player.databinding.PlayerActivityVideoBinding
+import com.fmt.kotlin.eyepetizer.player.observer.JZVDObserver
 import com.fmt.kotlin.eyepetizer.player.util.VideoWatchManager
 import com.fmt.kotlin.eyepetizer.player.viewmodel.VideoPlayerViewModel
 import com.fmt.kotlin.eyepetizer.provider.constant.BaseConstant
@@ -57,6 +58,7 @@ class VideoPlayerActivity : BaseBindActivity<PlayerActivityVideoBinding, VideoPl
 
     override fun initData() {
         ARouter.getInstance().inject(this)
+        lifecycle.addObserver(JZVDObserver())
         mBind.videoModel = videoModel
         VideoWatchManager.addVideoWatchRecord(videoModel)
 
@@ -96,10 +98,5 @@ class VideoPlayerActivity : BaseBindActivity<PlayerActivityVideoBinding, VideoPl
             return
         }
         super.onBackPressed()
-    }
-
-    override fun onPause() {
-        super.onPause()
-        Jzvd.releaseAllVideos()
     }
 }

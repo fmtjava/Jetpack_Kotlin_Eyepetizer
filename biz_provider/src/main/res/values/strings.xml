@@ -2,4 +2,5 @@
 <resources>
     <string name="discover_add_follow">+ 关注</string>
     <string name="share_image">share_image</string>
+    <string name="shared_element_container">shared_element_container</string>
 </resources>

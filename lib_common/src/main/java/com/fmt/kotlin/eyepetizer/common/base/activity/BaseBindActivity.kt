@@ -19,6 +19,7 @@ abstract class BaseBindActivity<DB : ViewDataBinding, VM : BaseViewModel> : AppC
     lateinit var mViewModel: VM
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        initWindow()
         super.onCreate(savedInstanceState)
         mBind = DataBindingUtil.setContentView(
             this,
@@ -58,6 +59,10 @@ abstract class BaseBindActivity<DB : ViewDataBinding, VM : BaseViewModel> : AppC
     }
 
     open fun handlerError() {
+
+    }
+
+    open fun initWindow() {
 
     }
 
