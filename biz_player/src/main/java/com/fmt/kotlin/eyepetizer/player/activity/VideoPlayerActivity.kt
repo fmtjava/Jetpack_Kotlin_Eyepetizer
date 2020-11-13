@@ -9,6 +9,7 @@ import com.alibaba.android.arouter.facade.annotation.Autowired
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.alibaba.android.arouter.launcher.ARouter
 import com.fmt.kotlin.eyepetizer.common.base.activity.BaseBindActivity
+import com.fmt.kotlin.eyepetizer.common.ext.fromJson
 import com.fmt.kotlin.eyepetizer.common.ext.immersionStatusBar
 import com.fmt.kotlin.eyepetizer.player.R
 import com.fmt.kotlin.eyepetizer.player.adapter.VideoRelateAdapter
@@ -26,8 +27,11 @@ class VideoPlayerActivity : BaseBindActivity<PlayerActivityVideoBinding, VideoPl
 
     private var mTransition: Transition? = null
 
+    private lateinit var videoModel: Data
+
+    @JvmField
     @Autowired(name = BaseConstant.VIDEO_MODE_KEY)
-    lateinit var videoModel: Data
+    var videoModelJSON: String = ""
 
     @JvmField
     @Autowired(name = BaseConstant.VIDEO_IS_FROM_RELATE_KEY)
@@ -59,6 +63,7 @@ class VideoPlayerActivity : BaseBindActivity<PlayerActivityVideoBinding, VideoPl
     override fun initData() {
         ARouter.getInstance().inject(this)
         lifecycle.addObserver(JZVDObserver())
+        videoModel = fromJson(videoModelJSON)
         mBind.videoModel = videoModel
         VideoWatchManager.addVideoWatchRecord(videoModel)
 

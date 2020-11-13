@@ -4,6 +4,7 @@ import android.app.Activity
 import android.view.View
 import androidx.core.app.ActivityOptionsCompat
 import com.alibaba.android.arouter.launcher.ARouter
+import com.fmt.kotlin.eyepetizer.common.ext.toJson
 import com.fmt.kotlin.eyepetizer.provider.constant.BaseConstant
 import com.fmt.kotlin.eyepetizer.provider.model.Data
 
@@ -25,7 +26,7 @@ fun go2VideoPlayerActivity(
                 )
             }
         }
-        .withSerializable(BaseConstant.VIDEO_MODE_KEY, data)
+        .withString(BaseConstant.VIDEO_MODE_KEY, toJson(data))
         .withBoolean(BaseConstant.VIDEO_IS_FROM_RELATE_KEY, fromRelate)
         .navigation(activity)
 }

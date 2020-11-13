@@ -1,7 +1,5 @@
 package com.fmt.kotlin.eyepetizer.provider.model
 
-import java.io.Serializable
-
 data class Issue(
     val count: Int,
     val date: Long,
@@ -18,7 +16,7 @@ data class Item(
     val id: Int,
     val type: String,
     var itemType: Int
-) : Serializable
+)
 
 data class Data(
     val actionUrl: String,
@@ -55,7 +53,7 @@ data class Data(
     val type: String,
     val webUrl: WebUrl,
     val itemList: List<Item>
-) : Serializable
+)
 
 data class Header(
     val actionUrl: String,
@@ -68,7 +66,7 @@ data class Header(
     val ifShowNotificationIcon: Boolean,
     val title: String,
     val uid: Int
-) : Serializable
+)
 
 data class Author(
     val approvedNotReadyVideoCount: Int,
@@ -84,21 +82,21 @@ data class Author(
     val recSort: Int,
     val shield: Shield,
     val videoNum: Int
-) : Serializable
+)
 
 data class Consumption(
     val collectionCount: Int,
     val realCollectionCount: Int,
     val replyCount: Int,
     val shareCount: Int
-) : Serializable
+)
 
 data class Cover(
     val blurred: String,
     val detail: String,
     val feed: String,
     val homepage: String,
-) : Serializable
+)
 
 data class PlayInfo(
     val height: Int,
@@ -107,13 +105,13 @@ data class PlayInfo(
     val url: String,
     val urlList: List<Url>,
     val width: Int
-) : Serializable
+)
 
 data class Provider(
     val alias: String,
     val icon: String,
     val name: String
-) : Serializable
+)
 
 data class Tag(
     val actionUrl: String,
@@ -126,26 +124,26 @@ data class Tag(
     val ifNewest: Boolean,
     val name: String,
     val tagRecType: String
-) : Serializable
+)
 
 data class WebUrl(
     val forWeibo: String,
     val raw: String
-) : Serializable
+)
 
 data class Follow(
     val followed: Boolean,
     val itemId: Int,
     val itemType: String
-) : Serializable
+)
 
 data class Shield(
     val itemId: Int,
     val itemType: String,
     val shielded: Boolean
-) : Serializable
+)
 
 data class Url(
     val name: String,
     val url: String
-) : Serializable
+)
