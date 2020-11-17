@@ -1,6 +1,5 @@
 package com.fmt.kotlin.eyepetizer.dialy.viewmodel
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import com.fmt.kotlin.eyepetizer.common.base.viewmodel.BaseViewModel
 import com.fmt.kotlin.eyepetizer.dialy.model.ProviderMultiModel
@@ -28,12 +27,10 @@ class DailyViewModel : BaseViewModel() {
     fun getDailyList(): LiveData<List<ProviderMultiModel>> =
         liveDataEx {
             if (mNextPageUrl == null) {
-                Log.e("fmt","mNextPageUrl == null")
                 mutableListOf()
             } else {
                 val dailyModel = DailyService.getDailyList(mNextPageUrl!!)
                 mNextPageUrl = dailyModel.nextPageUrl
-                Log.e("fmt","mNextPageUrl=${mNextPageUrl}")
                 val list = dailyModel.issueList[0].itemList
                 list.removeAll {
                     it.type == BANNER_TYPE

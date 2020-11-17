@@ -22,7 +22,7 @@ class DailyFragment : BaseVMFragment<DailyViewModel>() {
         mSwipeRefreshLayout.isRefreshing = true
         mSwipeRefreshLayout.setOnRefreshListener {
             mIsLoadMore = false
-            initData()
+            lazyLoadData()
         }
         mRecyclerView.layoutManager = LinearLayoutManager(context)
         mRecyclerView.adapter = mAdapter
