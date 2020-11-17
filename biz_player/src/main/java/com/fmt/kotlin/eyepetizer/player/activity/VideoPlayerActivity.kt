@@ -19,7 +19,9 @@ import com.fmt.kotlin.eyepetizer.player.util.VideoWatchManager
 import com.fmt.kotlin.eyepetizer.player.viewmodel.VideoPlayerViewModel
 import com.fmt.kotlin.eyepetizer.provider.constant.BaseConstant
 import com.fmt.kotlin.eyepetizer.provider.model.Data
+import com.fmt.kotlin.eyepetizer.provider.model.event.WatchVideoEvent
 import com.fmt.kotlin.eyepetizer.provider.router.RouterPath
+import com.fmt.livedatabus.LiveDataBus
 import kotlinx.android.synthetic.main.player_activity_video.*
 
 @Route(path = RouterPath.Video.PATH_VIDEO_HOME)
@@ -66,6 +68,8 @@ class VideoPlayerActivity : BaseBindActivity<PlayerActivityVideoBinding, VideoPl
         videoModel = fromJson(videoModelJSON)
         mBind.videoModel = videoModel
         VideoWatchManager.addVideoWatchRecord(videoModel)
+        LiveDataBus.with<WatchVideoEvent>(BaseConstant.WATCH_VIDEO_EVENT)
+            .postData(WatchVideoEvent())
 
         if (fromRelate) {
             getRelateVideoList()

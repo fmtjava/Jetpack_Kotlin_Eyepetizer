@@ -41,6 +41,11 @@ class VideoWatchRecordAdapter(
         notifyItemRemoved(position)
     }
 
+    fun newData(dataList: List<Data>) {
+        mDataList.clear()
+        mDataList.addAll(dataList)
+    }
+
     inner class VideoWatchRecordViewHolder(private val binding: ItemRelateVideoBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
