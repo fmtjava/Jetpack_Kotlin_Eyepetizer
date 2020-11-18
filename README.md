@@ -73,8 +73,8 @@
   - [TastyToast](https://github.com/yadav-rahul/TastyToast)
   - [retrofit2](https://github.com/square/retrofit)
   - [MMKV](https://github.com/Tencent/MMKV)
+  - [LiveDataBus](https://github.com/fmtjava/LiveDataBus)
 
-  
  # 关于我
   - WX：fmtjava
   - QQ：2694746499
