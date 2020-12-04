@@ -11,7 +11,14 @@ import kotlinx.android.synthetic.main.discover_fragment.*
 @Route(path = RouterPath.Discover.PATH_DISCOVER_HOME)
 class DiscoverFragment : BaseFragment() {
 
-    private val mTabTitles: Array<String> by lazy { resources.getStringArray(R.array.discover_titles) }
+    private val mTabTitleList: Array<String> by lazy { resources.getStringArray(R.array.discover_titles) }
+    private val mFragmentList by lazy {
+        mutableListOf<Fragment>().apply {
+            add(FollowFragment())
+            add(CategoryFragment())
+            add(TopicFragment())
+        }
+    }
     override val getLayoutRes: Int
         get() = R.layout.discover_fragment
 
@@ -22,17 +29,11 @@ class DiscoverFragment : BaseFragment() {
         //比较麻烦，所以此处采用了ViewPager
         mViewPager.adapter = object :
             FragmentStatePagerAdapter(childFragmentManager, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
-            override fun getCount(): Int = 2
+            override fun getCount(): Int = mTabTitleList.size
 
-            override fun getItem(position: Int): Fragment {
-                return if (position == 0) {
-                    FollowFragment()
-                } else {
-                    CategoryFragment()
-                }
-            }
+            override fun getItem(position: Int): Fragment = mFragmentList[position]
 
-            override fun getPageTitle(position: Int): CharSequence? = mTabTitles[position]
+            override fun getPageTitle(position: Int): CharSequence? = mTabTitleList[position]
         }
         mTabLayout.setupWithViewPager(mViewPager)
     }

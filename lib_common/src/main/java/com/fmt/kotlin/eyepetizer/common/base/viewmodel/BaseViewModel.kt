@@ -7,7 +7,7 @@ open class BaseViewModel : ViewModel() {
 
     val mStateLiveData = MutableLiveData<State>()
 
-    fun <T> liveDataEx(block: suspend LiveDataScope<T>.() -> T) = liveData<T> {
+    fun <T> liveDataEx(block: suspend LiveDataScope<T>.() -> T) = liveData {
         try {
             mStateLiveData.postValue(LoadState)
             emit(block())

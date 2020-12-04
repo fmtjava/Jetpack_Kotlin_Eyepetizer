@@ -17,6 +17,11 @@ import com.google.android.material.transition.platform.MaterialContainerTransfor
 import com.google.android.material.transition.platform.MaterialContainerTransformSharedElementCallback
 import kotlinx.android.synthetic.main.discover_activity_category_detail.*
 
+/**
+ * 页面跳转使用了Material动效中的容器变换动画(container-transform)
+ * Material动效文章链接：https://mp.weixin.qq.com/s/PZD8RxrqP7_RAjXIo345aQ
+ *                     https://github.com/material-components/material-components-android-examples
+ */
 class CategoryDetailActivity :
     BaseBindActivity<DiscoverActivityCategoryDetailBinding, CategoryViewModel>() {
 

@@ -36,7 +36,7 @@ class RetrofitClient private constructor() {
     private val okHttpClient = OkHttpClient.Builder()
         .also {
             if (BuildConfig.DEBUG) {
-                //it.addInterceptor(httpLoggingInterceptor)
+                it.addInterceptor(httpLoggingInterceptor)
             }
         }
         .build()
