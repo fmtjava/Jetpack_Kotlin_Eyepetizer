@@ -31,7 +31,7 @@
                 android:fitsSystemWindows="true"
                 app:statusBarScrim="@android:color/white"
                 app:contentScrim="@android:color/white"
-                app:expandedTitleTextAppearance="@style/expandedTitleTextAppearance"
+                app:expandedTitleTextAppearance="@style/discover_expandedTitleTextAppearance"
                 app:layout_scrollFlags="scroll|exitUntilCollapsed">
 
                 <androidx.appcompat.widget.AppCompatImageView

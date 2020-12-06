@@ -37,8 +37,8 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
-    dataBinding {
-        enabled = true
+    buildFeatures{
+        dataBinding = true
     }
     kotlinOptions{
         jvmTarget = "1.8"
@@ -58,5 +58,4 @@ dependencies {
     implementation project(path: ':biz_hot')
     implementation project(path: ':biz_person')
     implementation project(path: ':biz_player')
-
 }
