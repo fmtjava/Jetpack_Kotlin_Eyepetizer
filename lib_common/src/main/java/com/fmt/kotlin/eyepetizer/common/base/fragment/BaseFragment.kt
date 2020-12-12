@@ -50,6 +50,4 @@ abstract class BaseFragment : Fragment() {
     abstract fun initView()
 
     abstract fun initData()
-
-
 }

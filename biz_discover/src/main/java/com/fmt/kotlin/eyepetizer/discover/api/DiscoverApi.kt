@@ -1,9 +1,11 @@
 package com.fmt.kotlin.eyepetizer.discover.api
 
 import com.fmt.kotlin.eyepetizer.discover.model.CategoryModel
+import com.fmt.kotlin.eyepetizer.discover.model.TopicDetailModel
 import com.fmt.kotlin.eyepetizer.discover.model.TopicModel
 import com.fmt.kotlin.eyepetizer.provider.model.Issue
 import retrofit2.http.GET
+import retrofit2.http.Path
 import retrofit2.http.Url
 
 interface DiscoverApi {
@@ -22,5 +24,8 @@ interface DiscoverApi {
 
     @GET
     suspend fun getTopicList(@Url url: String): TopicModel
+
+    @GET("v3/lightTopics/internal/{id}")
+    suspend fun getTopicDetail(@Path("id") id: Int): TopicDetailModel
 
 }

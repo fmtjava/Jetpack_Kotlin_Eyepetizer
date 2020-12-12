@@ -1,24 +1,27 @@
 package com.fmt.kotlin.eyepetizer.discover.viewmodel
 
 import androidx.lifecycle.LiveData
-import com.fmt.kotlin.eyepetizer.common.base.viewmodel.BaseViewModel
-import com.fmt.kotlin.eyepetizer.discover.model.TopicItemModel
+import com.fmt.kotlin.eyepetizer.discover.model.TopicDetailModel
 import com.fmt.kotlin.eyepetizer.discover.service.DiscoverService
 
-class TopicViewModel : BaseViewModel() {
+class TopicViewModel : CommonListViewModel() {
 
-    private var mNextPageUrl: String? = null
-
-    fun getTopicList(firstPage: Boolean): LiveData<MutableList<TopicItemModel>> = liveDataEx {
-        if (mNextPageUrl == null && !firstPage) {
-            mutableListOf()
-        } else {
-            val topicModel =
-                if (firstPage) DiscoverService.getTopicList() else DiscoverService.getTopicList(
-                    mNextPageUrl!!
-                )
-            mNextPageUrl = topicModel.nextPageUrl
-            topicModel.itemList
-        }
+    fun getTopicDetail(id: Int): LiveData<TopicDetailModel> = liveDataEx {
+        DiscoverService.getTopicDetail(id)
     }
+
+    override suspend fun <M> getRefreshList(): MutableList<M> {
+        val topicModel = DiscoverService.getTopicList()
+        mNextPageUrl = topicModel.nextPageUrl
+        return topicModel.itemList as  MutableList<M>
+    }
+
+    override suspend fun <M> getLoadMoreList(): MutableList<M> {
+        val topicModel = DiscoverService.getTopicList(
+            mNextPageUrl!!
+        )
+        mNextPageUrl = topicModel.nextPageUrl
+        return topicModel.itemList as  MutableList<M>
+    }
+
 }

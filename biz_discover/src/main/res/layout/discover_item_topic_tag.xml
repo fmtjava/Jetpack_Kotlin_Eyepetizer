@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="name"
+            type="java.lang.String" />
+    </data>
+
+    <com.google.android.material.button.MaterialButton
+        style="@style/Widget.MaterialComponents.Button.TextButton"
+        android:layout_width="wrap_content"
+        android:minWidth="@dimen/dp_25"
+        android:layout_height="@dimen/dp_20"
+        android:layout_marginEnd="@dimen/dp_5"
+        android:insetTop="@dimen/dp_0"
+        android:insetBottom="@dimen/dp_0"
+        android:paddingLeft="@dimen/dp_5"
+        android:paddingTop="@dimen/dp_0"
+        android:paddingRight="@dimen/dp_5"
+        android:paddingBottom="@dimen/dp_0"
+        android:text="@{name}"
+        android:textColor="@android:color/holo_blue_light"
+        android:textSize="@dimen/sp_12"
+        app:backgroundTint="@color/discover_color_tag_text"
+        app:cornerRadius="@dimen/dp_4" />
+</layout>

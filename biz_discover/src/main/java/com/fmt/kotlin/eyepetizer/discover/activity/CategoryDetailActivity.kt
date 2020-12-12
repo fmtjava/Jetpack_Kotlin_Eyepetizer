@@ -3,7 +3,6 @@ package com.fmt.kotlin.eyepetizer.discover.activity
 import android.app.Activity
 import android.app.ActivityOptions
 import android.content.Intent
-import android.graphics.Color
 import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.fmt.kotlin.eyepetizer.common.base.activity.BaseBindActivity
@@ -11,10 +10,9 @@ import com.fmt.kotlin.eyepetizer.common.ext.immersionStatusBar
 import com.fmt.kotlin.eyepetizer.common.ext.setToolBar
 import com.fmt.kotlin.eyepetizer.discover.R
 import com.fmt.kotlin.eyepetizer.discover.databinding.DiscoverActivityCategoryDetailBinding
+import com.fmt.kotlin.eyepetizer.discover.ext.commonMaterialContainerTransformConfig
 import com.fmt.kotlin.eyepetizer.discover.viewmodel.CategoryViewModel
 import com.fmt.kotlin.eyepetizer.provider.adapter.RankListAdapter
-import com.google.android.material.transition.platform.MaterialContainerTransform
-import com.google.android.material.transition.platform.MaterialContainerTransformSharedElementCallback
 import kotlinx.android.synthetic.main.discover_activity_category_detail.*
 
 /**
@@ -23,7 +21,7 @@ import kotlinx.android.synthetic.main.discover_activity_category_detail.*
  *                     https://github.com/material-components/material-components-android-examples
  */
 class CategoryDetailActivity :
-    BaseBindActivity<DiscoverActivityCategoryDetailBinding, CategoryViewModel>() {
+    BaseBindActivity<CategoryViewModel,DiscoverActivityCategoryDetailBinding>() {
 
     private val mAdapter by lazy { RankListAdapter(this) }
 
@@ -52,19 +50,7 @@ class CategoryDetailActivity :
     }
 
     override fun initWindow() {
-        findViewById<View>(android.R.id.content).transitionName =
-            getString(R.string.shared_element_container)
-        setEnterSharedElementCallback(MaterialContainerTransformSharedElementCallback())
-
-        window.sharedElementEnterTransition = MaterialContainerTransform().apply {
-            addTarget(android.R.id.content)
-            duration = 300L
-            setAllContainerColors(Color.WHITE)//Activity B 可能没有设置背景，跳转的时候有可能看到底层，不太好看
-        }
-        window.sharedElementReturnTransition = MaterialContainerTransform().apply {
-            addTarget(android.R.id.content)
-            duration = 250L
-        }
+        commonMaterialContainerTransformConfig()
     }
 
     override fun initView() {

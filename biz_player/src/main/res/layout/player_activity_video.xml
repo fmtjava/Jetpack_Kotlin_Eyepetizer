@@ -33,17 +33,16 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
-            <cn.jzvd.JzvdStd
-                android:id="@+id/mVideoView"
+            <FrameLayout
+                android:id="@+id/mSurfaceContainer"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/dp_250"
-                bind:title="@{videoModel.title}"
-                bind:url="@{videoModel.playUrl}" />
+                android:layout_height="@dimen/dp_250"/>
 
             <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
                 android:id="@+id/mSwipeRefreshLayout"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:visibility="gone">
 
                 <androidx.core.widget.NestedScrollView
                     android:layout_width="match_parent"

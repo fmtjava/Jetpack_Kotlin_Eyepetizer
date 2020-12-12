@@ -4,6 +4,8 @@
     <string name="discover_follow">关注</string>
     <string name="discover_category">分类</string>
     <string name="discover_topic">专题</string>
+    <string name="discover_publish">发布：</string>
+    <string name="discover_collect">收藏</string>
     <string-array name="discover_titles">
         <item>@string/discover_follow</item>
         <item>@string/discover_category</item>

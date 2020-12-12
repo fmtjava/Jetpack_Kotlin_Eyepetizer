@@ -10,6 +10,11 @@ object DateUtils {
         return simpleDateFormat.format(Date(milliseconds))
     }
 
+    fun formatDateMsByYMD(milliseconds: Long): String {
+        val simpleDateFormat = SimpleDateFormat("yyyy/MM/dd")
+        return simpleDateFormat.format(Date(milliseconds))
+    }
+
     fun formatDateMsByYMDHM(milliseconds: Long): String {
         val simpleDateFormat = SimpleDateFormat("yyyy/MM/dd HH:mm")
         return simpleDateFormat.format(Date(milliseconds))

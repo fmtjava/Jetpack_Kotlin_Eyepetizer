@@ -1,5 +1,6 @@
 package com.fmt.kotlin.eyepetizer.discover.fragment
 
+import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentStatePagerAdapter
 import com.alibaba.android.arouter.facade.annotation.Route
@@ -34,6 +35,9 @@ class DiscoverFragment : BaseFragment() {
             override fun getItem(position: Int): Fragment = mFragmentList[position]
 
             override fun getPageTitle(position: Int): CharSequence? = mTabTitleList[position]
+
+            override fun destroyItem(container: ViewGroup, position: Int, `object`: Any) {
+            }
         }
         mTabLayout.setupWithViewPager(mViewPager)
     }

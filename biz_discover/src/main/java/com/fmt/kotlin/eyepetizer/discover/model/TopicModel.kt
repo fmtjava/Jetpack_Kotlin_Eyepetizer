@@ -10,14 +10,14 @@ data class TopicModel(
 
 data class TopicItemModel(
     val adIndex: Int,
-    val `data`: Data,
+    val `data`: TopicItemData,
     val id: Int,
     val tag: Any,
     val trackingData: Any,
     val type: String
 )
 
-data class Data(
+data class TopicItemData(
     val actionUrl: String,
     val adTrack: List<Any>,
     val autoPlay: Boolean,

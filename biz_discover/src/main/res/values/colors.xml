@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="discover_color_follow_bg">#FFF4F4F4</color>
+    <color name="discover_color_stroke_color">#FFF5F5F5</color>
+    <color name="discover_color_tag_text">#3389b1e9</color>
 </resources>

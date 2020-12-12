@@ -5,7 +5,8 @@
     <application>
         <activity android:name=".activity.VideoPlayerActivity"
             android:configChanges="orientation|screenSize|keyboardHidden"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait"
+            android:theme="@style/TransparentWindow"/>
     </application>
 
 </manifest>

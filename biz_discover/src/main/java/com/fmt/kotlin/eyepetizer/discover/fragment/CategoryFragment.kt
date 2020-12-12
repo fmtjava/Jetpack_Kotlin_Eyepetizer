@@ -11,13 +11,13 @@ import com.fmt.kotlin.eyepetizer.discover.activity.CategoryDetailActivity
 import com.fmt.kotlin.eyepetizer.discover.adapter.CategoryAdapter
 import com.fmt.kotlin.eyepetizer.discover.viewmodel.CategoryViewModel
 import com.fondesa.recyclerviewdivider.dividerBuilder
-import kotlinx.android.synthetic.main.category_fragment.*
+import kotlinx.android.synthetic.main.discover_category_fragment.*
 
 class CategoryFragment : BaseVMFragment<CategoryViewModel>(), OnItemClickListener {
 
     private val mAdapter by lazy { CategoryAdapter() }
     override val getLayoutRes: Int
-        get() = R.layout.category_fragment
+        get() = R.layout.discover_category_fragment
 
     override fun showLoading() {
         mSwipeRefreshLayout.isRefreshing = true
