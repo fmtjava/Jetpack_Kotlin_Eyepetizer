@@ -22,6 +22,8 @@
     <dimen name="dp_50">50dp</dimen>
     <dimen name="dp_80">80dp</dimen>
     <dimen name="dp_135">135dp</dimen>
+    <dimen name="dp_140">140dp</dimen>
+    <dimen name="dp_145">145dp</dimen>
     <dimen name="dp_180">180dp</dimen>
     <dimen name="dp_200">200dp</dimen>
     <dimen name="dp_230">230dp</dimen>

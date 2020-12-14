@@ -1,6 +1,7 @@
 package com.fmt.kotlin.eyepetizer.discover.api
 
 import com.fmt.kotlin.eyepetizer.discover.model.CategoryModel
+import com.fmt.kotlin.eyepetizer.discover.model.NewsModel
 import com.fmt.kotlin.eyepetizer.discover.model.TopicDetailModel
 import com.fmt.kotlin.eyepetizer.discover.model.TopicModel
 import com.fmt.kotlin.eyepetizer.provider.model.Issue
@@ -27,5 +28,11 @@ interface DiscoverApi {
 
     @GET("v3/lightTopics/internal/{id}")
     suspend fun getTopicDetail(@Path("id") id: Int): TopicDetailModel
+
+    @GET("v7/information/list?vc=6030000&deviceModel=Android")
+    suspend fun getNewList(): NewsModel
+
+    @GET
+    suspend fun getNewList(@Url url: String): NewsModel
 
 }

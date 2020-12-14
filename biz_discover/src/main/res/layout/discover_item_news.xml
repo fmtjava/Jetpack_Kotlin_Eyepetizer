@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="title"
+            type="java.lang.String" />
+    </data>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:maxLines="3"
+        android:paddingStart="@dimen/dp_10"
+        android:paddingTop="@dimen/dp_5"
+        android:paddingEnd="@dimen/dp_10"
+        android:paddingBottom="@dimen/dp_5"
+        android:text="@{title}"
+        android:textColor="@color/common_des_text_color"
+
+        android:textSize="@dimen/sp_12" />
+</layout>

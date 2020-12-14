@@ -7,7 +7,7 @@ abstract class CommonListViewModel : BaseViewModel() {
 
     var mNextPageUrl: String? = null
 
-    fun <M> getListData(firstPage: Boolean): LiveData<MutableList<M>> = liveDataEx {
+    fun <M> getListData(firstPage: Boolean): LiveData<List<M>> = liveDataEx {
         if (mNextPageUrl == null && !firstPage) {
             mutableListOf()
         } else {
@@ -19,8 +19,8 @@ abstract class CommonListViewModel : BaseViewModel() {
         }
     }
 
-    abstract suspend fun <M> getRefreshList(): MutableList<M>
+    abstract suspend fun <M> getRefreshList(): List<M>
 
-    abstract suspend fun <M> getLoadMoreList(): MutableList<M>
+    abstract suspend fun <M> getLoadMoreList(): List<M>
 
 }

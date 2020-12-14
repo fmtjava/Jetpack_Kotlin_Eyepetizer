@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="model"
+            type="com.fmt.kotlin.eyepetizer.discover.model.NewsItemModel" />
+    </data>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_10"
+        android:layout_marginTop="@dimen/dp_5"
+        android:text="@{model.data.text}"
+        android:textColor="@color/color_3f3f3f"
+        android:textSize="@dimen/sp_22"
+        android:textStyle="bold" />
+</layout>
+

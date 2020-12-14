@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="model"
+            type="com.fmt.kotlin.eyepetizer.discover.model.NewsItemModel" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dp_10"
+        android:foreground="?attr/selectableItemBackground"
+        app:cardBackgroundColor="@color/color_ededed"
+        app:cardCornerRadius="@dimen/dp_4">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_140"
+            android:scaleType="centerCrop"
+            app:url="@{model.data.backgroundImage}" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_145"
+            android:paddingBottom="@dimen/dp_10"
+            android:orientation="vertical"
+            app:titleList="@{model.data.titleList}" />
+
+    </androidx.cardview.widget.CardView>
+</layout>

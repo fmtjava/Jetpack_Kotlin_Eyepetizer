@@ -10,18 +10,18 @@ class TopicViewModel : CommonListViewModel() {
         DiscoverService.getTopicDetail(id)
     }
 
-    override suspend fun <M> getRefreshList(): MutableList<M> {
+    override suspend fun <M> getRefreshList(): List<M> {
         val topicModel = DiscoverService.getTopicList()
         mNextPageUrl = topicModel.nextPageUrl
-        return topicModel.itemList as  MutableList<M>
+        return topicModel.itemList as List<M>
     }
 
-    override suspend fun <M> getLoadMoreList(): MutableList<M> {
+    override suspend fun <M> getLoadMoreList(): List<M> {
         val topicModel = DiscoverService.getTopicList(
             mNextPageUrl!!
         )
         mNextPageUrl = topicModel.nextPageUrl
-        return topicModel.itemList as  MutableList<M>
+        return topicModel.itemList as List<M>
     }
 
 }

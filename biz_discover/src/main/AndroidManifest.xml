@@ -4,6 +4,9 @@
 
     <application>
         <activity
+            android:name=".activity.NewsDetailActivity"
+            android:screenOrientation="portrait" />
+        <activity
             android:name=".activity.CategoryDetailActivity"
             android:screenOrientation="portrait" />
         <activity
