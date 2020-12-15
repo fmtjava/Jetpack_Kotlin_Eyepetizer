@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="model"
+            type="com.fmt.kotlin.eyepetizer.discover.model.Item" />
+
+        <import type="android.view.View" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/black"
+        tools:context=".activity.RecommendVideoAndPhotoActivity">
+
+        <cn.jzvd.JzvdStd
+            android:id="@+id/jzvdStd"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_200"
+            android:layout_centerInParent="true"
+            android:visibility='@{model.data.content.type.equals("video") ? View.VISIBLE : View.GONE}' />
+
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/mViewPager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility='@{model.data.content.type.equals("video") ? View.GONE : View.VISIBLE}' />
+
+        <FrameLayout
+            android:id="@+id/fl_top_back"
+            android:layout_width="@dimen/dp_24"
+            android:layout_height="@dimen/dp_24"
+            android:layout_marginStart="@dimen/dp_15"
+            android:layout_marginTop="@dimen/dp_55"
+            android:background="@drawable/discover_layout_top_back_bg"
+            android:gravity="center">
+
+            <com.fmt.kotlin.eyepetizer.common.view.IconFontTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/discover_icon_down_arrow_text"
+                android:textSize="@dimen/sp_12" />
+
+        </FrameLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/mMaterialButton"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
+            android:layout_width="@dimen/dp_40"
+            android:layout_height="@dimen/dp_20"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/dp_55"
+            android:gravity="center"
+            android:insetTop="@dimen/dp_0"
+            android:insetBottom="@dimen/dp_0"
+            android:padding="@dimen/dp_0"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/sp_12"
+            android:visibility='@{(!model.data.content.type.equals("video") &amp;&amp; model.data.content.data.urls.size() > 1) ? View.VISIBLE : View.GONE}'
+            app:backgroundTint="@color/color_black_54"
+            app:cornerRadius="@dimen/dp_5" />
+
+
+    </RelativeLayout>
+</layout>

@@ -5,13 +5,19 @@
     <string name="discover_category">分类</string>
     <string name="discover_topic">专题</string>
     <string name="discover_news">资讯</string>
+    <string name="discover_rec">推荐</string>
     <string name="discover_fresh_news">新鲜资讯</string>
     <string name="discover_publish">发布：</string>
     <string name="discover_collect">收藏</string>
+    <string name="discover_icon_like_text">&#xe60d;</string>
+    <string name="discover_icon_down_arrow_text">&#xe658;</string>
+    <string name="discover_icon_video_text">&#xe6ba;</string>
+    <string name="discover_icon_photo_text">&#xebd6;</string>
     <string-array name="discover_titles">
         <item>@string/discover_follow</item>
         <item>@string/discover_category</item>
         <item>@string/discover_topic</item>
         <item>@string/discover_news</item>
+        <item>@string/discover_rec</item>
     </string-array>
 </resources>

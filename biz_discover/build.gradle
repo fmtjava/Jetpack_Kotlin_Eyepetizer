@@ -1,6 +1,12 @@
 apply from: "../common.module.config.gradle"
+apply plugin: 'kotlin-android'
 
 android {
 
     resourcePrefix "discover_"
+}
+
+dependencies {
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
 }

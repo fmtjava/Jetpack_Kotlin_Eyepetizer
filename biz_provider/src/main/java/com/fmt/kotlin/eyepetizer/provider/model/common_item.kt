@@ -22,6 +22,7 @@ data class Data(
     val actionUrl: String,
     val ad: Boolean,
     val author: Author?,
+    val owner: Owner?,
     val autoPlay: Boolean,
     val category: String,
     val collected: Boolean,
@@ -52,7 +53,10 @@ data class Data(
     val title: String,
     val type: String,
     val webUrl: WebUrl,
-    val itemList: List<Item>
+    val itemList: List<Item>,
+    val width: Int,
+    val height: Int,
+    val urls: List<String>,
 )
 
 data class Header(
@@ -148,4 +152,28 @@ data class Shield(
 data class Url(
     val name: String,
     val url: String
+)
+
+data class Owner(
+    val actionUrl: String,
+    val area: Any,
+    val avatar: String,
+    val birthday: Any,
+    val city: Any,
+    val country: Any,
+    val cover: Any,
+    val description: String,
+    val expert: Boolean,
+    val followed: Boolean,
+    val gender: Any,
+    val ifPgc: Boolean,
+    val job: Any,
+    val library: String,
+    val limitVideoOpen: Boolean,
+    val nickname: String,
+    val registDate: Long,
+    val releaseDate: Long,
+    val uid: Int,
+    val university: Any,
+    val userType: String
 )

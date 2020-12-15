@@ -29,7 +29,7 @@
             android:transitionName="@string/share_image"
             app:layout_constraintTop_toTopOf="parent"
             app:shapeAppearance="@style/roundedCornerStyle"
-            bind:url="@{model.data.component8().feed}" />
+            bind:url="@{model.data.component9().feed}" />
 
         <com.google.android.material.button.MaterialButton
             style="@style/Widget.MaterialComponents.Button.TextButton"

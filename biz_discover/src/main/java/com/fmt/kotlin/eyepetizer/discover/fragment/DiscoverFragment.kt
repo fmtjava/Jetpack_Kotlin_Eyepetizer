@@ -19,6 +19,7 @@ class DiscoverFragment : BaseFragment() {
             add(CategoryFragment())
             add(TopicFragment())
             add(NewsFragment())
+            add(RecommendFragment())
         }
     }
     override val getLayoutRes: Int

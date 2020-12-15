@@ -1,9 +1,6 @@
 package com.fmt.kotlin.eyepetizer.discover.api
 
-import com.fmt.kotlin.eyepetizer.discover.model.CategoryModel
-import com.fmt.kotlin.eyepetizer.discover.model.NewsModel
-import com.fmt.kotlin.eyepetizer.discover.model.TopicDetailModel
-import com.fmt.kotlin.eyepetizer.discover.model.TopicModel
+import com.fmt.kotlin.eyepetizer.discover.model.*
 import com.fmt.kotlin.eyepetizer.provider.model.Issue
 import retrofit2.http.GET
 import retrofit2.http.Path
@@ -34,5 +31,11 @@ interface DiscoverApi {
 
     @GET
     suspend fun getNewList(@Url url: String): NewsModel
+
+    @GET("v7/community/tab/rec")
+    suspend fun getRecList(): RecommendModel
+
+    @GET
+    suspend fun getRecList(@Url url: String): RecommendModel
 
 }

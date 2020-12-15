@@ -4,6 +4,10 @@
 
     <application>
         <activity
+            android:name=".activity.RecommendVideoAndPhotoActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:screenOrientation="portrait" />
+        <activity
             android:name=".activity.NewsDetailActivity"
             android:screenOrientation="portrait" />
         <activity

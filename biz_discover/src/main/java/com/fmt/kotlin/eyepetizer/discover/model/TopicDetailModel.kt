@@ -24,10 +24,9 @@ data class Item(
 )
 
 data class ItemData(
-    val adTrack: List<Any>,
-    val content: Content,
     val dataType: String,
-    val header: Header
+    val header: Header,
+    val content: Content,
 )
 
 data class Content(

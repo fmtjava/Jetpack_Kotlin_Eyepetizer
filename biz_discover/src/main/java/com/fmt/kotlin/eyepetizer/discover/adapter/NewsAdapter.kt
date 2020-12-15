@@ -5,7 +5,7 @@ import com.chad.library.adapter.base.BaseProviderMultiAdapter
 import com.chad.library.adapter.base.module.LoadMoreModule
 import com.fmt.kotlin.eyepetizer.discover.model.NewsProviderMultiModel
 
-class NewsAdapter(private val mActivity: Activity) : BaseProviderMultiAdapter<NewsProviderMultiModel>(), LoadMoreModule {
+class NewsAdapter(mActivity: Activity) : BaseProviderMultiAdapter<NewsProviderMultiModel>(), LoadMoreModule {
 
     init {
         addItemProvider(NewsTitleProvider())

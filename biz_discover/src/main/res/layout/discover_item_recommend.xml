@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="model"
+            type="com.fmt.kotlin.eyepetizer.discover.model.Item" />
+
+        <import type="android.view.View" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dp_5"
+        app:cardCornerRadius="@dimen/dp_4">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="@dimen/dp_10">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/iv_cover"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:scaleType="centerCrop"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:url="@{model.data.content.data.cover.feed}" />
+
+            <com.fmt.kotlin.eyepetizer.common.view.IconFontTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_5"
+                android:layout_marginEnd="@dimen/dp_5"
+                android:text='@{model.data.content.type.equals("video") ? @string/discover_icon_video_text : @string/discover_icon_photo_text}'
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/sp_18"
+                android:visibility="@{(model.data.content.data.urls != null &amp;&amp; model.data.content.data.urls.size() == 1) ? View.GONE : View.VISIBLE}"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_des"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp_6"
+                android:layout_marginTop="@dimen/dp_10"
+                android:layout_marginEnd="@dimen/dp_6"
+                android:layout_marginBottom="@dimen/dp_10"
+                android:ellipsize="end"
+                android:maxLines="2"
+                android:text="@{model.data.content.data.description}"
+                android:textColor="@color/color_black_87"
+                android:textSize="@dimen/sp_14"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/iv_cover" />
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/iv_author"
+                android:layout_width="@dimen/dp_24"
+                android:layout_height="@dimen/dp_24"
+                android:layout_marginStart="@dimen/dp_6"
+                android:layout_marginTop="@dimen/dp_15"
+                android:scaleType="centerCrop"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_des"
+                app:shapeAppearance="@style/circleStyle"
+                app:url="@{model.data.content.data.owner.avatar}" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_name"
+                android:layout_width="@dimen/dp_80"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp_6"
+                android:layout_marginTop="@dimen/dp_18"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:text="@{model.data.content.data.owner.nickname}"
+                android:textColor="@color/color_black_87"
+                android:textSize="@dimen/sp_12"
+                app:layout_constraintLeft_toRightOf="@id/iv_author"
+                app:layout_constraintTop_toBottomOf="@id/tv_des" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_like_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_19"
+                android:layout_marginEnd="@dimen/dp_6"
+                android:text="@{String.valueOf(model.data.content.data.consumption.collectionCount)}"
+                android:textColor="@color/color_black_87"
+                android:textSize="@dimen/sp_12"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_des" />
+
+            <com.fmt.kotlin.eyepetizer.common.view.IconFontTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_20"
+                android:layout_marginEnd="@dimen/dp_3"
+                android:text="@string/discover_icon_like_text"
+                android:textColor="@color/color_grey"
+                android:textSize="@dimen/sp_14"
+                app:layout_constraintRight_toLeftOf="@id/tv_like_count"
+                app:layout_constraintTop_toBottomOf="@id/tv_des" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+</layout>

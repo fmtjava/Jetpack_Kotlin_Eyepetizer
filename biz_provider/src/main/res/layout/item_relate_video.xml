@@ -31,7 +31,7 @@
                 android:layout_height="@dimen/dp_80"
                 android:scaleType="centerCrop"
                 app:shapeAppearance="@style/roundedCornerStyle"
-                bind:url="@{model.component8().feed}" />
+                bind:url="@{model.component9().feed}" />
 
 
             <com.google.android.material.button.MaterialButton

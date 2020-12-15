@@ -2,6 +2,7 @@ package com.fmt.kotlin.eyepetizer.discover.fragment
 
 import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.chad.library.adapter.base.listener.OnItemClickListener
 import com.chad.library.adapter.base.viewholder.BaseViewHolder
@@ -23,7 +24,9 @@ abstract class CommonListFragment<VM : CommonListViewModel, M> : BaseVMFragment<
         mSwipeRefreshLayout.setOnRefreshListener {
             lazyLoadData()
         }
-        mRecyclerView.layoutManager = LinearLayoutManager(context)
+        mRecyclerView.layoutManager = getLayoutManager()
+        mRecyclerView.itemAnimator = null
+        mRecyclerView.setHasFixedSize(true)//性能优化点，避免重复策略、布局、绘制
         mAdapter = getAdapter()
         mAdapter.setOnItemClickListener(this)
         mAdapter.loadMoreModule.setOnLoadMoreListener {
@@ -71,4 +74,6 @@ abstract class CommonListFragment<VM : CommonListViewModel, M> : BaseVMFragment<
     override fun onItemClick(adapter: BaseQuickAdapter<*, *>, view: View, position: Int) {
 
     }
+
+    open fun getLayoutManager(): RecyclerView.LayoutManager = LinearLayoutManager(context)
 }
