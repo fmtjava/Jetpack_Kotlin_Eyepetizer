@@ -1,7 +1,7 @@
 package com.fmt.kotlin.eyepetizer.discover.activity
 
 import android.annotation.SuppressLint
-import android.content.Context
+import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
@@ -26,10 +26,14 @@ class RecommendVideoAndPhotoActivity : AppCompatActivity() {
 
     companion object {
         const val RECOMMEND_DATA_KEY = "recommend_data_key"
-        fun start(content: Context, json: String) {
+        fun start(content: Activity, json: String) {
             with(Intent(content, RecommendVideoAndPhotoActivity::class.java)) {
                 putExtra(RECOMMEND_DATA_KEY, json)
                 content.startActivity(this)
+                content.overridePendingTransition(
+                    R.anim.discover_slide_bottom_in,
+                    0
+                )
             }
         }
     }
@@ -105,4 +109,12 @@ class RecommendVideoAndPhotoActivity : AppCompatActivity() {
     }
 
     private fun isVideoType() = mModel.data.content.type == "video"
+
+    override fun finish() {
+        super.finish()
+        overridePendingTransition(
+            0,
+            R.anim.discover_slide_bottom_out
+        )
+    }
 }
