@@ -21,6 +21,7 @@
             android:layout_height="match_parent"
             android:scaleType="centerCrop"
             app:shapeAppearance="@style/roundedCornerStyle"
+            bind:allowHardware="@{false}"
             bind:url="@{categoryModel.bgPicture}" />
 
         <androidx.appcompat.widget.AppCompatTextView

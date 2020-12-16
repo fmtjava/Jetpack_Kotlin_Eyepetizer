@@ -9,6 +9,10 @@
         <variable
             name="model"
             type="com.fmt.kotlin.eyepetizer.discover.model.Item" />
+
+        <variable
+            name="activity"
+            type="android.app.Activity" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -85,6 +89,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/dp_10"
             android:orientation="horizontal"
+            app:activity="@{activity}"
             app:layout_constraintLeft_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_des"
             app:tagList="@{model.data.content.data.tags}" />
@@ -92,9 +97,9 @@
         <FrameLayout
             android:id="@+id/surface_container"
             android:layout_width="match_parent"
+            android:layout_height="200dp"
             android:layout_marginTop="@dimen/dp_10"
-            app:layout_constraintTop_toBottomOf="@id/ll_tag"
-            android:layout_height="200dp" />
+            app:layout_constraintTop_toBottomOf="@id/ll_tag" />
 
         <LinearLayout
             android:id="@+id/ll_consumption"

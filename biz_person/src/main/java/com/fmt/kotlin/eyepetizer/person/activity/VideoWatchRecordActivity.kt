@@ -5,7 +5,9 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.asLiveData
 import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.liveData
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.fmt.kotlin.eyepetizer.common.ext.dp2px
@@ -24,6 +26,8 @@ import com.yanzhenjie.recyclerview.SwipeMenuItem
 import com.yanzhenjie.recyclerview.SwipeRecyclerView
 import kotlinx.android.synthetic.main.person_activity_video_watch_record.*
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
@@ -99,8 +103,10 @@ class VideoWatchRecordActivity : AppCompatActivity() {
                 )
             )
             withContext(Dispatchers.Main) {
-                diffResult.dispatchUpdatesTo(mAdapter)
+                //更新新的数据源
                 mAdapter.newData(newDataList)
+                //通过差分数据的对比通知Adapter进行相应数据源更新，防止不必要的全局刷新
+                diffResult.dispatchUpdatesTo(mAdapter)
             }
         }
     }

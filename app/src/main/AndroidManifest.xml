@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.fmt.kotlin.eyepetizer">
 
     <uses-permission android:name="android.permission.INTERNET"/>
@@ -11,7 +12,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:usesCleartextTraffic="true"
-        android:name=".App"
         android:theme="@style/AppTheme">
 
         <meta-data
@@ -27,7 +27,16 @@
             android:name="notch.config"
             android:value="portrait|landscape" />
 
-
+        <provider
+            android:name="androidx.startup.InitializationProvider"
+            android:authorities="${applicationId}.androidx-startup"
+            android:exported="false"
+            tools:node="merge">
+            <!-- 自动初始化 -->
+            <meta-data
+                android:name="com.fmt.kotlin.eyepetizer.AppInitializer"
+                android:value="androidx.startup" />
+        </provider>
 
     </application>
 

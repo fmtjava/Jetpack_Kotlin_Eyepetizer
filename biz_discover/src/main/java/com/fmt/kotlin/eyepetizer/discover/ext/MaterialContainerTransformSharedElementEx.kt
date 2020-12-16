@@ -17,12 +17,13 @@ fun Activity.commonMaterialContainerTransformConfig() {
     //设置页面进入的过渡动画
     window.sharedElementEnterTransition = MaterialContainerTransform().apply {
         addTarget(android.R.id.content)
-        duration = 300L
+        duration = 250L
         setAllContainerColors(Color.WHITE)//Activity B 可能没有设置背景，跳转的时候有可能看到底层，效果不太好看
     }
     //设置页面退出的过渡动画
     window.sharedElementReturnTransition = MaterialContainerTransform().apply {
-        addTarget(android.R.id.content)
+        addTarget(android.R.id.content)// startView 可能没有背景，透明的不太好看，可以加个这个
         duration = 250L
+        setAllContainerColors(Color.WHITE)
     }
 }

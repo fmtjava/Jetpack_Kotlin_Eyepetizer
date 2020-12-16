@@ -2,14 +2,13 @@ package com.fmt.kotlin.eyepetizer.discover.adapter
 
 import android.app.Activity
 import android.graphics.Outline
-import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.ViewOutlineProvider
 import android.widget.FrameLayout
 import android.widget.LinearLayout
 import androidx.databinding.BindingAdapter
-import com.bumptech.glide.Glide
+import coil.load
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.chad.library.adapter.base.module.LoadMoreModule
 import com.chad.library.adapter.base.viewholder.BaseDataBindingHolder
@@ -22,18 +21,19 @@ import com.fmt.kotlin.eyepetizer.discover.databinding.DiscoverItemTopicTagBindin
 import com.fmt.kotlin.eyepetizer.discover.model.Item
 import com.fmt.kotlin.eyepetizer.discover.utils.AutoPlayUtils
 import com.fmt.kotlin.eyepetizer.provider.jzvd.JzvdStdRv
-import com.fmt.kotlin.eyepetizer.provider.model.Tag
 import com.fmt.kotlin.eyepetizer.provider.jzvd.ViewAttr
+import com.fmt.kotlin.eyepetizer.provider.model.Tag
 
-class TopicDetailAdapter(private val mActivity:Activity, val mVideoClick: OnVideoClick) :
+class TopicDetailAdapter(private val mActivity: Activity, val mVideoClick: OnVideoClick) :
     BaseQuickAdapter<Item, BaseViewHolder>(R.layout.discover_item_topic_detail), LoadMoreModule {
 
     override fun convert(holder: BaseViewHolder, item: Item) {
         val bindingHolder = BaseDataBindingHolder<DiscoverItemTopicDetailBinding>(holder.itemView)
         bindingHolder.dataBinding?.model = item
+        bindingHolder.dataBinding?.activity = mActivity
 
         val container = bindingHolder.dataBinding!!.surfaceContainer
-        dealJzvdStdRv(container,item)
+        dealJzvdStdRv(container, item)
 
         bindingHolder.dataBinding!!.tvShare.setOnClickListener {
             ShareUtils.shareText(mActivity, item.data.content.data.playUrl)
@@ -77,8 +77,7 @@ class TopicDetailAdapter(private val mActivity:Activity, val mVideoClick: OnVide
             }
             //设置视频播放资源以及封面图
             jzvdStdRv.setUp(item.data.content.data.playUrl, "")
-            Glide.with(jzvdStdRv.context).load(item.data.content.data.cover.feed)
-                .into(jzvdStdRv.posterImageView)
+            jzvdStdRv.posterImageView.load(item.data.content.data.cover.feed)
         }
         jzvdStdRv.id = R.id.jzvdplayer
         jzvdStdRv.isAtList = true
@@ -114,20 +113,25 @@ class TopicDetailAdapter(private val mActivity:Activity, val mVideoClick: OnVide
     interface OnVideoClick {
         fun videoClick(focusView: ViewGroup, viewAttr: ViewAttr, position: Int)
     }
+
+    companion object {
+        @JvmStatic
+        @BindingAdapter(value = ["tagList", "activity"])
+        fun LinearLayout.setTagData(tagList: List<Tag>, activity: Activity) {
+            removeAllViews()
+            var tags = tagList
+            if (tags.size > 3) {
+                tags = tags.subList(0, 3)
+            }
+            tags.forEach { tag ->
+                val binding =
+                    DiscoverItemTopicTagBinding.inflate(activity.layoutInflater, this, false)
+                binding.name = tag.name
+                addView(binding.root)
+            }
+        }
+    }
 }
 
-@BindingAdapter(value = ["tagList"])
-fun LinearLayout.setTagData(tagList: List<Tag>) {
-    removeAllViews()
-    var tags = tagList
-    if (tags.size > 3) {
-        tags = tags.subList(0, 3)
-    }
-    tags.forEach { tag ->
-        val binding = DiscoverItemTopicTagBinding.inflate(LayoutInflater.from(context), this, false)
-        binding.name = tag.name
-        addView(binding.root)
-    }
-}
 
 

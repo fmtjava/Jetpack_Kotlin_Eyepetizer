@@ -54,6 +54,7 @@ dependencies {
     api rootProject.ext.androidx["lifecycle-common-java8"]
     api rootProject.ext.androidx["androidx.lifecycle-viewmodel"]
     api rootProject.ext.androidx["androidx.lifecycle-livedata"]
+    api rootProject.ext.androidx["androidx.startup-runtime"]
 
     api rootProject.ext.dependencies["logging-interceptor"]
     api rootProject.ext.dependencies["retrofit2"]
@@ -61,7 +62,7 @@ dependencies {
     api rootProject.ext.dependencies["immersionbar"]
     api rootProject.ext.dependencies["immersionbar-ktx"]
     api rootProject.ext.dependencies["BaseRecyclerViewAdapterHelper"]
-    api rootProject.ext.dependencies["glide"]
+    api rootProject.ext.dependencies["coil"]
     api rootProject.ext.dependencies["tastytoast"]
     api rootProject.ext.dependencies["banner"]
     api rootProject.ext.dependencies["PhotoView"]
