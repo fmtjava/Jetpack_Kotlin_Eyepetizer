@@ -1,4 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="daily_home_paper">日报</string>
+    <string name="daily_common_search_icon">&#xe725;</string>
+    <string name="daily_interest_video">帮你找到感兴趣的视频</string>
+    <string name="daily_hot_key_word">热搜关键字</string>
+    <string name="daily_loading_text">玩命加载中…</string>
+    <string name="daily_search_video_count">— 「%s」搜索结果共%s个 —</string>
+    <string name="daily_search_empty_icon">&#xe608;</string>
+    <string name="daily_search_empty_text">暂时木有内容呀</string>
 </resources>

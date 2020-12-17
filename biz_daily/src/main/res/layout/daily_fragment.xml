@@ -18,6 +18,16 @@
             android:textColor="@android:color/black"
             android:textSize="@dimen/sp_20"
             android:textStyle="bold" />
+
+        <com.fmt.kotlin.eyepetizer.common.view.IconFontTextView
+            android:id="@+id/mSearchTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:padding="@dimen/dp_15"
+            android:textSize="@dimen/sp_18"
+            android:text="@string/daily_common_search_icon" />
+
     </androidx.appcompat.widget.Toolbar>
 
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout

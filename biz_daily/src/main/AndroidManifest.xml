@@ -1,9 +1,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.fmt.kotlin.eyepetizer.dialy">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
     <application>
-
+        <activity
+            android:name=".activity.DailySearchActivity"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

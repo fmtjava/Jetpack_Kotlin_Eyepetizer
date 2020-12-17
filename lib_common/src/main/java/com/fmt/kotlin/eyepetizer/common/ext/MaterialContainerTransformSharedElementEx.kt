@@ -1,9 +1,9 @@
-package com.fmt.kotlin.eyepetizer.discover.ext
+package com.fmt.kotlin.eyepetizer.common.ext
 
 import android.app.Activity
 import android.graphics.Color
 import android.view.View
-import com.fmt.kotlin.eyepetizer.discover.R
+import com.fmt.kotlin.eyepetizer.common.R
 import com.google.android.material.transition.platform.MaterialContainerTransform
 import com.google.android.material.transition.platform.MaterialContainerTransformSharedElementCallback
 

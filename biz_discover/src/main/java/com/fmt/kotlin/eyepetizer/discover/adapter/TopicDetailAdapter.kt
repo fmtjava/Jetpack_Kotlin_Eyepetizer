@@ -77,7 +77,7 @@ class TopicDetailAdapter(private val mActivity: Activity, val mVideoClick: OnVid
             }
             //设置视频播放资源以及封面图
             jzvdStdRv.setUp(item.data.content.data.playUrl, "")
-            jzvdStdRv.posterImageView.load(item.data.content.data.cover.feed)
+            jzvdStdRv.posterImageView.load(item.data.content.data.cover!!.feed)
         }
         jzvdStdRv.id = R.id.jzvdplayer
         jzvdStdRv.isAtList = true

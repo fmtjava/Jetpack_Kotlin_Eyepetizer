@@ -64,6 +64,7 @@ dependencies {
     api rootProject.ext.dependencies["BaseRecyclerViewAdapterHelper"]
     api rootProject.ext.dependencies["coil"]
     api rootProject.ext.dependencies["tastytoast"]
+    api rootProject.ext.dependencies["LoadingDialog"]
     api rootProject.ext.dependencies["banner"]
     api rootProject.ext.dependencies["PhotoView"]
     api rootProject.ext.dependencies["mmkv"]

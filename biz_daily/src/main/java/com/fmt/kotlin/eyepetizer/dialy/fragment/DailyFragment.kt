@@ -4,6 +4,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.fmt.kotlin.eyepetizer.common.base.fragment.BaseVMFragment
 import com.fmt.kotlin.eyepetizer.dialy.R
+import com.fmt.kotlin.eyepetizer.dialy.activity.DailySearchActivity
 import com.fmt.kotlin.eyepetizer.dialy.adapter.DailyAdapter
 import com.fmt.kotlin.eyepetizer.dialy.viewmodel.DailyViewModel
 import com.fmt.kotlin.eyepetizer.provider.router.RouterPath
@@ -19,6 +20,9 @@ class DailyFragment : BaseVMFragment<DailyViewModel>() {
         get() = R.layout.daily_fragment
 
     override fun initView() {
+        mSearchTv.setOnClickListener {
+            DailySearchActivity.start(mActivity, it)
+        }
         mSwipeRefreshLayout.isRefreshing = true
         mSwipeRefreshLayout.setOnRefreshListener {
             mIsLoadMore = false

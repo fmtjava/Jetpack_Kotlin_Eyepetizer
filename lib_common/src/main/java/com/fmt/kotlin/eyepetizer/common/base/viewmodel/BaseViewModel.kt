@@ -1,6 +1,10 @@
 package com.fmt.kotlin.eyepetizer.common.base.viewmodel
 
 import androidx.lifecycle.*
+import kotlinx.coroutines.flow.catch
+import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.flow.onCompletion
+import kotlinx.coroutines.flow.onStart
 import java.lang.Exception
 
 open class BaseViewModel : ViewModel() {
@@ -16,6 +20,16 @@ open class BaseViewModel : ViewModel() {
             mStateLiveData.value = ErrorState(e.message)
         }
     }
+
+    fun <T> flowEx(block: suspend () -> T) = flow {
+        emit(block())
+    }.onStart {
+        mStateLiveData.value = LoadState
+    }.onCompletion {
+        mStateLiveData.value = SuccessState
+    }.catch { cause ->
+        mStateLiveData.value = ErrorState(cause.message)
+    }.asLiveData()
 }
 
 sealed class State

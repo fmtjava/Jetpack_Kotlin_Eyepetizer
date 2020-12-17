@@ -11,13 +11,13 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.OnChildAttachStateChangeListener
 import cn.jzvd.Jzvd
 import com.fmt.kotlin.eyepetizer.common.base.activity.BaseBindActivity
+import com.fmt.kotlin.eyepetizer.common.ext.commonMaterialContainerTransformConfig
 import com.fmt.kotlin.eyepetizer.common.ext.immersionStatusBar
 import com.fmt.kotlin.eyepetizer.common.ext.setToolBar
 import com.fmt.kotlin.eyepetizer.discover.R
 import com.fmt.kotlin.eyepetizer.discover.adapter.TopicDetailAdapter
 import com.fmt.kotlin.eyepetizer.discover.databinding.DiscoverActivityTopicDetailBinding
 import com.fmt.kotlin.eyepetizer.discover.databinding.DiscoverItemTopicDetailHeaderBinding
-import com.fmt.kotlin.eyepetizer.discover.ext.commonMaterialContainerTransformConfig
 import com.fmt.kotlin.eyepetizer.discover.model.TopicDetailModel
 import com.fmt.kotlin.eyepetizer.discover.utils.AutoPlayUtils
 import com.fmt.kotlin.eyepetizer.discover.viewmodel.TopicViewModel

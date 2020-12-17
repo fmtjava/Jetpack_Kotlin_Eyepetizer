@@ -2,5 +2,11 @@
 <resources>
     <string name="discover_add_follow">+ 关注</string>
     <string name="share_image">share_image</string>
-    <string name="shared_element_container">shared_element_container</string>
+    <string name="icon_share_text">&#xe6c0;</string>
+    <string name="icon_like_text">&#xe64d;</string>
+    <string name="icon_reply_text">&#xe613;</string>
+    <string name="icon_love_text">&#xe735;</string>
+    <string name="icon_comment_text">&#xe6ec;</string>
+    <string name="icon_star_text">&#xe8b3;</string>
+    <string name="icon_common_back_text">&#xe635;</string>
 </resources>

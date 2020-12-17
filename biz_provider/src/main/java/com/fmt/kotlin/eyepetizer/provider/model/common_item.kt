@@ -1,6 +1,7 @@
 package com.fmt.kotlin.eyepetizer.provider.model
 
 data class Issue(
+    val total:Int,
     val count: Int,
     val date: Long,
     val itemList: MutableList<Item>,
@@ -27,7 +28,7 @@ data class Data(
     val category: String,
     val collected: Boolean,
     val consumption: Consumption,
-    val cover: Cover,
+    val cover: Cover?,
     val dataType: String,
     val date: Long,
     val description: String,

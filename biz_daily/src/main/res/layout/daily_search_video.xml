@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <import type="com.fmt.kotlin.eyepetizer.common.util.DateUtils" />
+
+        <variable
+            name="model"
+            type="com.fmt.kotlin.eyepetizer.provider.model.Item" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:bind="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_cover"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_200"
+            android:scaleType="centerCrop"
+            android:transitionName="@string/share_image"
+            app:layout_constraintTop_toTopOf="parent"
+            bind:url="@{model.data.component9().feed}" />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:text="@{model.data.title}"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/sp_14"
+                android:textStyle="bold" />
+
+            <com.google.android.material.button.MaterialButton
+                style="@style/Widget.MaterialComponents.Button.TextButton"
+                android:layout_width="@dimen/dp_44"
+                android:layout_height="@dimen/dp_25"
+                android:layout_marginTop="@dimen/dp_10"
+                android:insetTop="@dimen/dp_0"
+                android:insetBottom="@dimen/dp_0"
+                android:padding="@dimen/dp_0"
+                android:text="@{DateUtils.INSTANCE.formatDateMsByMS(model.data.duration * 1000)}"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/sp_12"
+                app:backgroundTint="@color/color_black_54"
+                app:cornerRadius="@dimen/dp_5" />
+
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

@@ -1,9 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="icon_share_text">&#xe6c0;</string>
-    <string name="icon_like_text">&#xe64d;</string>
-    <string name="icon_reply_text">&#xe613;</string>
-    <string name="icon_love_text">&#xe735;</string>
-    <string name="icon_comment_text">&#xe6ec;</string>
-    <string name="icon_star_text">&#xe8b3;</string>
+    <string name="shared_element_container">shared_element_container</string>
 </resources>

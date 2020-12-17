@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.chip.Chip
+    android:id="@+id/chip_item"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:textSize="@dimen/sp_12"
+    android:layout_height="wrap_content"
+    android:singleLine="true"
+    android:textColor="@color/color_black_54"
+    app:checkedIconVisible="false"
+    app:closeIconVisible="false"
+    app:chipBackgroundColor="@color/daily_search_bg_color"
+    />
