@@ -9,11 +9,6 @@ import com.google.android.material.transition.platform.MaterialContainerTransfor
 
 //通用容器变换动画配置
 fun Activity.commonMaterialContainerTransformConfig() {
-    //设置过渡元素控件以及名称
-    findViewById<View>(android.R.id.content).transitionName =
-        getString(R.string.shared_element_container)
-    //设置共享元素页面进入回调监听
-    setEnterSharedElementCallback(MaterialContainerTransformSharedElementCallback())
     //设置页面进入的过渡动画
     window.sharedElementEnterTransition = MaterialContainerTransform().apply {
         addTarget(android.R.id.content)
@@ -26,4 +21,9 @@ fun Activity.commonMaterialContainerTransformConfig() {
         duration = 250L
         setAllContainerColors(Color.WHITE)
     }
+    //设置过渡元素控件以及名称
+    findViewById<View>(android.R.id.content).transitionName =
+        getString(R.string.shared_element_container)
+    //设置共享元素页面进入回调监听
+    setEnterSharedElementCallback(MaterialContainerTransformSharedElementCallback())
 }

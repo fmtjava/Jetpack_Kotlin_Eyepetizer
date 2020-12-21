@@ -25,8 +25,8 @@ class HomeActivity : AppCompatActivity() {
     private lateinit var mHomeViewModel: HomeViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        setExitSharedElementCallback(MaterialContainerTransformSharedElementCallback())
         window.sharedElementsUseOverlay = false
+        setExitSharedElementCallback(MaterialContainerTransformSharedElementCallback())
         super.onCreate(savedInstanceState)
         setContentView(R.layout.home_activity)
 
