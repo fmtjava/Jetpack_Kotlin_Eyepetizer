@@ -77,28 +77,29 @@
                 android:layout_width="@dimen/dp_80"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/dp_6"
-                android:layout_marginTop="@dimen/dp_18"
                 android:ellipsize="end"
                 android:maxLines="1"
                 android:text="@{model.data.content.data.owner.nickname}"
                 android:textColor="@color/color_black_87"
                 android:textSize="@dimen/sp_12"
+                app:layout_constraintBottom_toBottomOf="@id/iv_author"
                 app:layout_constraintLeft_toRightOf="@id/iv_author"
-                app:layout_constraintTop_toBottomOf="@id/tv_des" />
+                app:layout_constraintTop_toTopOf="@id/iv_author" />
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/tv_like_count"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/dp_19"
                 android:layout_marginEnd="@dimen/dp_6"
                 android:text="@{String.valueOf(model.data.content.data.consumption.collectionCount)}"
                 android:textColor="@color/color_black_87"
                 android:textSize="@dimen/sp_12"
+                app:layout_constraintBottom_toBottomOf="@id/iv_like"
                 app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tv_des" />
+                app:layout_constraintTop_toTopOf="@id/iv_like" />
 
             <com.fmt.kotlin.eyepetizer.common.view.IconFontTextView
+                android:id="@+id/iv_like"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/dp_20"
