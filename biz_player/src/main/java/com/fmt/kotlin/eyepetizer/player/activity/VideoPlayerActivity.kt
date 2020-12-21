@@ -87,7 +87,7 @@ class VideoPlayerActivity : BaseBindActivity<VideoPlayerViewModel, PlayerActivit
         mBind.videoModel = videoModel
         VideoWatchManager.addVideoWatchRecord(videoModel)
         LiveDataBus.with<WatchVideoEvent>(BaseConstant.WATCH_VIDEO_EVENT)
-            .postData(WatchVideoEvent())
+            .setData(WatchVideoEvent())
 
         if (isInitViewAttr()) {//从自动播放页面点击进入时
             addVideoViewFromList()
