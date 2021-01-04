@@ -55,7 +55,7 @@ Flutter版本：[flutter_eyepetizer](https://github.com/fmtjava/flutter_eyepetiz
   <img src="https://github.com/fmtjava/Kotlin_Eyepetizer/blob/master/image/structure.png"/>
 </div>
 
-# 下载体验(Android版本) 
+# 下载体验 
  - 点击[![](https://img.shields.io/badge/Download-apk-green.svg)](https://www.pgyer.com/Bbn8)
  - 下方二维码下载(每日上限100次，如达到上限，还是 clone 源码吧！✧(≖ ◡ ≖✿))）<br/>
    <img src="https://www.pgyer.com/app/qrcode/Bbn8"/>
