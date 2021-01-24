@@ -89,7 +89,7 @@ ReactNative版：[ReactNative_Eyepetizer](https://github.com/fmtjava/ReactNative
   # License 
   
   
-Copyright (c) 2019 fmtjava
+Copyright (c) 2021 fmtjava
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
