@@ -2,6 +2,8 @@ package com.fmt.kotlin.eyepetizer.common.base.activity
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.fmt.kotlin.eyepetizer.common.base.viewmodel.BaseViewModel
 import com.fmt.kotlin.eyepetizer.common.base.viewmodel.ErrorState
@@ -47,6 +49,13 @@ abstract class BaseMVActivity<VM : BaseViewModel> : AppCompatActivity() {
                 }
             }
         })
+    }
+
+    //扩展liveData的observe函数
+    protected fun <T : Any> LiveData<T>.observerKt(block: (T) -> Unit) {
+        this.observe(this@BaseMVActivity) {
+            block(it)
+        }
     }
 
     open fun showLoading() {

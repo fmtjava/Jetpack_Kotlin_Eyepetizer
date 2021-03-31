@@ -47,9 +47,9 @@ class RankListFragment : BaseVMFragment<HotViewModel>() {
     }
 
     private fun getRankList(apiUrl: String) {
-        mViewModel.getRankList(apiUrl).observe(viewLifecycleOwner, {
+        mViewModel.getRankList(apiUrl).observerKt {
             mAdapter.setList(it)
-        })
+        }
     }
 
 }

@@ -43,7 +43,7 @@ abstract class CommonListFragment<VM : CommonListViewModel, M> : BaseVMFragment<
     }
 
     private fun getListData(firstPage: Boolean = false) {
-        mViewModel.getListData<M>(firstPage).observe(viewLifecycleOwner, {
+        mViewModel.getListData<M>(firstPage).observerKt{
             if (it.isNotEmpty()) {
                 if (firstPage) {
                     mAdapter.setList(it)
@@ -58,7 +58,7 @@ abstract class CommonListFragment<VM : CommonListViewModel, M> : BaseVMFragment<
                     mAdapter.loadMoreModule.loadMoreComplete()
                 }
             }
-        })
+        }
     }
 
     override fun hideLoading() {

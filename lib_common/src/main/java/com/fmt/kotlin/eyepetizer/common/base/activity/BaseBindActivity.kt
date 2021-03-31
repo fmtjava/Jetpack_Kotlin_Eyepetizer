@@ -4,7 +4,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import com.fmt.kotlin.eyepetizer.common.base.viewmodel.BaseViewModel
 
-abstract class BaseBindActivity<VM : BaseViewModel,DB : ViewDataBinding> : BaseMVActivity<VM>() {
+abstract class BaseBindActivity<VM : BaseViewModel, DB : ViewDataBinding> : BaseMVActivity<VM>() {
 
     lateinit var mBind: DB
 
@@ -13,6 +13,7 @@ abstract class BaseBindActivity<VM : BaseViewModel,DB : ViewDataBinding> : BaseM
             this,
             getLayoutRes
         )
+        mBind.lifecycleOwner = this
     }
 
     override fun initEvent() {

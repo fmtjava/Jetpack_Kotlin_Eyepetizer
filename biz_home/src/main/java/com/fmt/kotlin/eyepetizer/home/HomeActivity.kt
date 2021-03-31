@@ -1,19 +1,17 @@
 package com.fmt.kotlin.eyepetizer.home
 
-import android.os.Bundle
 import android.view.KeyEvent
-import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
-import androidx.lifecycle.ViewModelProvider
 import com.alibaba.android.arouter.launcher.ARouter
+import com.fmt.kotlin.eyepetizer.common.base.activity.BaseMVActivity
 import com.fmt.kotlin.eyepetizer.common.ext.immersionStatusBar
 import com.fmt.kotlin.eyepetizer.common.ext.infoToast
 import com.fmt.kotlin.eyepetizer.provider.router.RouterPath
 import com.google.android.material.transition.platform.MaterialContainerTransformSharedElementCallback
 import kotlinx.android.synthetic.main.home_activity.*
 
-class HomeActivity : AppCompatActivity() {
+class HomeActivity : BaseMVActivity<HomeViewModel>() {
 
     private var mExitTime: Long = 0
 
@@ -22,24 +20,27 @@ class HomeActivity : AppCompatActivity() {
     private var mHotFragment: Fragment? = null
     private var mMineFragment: Fragment? = null
 
-    private lateinit var mHomeViewModel: HomeViewModel
+    override val getLayoutRes: Int
+        get() = R.layout.home_activity
 
-    override fun onCreate(savedInstanceState: Bundle?) {
+    override fun initWindow() {
         window.sharedElementsUseOverlay = false
         setExitSharedElementCallback(MaterialContainerTransformSharedElementCallback())
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.home_activity)
-
-        immersionStatusBar(true, android.R.color.white, true, 0.2f)
-        initBottomNavigation()
-        initViewModel()
     }
 
-    private fun initViewModel() {
-        mHomeViewModel = ViewModelProvider(this).get(HomeViewModel::class.java)
-        mHomeViewModel.getSelected().observe(this, { index ->
+    override fun initView() {
+        immersionStatusBar(true, android.R.color.white, true, 0.2f)
+        initBottomNavigation()
+    }
+
+    override fun initData() {
+        mViewModel.getSelected().observerKt { index ->
             switchFragment(index)
-        })
+        }
+    }
+
+    override fun initEvent() {
+
     }
 
     private fun initBottomNavigation() {
@@ -57,7 +58,7 @@ class HomeActivity : AppCompatActivity() {
     }
 
     private fun saveAndSwitch(index: Int) {
-        mHomeViewModel.saveSelect(index)
+        mViewModel.saveSelect(index)
         switchFragment(index)
     }
 

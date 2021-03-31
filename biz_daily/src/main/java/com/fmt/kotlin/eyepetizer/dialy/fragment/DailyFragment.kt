@@ -42,14 +42,14 @@ class DailyFragment : BaseVMFragment<DailyViewModel>() {
     }
 
     override fun lazyLoadData() {
-        mViewModel.getDailyBanner().observe(viewLifecycleOwner, {
+        mViewModel.getDailyBanner().observerKt {
             mAdapter.setList(mutableListOf())
             mAdapter.addData(it)
-        })
+        }
     }
 
     private fun getDailyList() {
-        mViewModel.getDailyList().observe(viewLifecycleOwner, {
+        mViewModel.getDailyList().observerKt{
             if (it.isNotEmpty()) {
                 if (mIsLoadMore) {
                     mAdapter.addData(it)
@@ -60,7 +60,7 @@ class DailyFragment : BaseVMFragment<DailyViewModel>() {
             } else {
                 mAdapter.loadMoreModule.loadMoreEnd()
             }
-        })
+        }
     }
 
     override fun handlerError() {

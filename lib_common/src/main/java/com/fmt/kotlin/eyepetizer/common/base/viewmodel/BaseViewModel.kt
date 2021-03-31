@@ -5,18 +5,19 @@ import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.onCompletion
 import kotlinx.coroutines.flow.onStart
-import java.lang.Exception
 
 open class BaseViewModel : ViewModel() {
 
     val mStateLiveData = MutableLiveData<State>()
 
     fun <T> liveDataEx(block: suspend () -> T) = liveData {
-        try {
+        kotlin.runCatching {
             mStateLiveData.value = LoadState
-            emit(block())
+            block()
+        }.onSuccess {
+            emit(it)
             mStateLiveData.value = SuccessState
-        } catch (e: Exception) {
+        }.onFailure { e ->
             mStateLiveData.value = ErrorState(e.message)
         }
     }

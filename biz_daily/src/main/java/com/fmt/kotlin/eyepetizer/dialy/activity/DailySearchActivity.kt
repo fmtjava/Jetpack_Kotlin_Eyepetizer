@@ -123,7 +123,7 @@ class DailySearchActivity : BaseBindActivity<DailySearchViewModel, DailySearchAc
     }
 
     private fun getSearchVideo(keyword: String?) {
-        mViewModel.searchVideoList(keyword).observe(this) {
+        mViewModel.searchVideoList(keyword).observerKt {
             if (it.isNotEmpty()) {
                 mKeyWordLL.isVisible = false
                 mEmptyLL.isVisible = false

@@ -81,6 +81,14 @@ class CategoryDetailActivity :
                 mAdapter.loadMoreModule.loadMoreEnd()
             }
         })
+        mViewModel.getCategoryDetailList(id).observerKt {
+            if (it.isNotEmpty()) {
+                mAdapter.loadMoreModule.loadMoreComplete()
+                mAdapter.addData(it)
+            } else {
+                mAdapter.loadMoreModule.loadMoreEnd()
+            }
+        }
     }
 
     override fun handlerError() {

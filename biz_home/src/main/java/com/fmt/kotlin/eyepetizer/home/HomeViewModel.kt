@@ -4,8 +4,9 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
+import com.fmt.kotlin.eyepetizer.common.base.viewmodel.BaseViewModel
 
-class HomeViewModel(private val savedStateHandle: SavedStateHandle) : ViewModel() {
+class HomeViewModel(private val savedStateHandle: SavedStateHandle) : BaseViewModel() {
 
     private val HOME_PAGE_INDEX = "home_page_index"
     private val mLiveData = MutableLiveData<Int>()

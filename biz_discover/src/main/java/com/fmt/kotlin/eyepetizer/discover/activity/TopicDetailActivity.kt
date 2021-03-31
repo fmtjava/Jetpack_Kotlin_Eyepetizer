@@ -132,14 +132,14 @@ class TopicDetailActivity :
     }
 
     private fun getTopicDetail() {
-        mViewModel.getTopicDetail(mId).observe(this, { topicDetailModel ->
+        mViewModel.getTopicDetail(mId).observerKt { topicDetailModel ->
             initHeaderView(topicDetailModel)
             mAdapter.setList(topicDetailModel.itemList)
-        })
+        }
     }
 
     override fun initEvent() {
-        LiveDataBus.with<VideoAutoPlayEvent>(BaseConstant.VIDEO_AUTO_PLAY_EVENT).observe(this) {
+        LiveDataBus.with<VideoAutoPlayEvent>(BaseConstant.VIDEO_AUTO_PLAY_EVENT).observerKt {
             mAdapter.notifyDataSetChanged()
         }
     }

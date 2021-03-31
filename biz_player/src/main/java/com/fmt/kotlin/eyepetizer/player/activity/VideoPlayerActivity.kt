@@ -181,9 +181,9 @@ class VideoPlayerActivity : BaseBindActivity<VideoPlayerViewModel, PlayerActivit
 
     private fun getRelateVideoList() {
         mSwipeRefreshLayout.isVisible = true
-        mViewModel.getRelateVideoList(videoModel.id).observe(this, {
+        mViewModel.getRelateVideoList(videoModel.id).observerKt {
             mAdapter.addData(it)
-        })
+        }
     }
 
     override fun onBackPressed() {

@@ -1,5 +1,6 @@
 package com.fmt.kotlin.eyepetizer.common.base.fragment
 
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModelProvider
 import com.fmt.kotlin.eyepetizer.common.base.viewmodel.BaseViewModel
 import com.fmt.kotlin.eyepetizer.common.base.viewmodel.ErrorState
@@ -35,6 +36,12 @@ abstract class BaseVMFragment<VM : BaseViewModel> : BaseFragment() {
                 }
             }
         })
+    }
+
+    protected fun <T : Any> LiveData<T>.observerKt(block: (T) -> Unit) {
+        this.observe(viewLifecycleOwner) {
+            block(it)
+        }
     }
 
     //由于每个页面的加载框可能不一致，所以此处暴露给子类实现
