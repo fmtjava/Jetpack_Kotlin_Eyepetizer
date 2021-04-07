@@ -8,7 +8,7 @@ import android.view.inputmethod.EditorInfo
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.android.tu.loadingdialog.LoadingDailog
-import com.fmt.kotlin.eyepetizer.common.base.activity.BaseBindActivity
+import com.fmt.kotlin.eyepetizer.common.base.activity.BaseBindVMActivity
 import com.fmt.kotlin.eyepetizer.common.ext.commonMaterialContainerTransformConfig
 import com.fmt.kotlin.eyepetizer.common.ext.hideInputKeyboard
 import com.fmt.kotlin.eyepetizer.common.ext.immersionStatusBar
@@ -19,7 +19,7 @@ import com.fmt.kotlin.eyepetizer.dialy.viewmodel.DailySearchViewModel
 import com.google.android.material.chip.Chip
 import kotlinx.android.synthetic.main.daily_search_activity.*
 
-class DailySearchActivity : BaseBindActivity<DailySearchViewModel, DailySearchActivityBinding>() {
+class DailySearchActivity : BaseBindVMActivity<DailySearchViewModel, DailySearchActivityBinding>() {
 
     private val mAdapter: DailyVideoSearchAdapter by lazy { DailyVideoSearchAdapter(this) }
 

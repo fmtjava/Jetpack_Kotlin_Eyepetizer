@@ -1,27 +1,22 @@
 package com.fmt.kotlin.eyepetizer.common.base.activity
 
-import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
+import com.fmt.kotlin.eyepetizer.common.base.viewmodel.BaseViewModel
 
-abstract class BaseBindActivity<DB : ViewDataBinding> : AppCompatActivity() {
+abstract class BaseBindVMActivity<VM : BaseViewModel, DB : ViewDataBinding> : BaseMVActivity<VM>() {
 
-    abstract val getLayoutRes: Int
     lateinit var mBind: DB
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
+    override fun setLayout() {
         mBind = DataBindingUtil.setContentView(
             this,
             getLayoutRes
         )
-
-        initData()
+        mBind.lifecycleOwner = this
     }
 
-    open fun initData() {
-
+    override fun initEvent() {
     }
 
     override fun onDestroy() {

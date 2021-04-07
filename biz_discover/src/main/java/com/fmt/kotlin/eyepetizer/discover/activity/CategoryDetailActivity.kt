@@ -5,7 +5,7 @@ import android.app.ActivityOptions
 import android.content.Intent
 import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.fmt.kotlin.eyepetizer.common.base.activity.BaseBindActivity
+import com.fmt.kotlin.eyepetizer.common.base.activity.BaseBindVMActivity
 import com.fmt.kotlin.eyepetizer.common.ext.commonMaterialContainerTransformConfig
 import com.fmt.kotlin.eyepetizer.common.ext.immersionStatusBar
 import com.fmt.kotlin.eyepetizer.common.ext.setToolBar
@@ -21,7 +21,7 @@ import kotlinx.android.synthetic.main.discover_activity_category_detail.*
  *                     https://github.com/material-components/material-components-android-examples
  */
 class CategoryDetailActivity :
-    BaseBindActivity<CategoryViewModel,DiscoverActivityCategoryDetailBinding>() {
+    BaseBindVMActivity<CategoryViewModel,DiscoverActivityCategoryDetailBinding>() {
 
     private val mAdapter by lazy { RankListAdapter(this) }
 

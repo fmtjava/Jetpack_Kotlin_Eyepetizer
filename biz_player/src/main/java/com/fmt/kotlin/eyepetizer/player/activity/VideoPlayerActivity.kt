@@ -15,7 +15,7 @@ import cn.jzvd.JzvdStd
 import com.alibaba.android.arouter.facade.annotation.Autowired
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.alibaba.android.arouter.launcher.ARouter
-import com.fmt.kotlin.eyepetizer.common.base.activity.BaseBindActivity
+import com.fmt.kotlin.eyepetizer.common.base.activity.BaseBindVMActivity
 import com.fmt.kotlin.eyepetizer.common.ext.fromJson
 import com.fmt.kotlin.eyepetizer.common.ext.immersionStatusBar
 import com.fmt.kotlin.eyepetizer.player.R
@@ -37,7 +37,7 @@ import com.fmt.livedatabus.LiveDataBus
 import kotlinx.android.synthetic.main.player_activity_video.*
 
 @Route(path = RouterPath.Video.PATH_VIDEO_HOME)
-class VideoPlayerActivity : BaseBindActivity<VideoPlayerViewModel, PlayerActivityVideoBinding>() {
+class VideoPlayerActivity : BaseBindVMActivity<VideoPlayerViewModel, PlayerActivityVideoBinding>() {
 
     private val DURATION: Long = 250
 

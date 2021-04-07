@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.OnChildAttachStateChangeListener
 import cn.jzvd.Jzvd
-import com.fmt.kotlin.eyepetizer.common.base.activity.BaseBindActivity
+import com.fmt.kotlin.eyepetizer.common.base.activity.BaseBindVMActivity
 import com.fmt.kotlin.eyepetizer.common.ext.commonMaterialContainerTransformConfig
 import com.fmt.kotlin.eyepetizer.common.ext.immersionStatusBar
 import com.fmt.kotlin.eyepetizer.common.ext.setToolBar
@@ -29,7 +29,7 @@ import com.fmt.livedatabus.LiveDataBus
 import kotlinx.android.synthetic.main.discover_activity_topic_detail.*
 
 class TopicDetailActivity :
-    BaseBindActivity<TopicViewModel, DiscoverActivityTopicDetailBinding>(),
+    BaseBindVMActivity<TopicViewModel, DiscoverActivityTopicDetailBinding>(),
     TopicDetailAdapter.OnVideoClick {
 
     private var mId: Int = 0

@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Eyepetizer</string>
+    <string name="app_version">v%s</string>
 </resources>

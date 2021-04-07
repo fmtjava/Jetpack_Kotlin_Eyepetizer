@@ -10,5 +10,11 @@
         <item name="android:windowActivityTransitions">true</item>
     </style>
 
+    <style name="AppTheme.Launch">
+        <item name="android:windowBackground">@drawable/launch_layer_list</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowNoTitle">true</item>
+    </style>
+
 
 </resources>

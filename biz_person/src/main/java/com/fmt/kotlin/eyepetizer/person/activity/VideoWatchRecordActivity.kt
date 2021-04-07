@@ -1,13 +1,9 @@
 package com.fmt.kotlin.eyepetizer.person.activity
 
-import android.content.Context
-import android.content.Intent
 import android.os.Bundle
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.asLiveData
 import androidx.lifecycle.lifecycleScope
-import androidx.lifecycle.liveData
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.fmt.kotlin.eyepetizer.common.ext.dp2px
@@ -26,8 +22,6 @@ import com.yanzhenjie.recyclerview.SwipeMenuItem
 import com.yanzhenjie.recyclerview.SwipeRecyclerView
 import kotlinx.android.synthetic.main.person_activity_video_watch_record.*
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.flow.collectLatest
-import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
@@ -38,13 +32,6 @@ class VideoWatchRecordActivity : AppCompatActivity() {
             this,
             VideoWatchWarp.getVideoWatchList()
         )
-    }
-
-    companion object {
-        fun start(context: Context) {
-            val intent = Intent(context, VideoWatchRecordActivity::class.java)
-            context.startActivity(intent)
-        }
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
