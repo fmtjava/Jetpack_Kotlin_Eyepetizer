@@ -26,8 +26,10 @@ import com.fmt.kotlin.eyepetizer.provider.jzvd.ViewAttr
 import com.fmt.kotlin.eyepetizer.provider.model.event.VideoAutoPlayEvent
 import com.fmt.kotlin.eyepetizer.provider.router.go2VideoPlayerActivity
 import com.fmt.livedatabus.LiveDataBus
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.discover_activity_topic_detail.*
 
+@AndroidEntryPoint
 class TopicDetailActivity :
     BaseBindVMActivity<TopicViewModel, DiscoverActivityTopicDetailBinding>(),
     TopicDetailAdapter.OnVideoClick {

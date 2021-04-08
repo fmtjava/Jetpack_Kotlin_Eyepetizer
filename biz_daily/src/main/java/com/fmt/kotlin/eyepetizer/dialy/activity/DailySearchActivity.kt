@@ -17,8 +17,10 @@ import com.fmt.kotlin.eyepetizer.dialy.adapter.DailyVideoSearchAdapter
 import com.fmt.kotlin.eyepetizer.dialy.databinding.DailySearchActivityBinding
 import com.fmt.kotlin.eyepetizer.dialy.viewmodel.DailySearchViewModel
 import com.google.android.material.chip.Chip
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.daily_search_activity.*
 
+@AndroidEntryPoint
 class DailySearchActivity : BaseBindVMActivity<DailySearchViewModel, DailySearchActivityBinding>() {
 
     private val mAdapter: DailyVideoSearchAdapter by lazy { DailyVideoSearchAdapter(this) }

@@ -1,17 +1,19 @@
 package com.fmt.kotlin.eyepetizer.discover.viewmodel
 
-import com.fmt.kotlin.eyepetizer.discover.service.DiscoverService
+import androidx.hilt.lifecycle.ViewModelInject
+import com.fmt.kotlin.eyepetizer.discover.api.DiscoverApi
 
-class FollowViewModel :CommonListViewModel() {
+
+class FollowViewModel @ViewModelInject constructor(private val mDiscoverApi: DiscoverApi) :CommonListViewModel() {
 
     override suspend fun <M> getRefreshList(): List<M> {
-        val issue = DiscoverService.getFollowList()
+        val issue = mDiscoverApi.getFollowList()
         mNextPageUrl = issue.nextPageUrl
         return issue.itemList as List<M>
     }
 
     override suspend fun <M> getLoadMoreList(): List<M> {
-        val issue = DiscoverService.getCategoryDetailList(mNextPageUrl!!)
+        val issue = mDiscoverApi.getCategoryDetailList(mNextPageUrl!!)
         mNextPageUrl = issue.nextPageUrl
         return issue.itemList as List<M>
     }

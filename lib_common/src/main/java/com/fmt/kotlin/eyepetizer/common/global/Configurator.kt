@@ -3,16 +3,17 @@ package com.fmt.kotlin.eyepetizer.common.global
 /**
  * 全局配置类
  */
-class Configurator private constructor() {
+class Configurator /*private constructor() */{
 
-    companion object {
+   /* companion object {
         val instance: Configurator by lazy { Configurator() }
-    }
+    }*/
 
     private val CONFIGS = mutableMapOf<Any, Any>()
 
     init {
         CONFIGS[ConfigKeys.CONFIG_READY] = false
+        CONFIGS[ConfigKeys.HTTP_LOG_ENABLE] = true
     }
 
     fun withWebApiHost(apiHost: String): Configurator {

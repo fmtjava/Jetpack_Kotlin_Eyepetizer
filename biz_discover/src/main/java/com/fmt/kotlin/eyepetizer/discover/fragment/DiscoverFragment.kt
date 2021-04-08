@@ -7,8 +7,10 @@ import com.alibaba.android.arouter.facade.annotation.Route
 import com.fmt.kotlin.eyepetizer.common.base.fragment.BaseFragment
 import com.fmt.kotlin.eyepetizer.discover.R
 import com.fmt.kotlin.eyepetizer.provider.router.RouterPath
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.discover_fragment.*
 
+@AndroidEntryPoint
 @Route(path = RouterPath.Discover.PATH_DISCOVER_HOME)
 class DiscoverFragment : BaseFragment() {
 

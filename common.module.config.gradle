@@ -4,6 +4,7 @@ apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
+apply plugin: 'dagger.hilt.android.plugin'
 
 kapt {
     arguments {
@@ -54,5 +55,8 @@ dependencies {
     androidTestImplementation rootProject.ext.androidx["androidx.test.ext-junit"]
     androidTestImplementation rootProject.ext.androidx["androidx.test.espresso:espresso-core"]
 
+    api rootProject.ext.dependencies["hilt-android"]
     kapt rootProject.ext.dependencies["arouter-compiler"]
+    kapt rootProject.ext.dependencies["hilt-android-compiler"]
+    kapt rootProject.ext.androidx["hilt-compiler"]
 }

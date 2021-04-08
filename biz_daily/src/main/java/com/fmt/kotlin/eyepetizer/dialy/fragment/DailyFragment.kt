@@ -8,8 +8,10 @@ import com.fmt.kotlin.eyepetizer.dialy.activity.DailySearchActivity
 import com.fmt.kotlin.eyepetizer.dialy.adapter.DailyAdapter
 import com.fmt.kotlin.eyepetizer.dialy.viewmodel.DailyViewModel
 import com.fmt.kotlin.eyepetizer.provider.router.RouterPath
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.daily_fragment.*
 
+@AndroidEntryPoint
 @Route(path = RouterPath.Daily.PATH_DAILY_HOME)
 class DailyFragment : BaseVMFragment<DailyViewModel>() {
 
@@ -49,18 +51,18 @@ class DailyFragment : BaseVMFragment<DailyViewModel>() {
     }
 
     private fun getDailyList() {
-        mViewModel.getDailyList().observerKt{
-            if (it.isNotEmpty()) {
-                if (mIsLoadMore) {
-                    mAdapter.addData(it)
-                    mAdapter.loadMoreModule.loadMoreComplete()
-                } else {
-                    mAdapter.setList(it)
-                }
-            } else {
-                mAdapter.loadMoreModule.loadMoreEnd()
-            }
-        }
+          mViewModel.getDailyList().observerKt{
+              if (it.isNotEmpty()) {
+                  if (mIsLoadMore) {
+                      mAdapter.addData(it)
+                      mAdapter.loadMoreModule.loadMoreComplete()
+                  } else {
+                      mAdapter.setList(it)
+                  }
+              } else {
+                  mAdapter.loadMoreModule.loadMoreEnd()
+              }
+          }
     }
 
     override fun handlerError() {
