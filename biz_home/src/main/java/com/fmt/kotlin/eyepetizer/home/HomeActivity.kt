@@ -9,8 +9,10 @@ import com.fmt.kotlin.eyepetizer.common.ext.immersionStatusBar
 import com.fmt.kotlin.eyepetizer.common.ext.infoToast
 import com.fmt.kotlin.eyepetizer.provider.router.RouterPath
 import com.google.android.material.transition.platform.MaterialContainerTransformSharedElementCallback
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.home_activity.*
 
+@AndroidEntryPoint
 class HomeActivity : BaseMVActivity<HomeViewModel>() {
 
     private var mExitTime: Long = 0

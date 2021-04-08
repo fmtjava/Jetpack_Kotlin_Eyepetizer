@@ -22,6 +22,7 @@ open class BaseViewModel : ViewModel() {
         }
     }
 
+    //使用Flow流式编程类似RxJava
     fun <T> flowEx(block: suspend () -> T) = flow {
         emit(block())
     }.onStart {

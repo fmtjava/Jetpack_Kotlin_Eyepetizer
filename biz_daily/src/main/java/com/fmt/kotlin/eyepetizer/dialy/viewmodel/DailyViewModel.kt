@@ -1,19 +1,21 @@
 package com.fmt.kotlin.eyepetizer.dialy.viewmodel
 
+import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.LiveData
 import com.fmt.kotlin.eyepetizer.common.base.viewmodel.BaseViewModel
+import com.fmt.kotlin.eyepetizer.dialy.api.DailyApi
 import com.fmt.kotlin.eyepetizer.dialy.model.ProviderMultiModel
-import com.fmt.kotlin.eyepetizer.dialy.service.DailyService
 
-class DailyViewModel : BaseViewModel() {
+class DailyViewModel @ViewModelInject constructor(private val mDailyApi: DailyApi) : BaseViewModel() {
 
     private val BANNER_TYPE = "banner2"
     private val TEXT_HEADER_TYPE = "textHeader"
     private var mNextPageUrl: String? = null
 
+
     fun getDailyBanner(): LiveData<ProviderMultiModel> =
         liveDataEx {
-            val dailyModel = DailyService.getDailyBanner()
+            val dailyModel = mDailyApi.getDailyBanner()
             mNextPageUrl = dailyModel.nextPageUrl
             val list = dailyModel.issueList[0].itemList
             list.removeAll {
@@ -29,7 +31,7 @@ class DailyViewModel : BaseViewModel() {
             if (mNextPageUrl == null) {
                 mutableListOf()
             } else {
-                val dailyModel = DailyService.getDailyList(mNextPageUrl!!)
+                val dailyModel = mDailyApi.getDailyList(mNextPageUrl!!)
                 mNextPageUrl = dailyModel.nextPageUrl
                 val list = dailyModel.issueList[0].itemList
                 list.removeAll {

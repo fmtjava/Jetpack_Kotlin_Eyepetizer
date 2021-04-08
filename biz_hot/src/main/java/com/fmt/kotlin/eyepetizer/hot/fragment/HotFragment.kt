@@ -9,8 +9,10 @@ import com.fmt.kotlin.eyepetizer.hot.model.TabInfo
 import com.fmt.kotlin.eyepetizer.hot.viewmodel.HotViewModel
 import com.fmt.kotlin.eyepetizer.provider.router.RouterPath
 import com.google.android.material.tabs.TabLayoutMediator
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.hot_fragment.*
 
+@AndroidEntryPoint
 @Route(path = RouterPath.Hot.PATH_HOT_HOME)
 class HotFragment : BaseVMFragment<HotViewModel>() {
 

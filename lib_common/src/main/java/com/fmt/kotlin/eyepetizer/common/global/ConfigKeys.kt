@@ -5,5 +5,6 @@ package com.fmt.kotlin.eyepetizer.common.global
  */
 enum class ConfigKeys {
     CONFIG_READY,
-    WEB_API_HOST
+    WEB_API_HOST,
+    HTTP_LOG_ENABLE
 }

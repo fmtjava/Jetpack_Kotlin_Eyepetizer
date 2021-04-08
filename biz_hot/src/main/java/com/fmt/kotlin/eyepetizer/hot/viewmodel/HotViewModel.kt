@@ -1,19 +1,20 @@
 package com.fmt.kotlin.eyepetizer.hot.viewmodel
 
+import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.LiveData
 import com.fmt.kotlin.eyepetizer.common.base.viewmodel.BaseViewModel
+import com.fmt.kotlin.eyepetizer.hot.api.HotApi
 import com.fmt.kotlin.eyepetizer.hot.model.TabInfo
-import com.fmt.kotlin.eyepetizer.hot.service.HotService
 import com.fmt.kotlin.eyepetizer.provider.model.Item
 
-class HotViewModel : BaseViewModel() {
+class HotViewModel @ViewModelInject constructor(private val mHotApi: HotApi) : BaseViewModel() {
 
     fun getHotTabList(): LiveData<TabInfo> = liveDataEx {
-        HotService.getHotTabList()
+        mHotApi.getHotTabList()
     }
 
     fun getRankList(apiUrl: String): LiveData<MutableList<Item>> = liveDataEx {
-        HotService.getRankList(apiUrl).itemList
+        mHotApi.getRankList(apiUrl).itemList
     }
 
 }

@@ -2,6 +2,7 @@ apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
+apply plugin: 'dagger.hilt.android.plugin'
 
 android {
     compileSdkVersion rootProject.ext.android.compileSdkVersion
@@ -55,6 +56,9 @@ dependencies {
     api rootProject.ext.androidx["androidx.lifecycle-viewmodel"]
     api rootProject.ext.androidx["androidx.lifecycle-livedata"]
     api rootProject.ext.androidx["androidx.startup-runtime"]
+    api rootProject.ext.androidx["hilt-lifecycle-viewmodel"]
+
+    kapt rootProject.ext.androidx["hilt-compiler"]
 
     api rootProject.ext.dependencies["logging-interceptor"]
     api rootProject.ext.dependencies["retrofit2"]
@@ -74,4 +78,8 @@ dependencies {
     api rootProject.ext.dependencies["SwipeRecyclerView"]
     api rootProject.ext.dependencies["jiaozivideoplayer"]
     api rootProject.ext.dependencies["arouter-api"]
+    api rootProject.ext.dependencies["hilt-android"]
+
+    kapt rootProject.ext.dependencies["hilt-android-compiler"]
+
 }

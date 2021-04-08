@@ -13,6 +13,7 @@ import com.fmt.kotlin.eyepetizer.discover.R
 import com.fmt.kotlin.eyepetizer.discover.databinding.DiscoverActivityCategoryDetailBinding
 import com.fmt.kotlin.eyepetizer.discover.viewmodel.CategoryViewModel
 import com.fmt.kotlin.eyepetizer.provider.adapter.RankListAdapter
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.discover_activity_category_detail.*
 
 /**
@@ -20,6 +21,7 @@ import kotlinx.android.synthetic.main.discover_activity_category_detail.*
  * Material动效文章链接：https://mp.weixin.qq.com/s/PZD8RxrqP7_RAjXIo345aQ
  *                     https://github.com/material-components/material-components-android-examples
  */
+@AndroidEntryPoint
 class CategoryDetailActivity :
     BaseBindVMActivity<CategoryViewModel,DiscoverActivityCategoryDetailBinding>() {
 

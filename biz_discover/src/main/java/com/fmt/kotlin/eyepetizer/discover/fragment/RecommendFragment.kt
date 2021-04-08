@@ -10,7 +10,9 @@ import com.fmt.kotlin.eyepetizer.discover.activity.RecommendVideoAndPhotoActivit
 import com.fmt.kotlin.eyepetizer.discover.adapter.RecommendAdapter
 import com.fmt.kotlin.eyepetizer.discover.model.Item
 import com.fmt.kotlin.eyepetizer.discover.viewmodel.RecommendViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class RecommendFragment : CommonListFragment<RecommendViewModel, Item>() {
 
     override fun getAdapter(): BaseQuickAdapter<Item, BaseViewHolder> = RecommendAdapter()

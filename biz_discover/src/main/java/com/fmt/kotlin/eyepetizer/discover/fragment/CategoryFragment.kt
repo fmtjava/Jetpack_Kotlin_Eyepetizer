@@ -11,8 +11,10 @@ import com.fmt.kotlin.eyepetizer.discover.activity.CategoryDetailActivity
 import com.fmt.kotlin.eyepetizer.discover.adapter.CategoryAdapter
 import com.fmt.kotlin.eyepetizer.discover.viewmodel.CategoryViewModel
 import com.fondesa.recyclerviewdivider.dividerBuilder
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.discover_category_fragment.*
 
+@AndroidEntryPoint
 class CategoryFragment : BaseVMFragment<CategoryViewModel>(), OnItemClickListener {
 
     private val mAdapter by lazy { CategoryAdapter() }

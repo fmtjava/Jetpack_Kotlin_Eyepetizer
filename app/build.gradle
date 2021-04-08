@@ -2,6 +2,7 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
+apply plugin: 'dagger.hilt.android.plugin'
 
 android {
     compileSdkVersion rootProject.ext.android.compileSdkVersion
@@ -52,10 +53,15 @@ dependencies {
     androidTestImplementation rootProject.ext.androidx["androidx.test.ext-junit"]
     androidTestImplementation rootProject.ext.androidx["androidx.test.espresso:espresso-core"]
 
+    api rootProject.ext.dependencies["hilt-android"]
+    kapt rootProject.ext.dependencies["hilt-android-compiler"]
+    kapt rootProject.ext.androidx["hilt-compiler"]
+
     implementation project(path: ':biz_home')
     implementation project(path: ':biz_daily')
     implementation project(path: ':biz_discover')
     implementation project(path: ':biz_hot')
     implementation project(path: ':biz_person')
     implementation project(path: ':biz_player')
+
 }

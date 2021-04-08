@@ -8,7 +8,9 @@ import com.fmt.kotlin.eyepetizer.discover.activity.TopicDetailActivity
 import com.fmt.kotlin.eyepetizer.discover.adapter.TopicAdapter
 import com.fmt.kotlin.eyepetizer.discover.model.TopicItemModel
 import com.fmt.kotlin.eyepetizer.discover.viewmodel.TopicViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class TopicFragment : CommonListFragment<TopicViewModel, TopicItemModel>() {
 
     override fun getAdapter(): BaseQuickAdapter<TopicItemModel, BaseViewHolder> = TopicAdapter()

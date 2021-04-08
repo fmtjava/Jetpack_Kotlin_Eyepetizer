@@ -1,17 +1,18 @@
 package com.fmt.kotlin.eyepetizer.player.viewmodel
 
+import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.LiveData
 import com.fmt.kotlin.eyepetizer.common.base.viewmodel.BaseViewModel
 import com.fmt.kotlin.eyepetizer.player.adapter.VideoRelateAdapter
-import com.fmt.kotlin.eyepetizer.player.service.VideoPlayerService
+import com.fmt.kotlin.eyepetizer.player.api.VideoPlayerApi
 import com.fmt.kotlin.eyepetizer.provider.model.Item
 
-class VideoPlayerViewModel : BaseViewModel() {
+class VideoPlayerViewModel @ViewModelInject constructor(private val mVideoPlayerApi: VideoPlayerApi) : BaseViewModel() {
 
     private val VIDEO_SMALL_CARD_TYPE = "videoSmallCard"
 
     fun getRelateVideoList(id: Int): LiveData<List<Item>> = liveDataEx {
-        val issue = VideoPlayerService.getRelateVideoList(id)
+        val issue = mVideoPlayerApi.getRelateVideoList(id)
         issue.itemList.forEach {
             if (it.type == VIDEO_SMALL_CARD_TYPE) {
                 it.itemType = VideoRelateAdapter.TYPE_VIDEO

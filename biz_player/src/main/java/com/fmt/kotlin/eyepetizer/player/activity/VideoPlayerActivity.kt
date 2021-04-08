@@ -34,8 +34,10 @@ import com.fmt.kotlin.eyepetizer.provider.model.event.VideoAutoPlayEvent
 import com.fmt.kotlin.eyepetizer.provider.model.event.WatchVideoEvent
 import com.fmt.kotlin.eyepetizer.provider.router.RouterPath
 import com.fmt.livedatabus.LiveDataBus
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.player_activity_video.*
 
+@AndroidEntryPoint
 @Route(path = RouterPath.Video.PATH_VIDEO_HOME)
 class VideoPlayerActivity : BaseBindVMActivity<VideoPlayerViewModel, PlayerActivityVideoBinding>() {
 

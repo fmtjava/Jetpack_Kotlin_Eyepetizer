@@ -3,7 +3,6 @@ package com.fmt.kotlin.eyepetizer.home
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.SavedStateHandle
-import androidx.lifecycle.ViewModel
 import com.fmt.kotlin.eyepetizer.common.base.viewmodel.BaseViewModel
 
 class HomeViewModel(private val savedStateHandle: SavedStateHandle) : BaseViewModel() {

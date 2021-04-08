@@ -6,8 +6,10 @@ import com.fmt.kotlin.eyepetizer.common.base.fragment.BaseVMFragment
 import com.fmt.kotlin.eyepetizer.hot.R
 import com.fmt.kotlin.eyepetizer.hot.viewmodel.HotViewModel
 import com.fmt.kotlin.eyepetizer.provider.adapter.RankListAdapter
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.hot_fragment_rank_list.*
 
+@AndroidEntryPoint
 class RankListFragment : BaseVMFragment<HotViewModel>() {
 
     private val mAdapter by lazy { RankListAdapter(mActivity) }
