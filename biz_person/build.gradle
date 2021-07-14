@@ -1,4 +1,3 @@
-apply from: "../common.module.config.gradle"
 
 android {
 
