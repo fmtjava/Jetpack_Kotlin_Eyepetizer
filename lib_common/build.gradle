@@ -62,6 +62,7 @@ dependencies {
 
     api rootProject.ext.dependencies["logging-interceptor"]
     api rootProject.ext.dependencies["retrofit2"]
+    api rootProject.ext.dependencies["okhttp3"]
     api rootProject.ext.dependencies["converter-gson"]
     api rootProject.ext.dependencies["immersionbar"]
     api rootProject.ext.dependencies["immersionbar-ktx"]

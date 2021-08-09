@@ -31,7 +31,8 @@ ext {
     ]
 
     dependencies = [
-            "logging-interceptor"          : "com.squareup.okhttp3:logging-interceptor:4.0.0",
+            "okhttp3"                      : "com.squareup.okhttp3:okhttp:4.9.1",
+            "logging-interceptor"          : "com.squareup.okhttp3:logging-interceptor:4.9.1",
             "retrofit2"                    : "com.squareup.retrofit2:retrofit:2.9.0",
             "converter-gson"               : "com.squareup.retrofit2:converter-gson:2.9.0",
             "immersionbar"                 : "com.gyf.immersionbar:immersionbar:3.0.0",
