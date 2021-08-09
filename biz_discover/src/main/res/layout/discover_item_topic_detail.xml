@@ -70,18 +70,19 @@
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_issuer" />
 
-        <androidx.appcompat.widget.AppCompatTextView
+        <kr.co.prnd.readmore.ReadMoreTextView
             android:id="@+id/tv_des"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/dp_10"
-            android:ellipsize="end"
-            android:maxLines="2"
             android:text="@{model.data.content.data.description}"
             android:textColor="@color/common_des_text_color"
             android:textSize="@dimen/sp_14"
             app:layout_constraintLeft_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_publish_time" />
+            app:layout_constraintTop_toBottomOf="@id/tv_publish_time"
+            app:readMoreColor="@android:color/holo_blue_light"
+            app:readMoreMaxLine="3"
+            app:readMoreText="@string/discover_expend_text" />
 
         <LinearLayout
             android:id="@+id/ll_tag"
@@ -105,12 +106,12 @@
             android:id="@+id/ll_like"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center_vertical"
             android:layout_marginTop="@dimen/dp_20"
+            android:gravity="center_vertical"
+            app:layout_constraintHorizontal_chainStyle="spread_inside"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toLeftOf="@id/ll_reply"
-            app:layout_constraintTop_toBottomOf="@id/surface_container"
-            app:layout_constraintHorizontal_chainStyle="spread_inside">
+            app:layout_constraintTop_toBottomOf="@id/surface_container">
 
             <com.fmt.kotlin.eyepetizer.common.view.IconFontTextView
                 android:layout_width="wrap_content"
@@ -133,12 +134,12 @@
             android:id="@+id/ll_reply"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center_vertical"
             android:layout_marginTop="@dimen/dp_20"
+            android:gravity="center_vertical"
+            app:layout_constraintHorizontal_chainStyle="spread_inside"
             app:layout_constraintLeft_toRightOf="@id/ll_like"
             app:layout_constraintRight_toLeftOf="@id/ll_start"
-            app:layout_constraintTop_toBottomOf="@id/surface_container"
-            app:layout_constraintHorizontal_chainStyle="spread_inside">
+            app:layout_constraintTop_toBottomOf="@id/surface_container">
 
             <com.fmt.kotlin.eyepetizer.common.view.IconFontTextView
                 android:layout_width="wrap_content"
@@ -161,12 +162,12 @@
             android:id="@+id/ll_start"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center_vertical"
             android:layout_marginTop="@dimen/dp_20"
+            android:gravity="center_vertical"
+            app:layout_constraintHorizontal_chainStyle="spread_inside"
             app:layout_constraintLeft_toRightOf="@id/ll_reply"
             app:layout_constraintRight_toLeftOf="@id/tv_share"
-            app:layout_constraintTop_toBottomOf="@id/surface_container"
-            app:layout_constraintHorizontal_chainStyle="spread_inside">
+            app:layout_constraintTop_toBottomOf="@id/surface_container">
 
             <com.fmt.kotlin.eyepetizer.common.view.IconFontTextView
                 android:layout_width="wrap_content"
@@ -193,10 +194,10 @@
             android:text="@string/icon_share_text"
             android:textColor="@color/common_sub_title_color"
             android:textSize="@dimen/sp_18"
+            app:layout_constraintHorizontal_chainStyle="spread_inside"
             app:layout_constraintLeft_toRightOf="@id/ll_start"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/surface_container"
-            app:layout_constraintHorizontal_chainStyle="spread_inside"/>
+            app:layout_constraintTop_toBottomOf="@id/surface_container" />
 
         <View
             android:layout_width="match_parent"

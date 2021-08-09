@@ -47,11 +47,15 @@ ext {
             "mmkv"                         : "com.tencent:mmkv-static:1.2.4",
             "agentweb"                     : "com.just.agentweb:agentweb-androidx:4.1.4",
             "PhotoView"                    : "com.github.chrisbanes:PhotoView:2.0.0",
+            "ReadMoreTextView"             : "kr.co.prnd:readmore-textview:1.0.0",
             "LiveDataBus"                  : "com.github.fmtjava:LiveDataBus:1.0.1",
             "jiaozivideoplayer"            : "cn.jzvd:jiaozivideoplayer:7.5.0",
             "arouter-api"                  : "com.alibaba:arouter-api:1.5.0",
             "arouter-compiler"             : "com.alibaba:arouter-compiler:1.2.2",
             "hilt-android"                 : "com.google.dagger:hilt-android:2.32-alpha",
             "hilt-android-compiler"        : "com.google.dagger:hilt-android-compiler:2.32-alpha",
+            "dokitx"                       : "com.didichuxing.doraemonkit:dokitx:3.3.5",
+            "dokitx-no-op"                 : "com.didichuxing.doraemonkit:dokitx-no-op:3.3.5",
+            "doraemonkit-leakcanary"       : "com.didichuxing.doraemonkit:doraemonkit-leakcanary:3.1.5",
     ]
 }

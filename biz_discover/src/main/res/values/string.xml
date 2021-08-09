@@ -9,6 +9,7 @@
     <string name="discover_fresh_news">新鲜资讯</string>
     <string name="discover_publish">发布：</string>
     <string name="discover_collect">收藏</string>
+    <string name="discover_expend_text">…展开</string>
     <string name="discover_icon_like_text">&#xe60d;</string>
     <string name="discover_icon_down_arrow_text">&#xe658;</string>
     <string name="discover_icon_video_text">&#xe6ba;</string>

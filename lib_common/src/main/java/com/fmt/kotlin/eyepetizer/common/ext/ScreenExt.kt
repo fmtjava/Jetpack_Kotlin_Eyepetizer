@@ -21,3 +21,13 @@ fun getScreenH(): Int {
         wm.defaultDisplay.height
     }
 }
+
+fun getStatusBarHeight(): Int {
+    var result = 0
+    val resourceId =
+        AppGlobal.get()?.resources?.getIdentifier("status_bar_height", "dimen", "android")
+    if (resourceId != null && resourceId > 0) {
+        result = AppGlobal.get()?.resources?.getDimensionPixelSize(resourceId)!!
+    }
+    return result
+}

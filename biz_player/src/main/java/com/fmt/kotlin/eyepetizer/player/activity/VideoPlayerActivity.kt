@@ -3,6 +3,7 @@ package com.fmt.kotlin.eyepetizer.player.activity
 import android.animation.Animator
 import android.animation.AnimatorListenerAdapter
 import android.transition.Transition
+import android.util.Log
 import android.view.ViewGroup
 import android.view.ViewParent
 import android.view.ViewTreeObserver
@@ -17,6 +18,7 @@ import com.alibaba.android.arouter.facade.annotation.Route
 import com.alibaba.android.arouter.launcher.ARouter
 import com.fmt.kotlin.eyepetizer.common.base.activity.BaseBindVMActivity
 import com.fmt.kotlin.eyepetizer.common.ext.fromJson
+import com.fmt.kotlin.eyepetizer.common.ext.getStatusBarHeight
 import com.fmt.kotlin.eyepetizer.common.ext.immersionStatusBar
 import com.fmt.kotlin.eyepetizer.player.R
 import com.fmt.kotlin.eyepetizer.player.adapter.TransitionListenerAdapter
@@ -66,7 +68,7 @@ class VideoPlayerActivity : BaseBindVMActivity<VideoPlayerViewModel, PlayerActiv
         get() = R.layout.player_activity_video
 
     override fun initView() {
-        immersionStatusBar()
+        immersionStatusBar(true, android.R.color.black, false, 0.2f)
         mSwipeRefreshLayout.setOnRefreshListener {
             getRelateVideoList()
         }
@@ -143,7 +145,7 @@ class VideoPlayerActivity : BaseBindVMActivity<VideoPlayerViewModel, PlayerActiv
                     val location = IntArray(2)
                     mSurfaceContainer.getLocationInWindow(location)
                     mCurrentAttr.x = location[0]
-                    mCurrentAttr.y = location[1]
+                    mCurrentAttr.y = location[1] - getStatusBarHeight()
                     mCurrentAttr.width = mSurfaceContainer.measuredWidth
                     mCurrentAttr.height = mSurfaceContainer.measuredHeight
                     //开启平移动画实现将列表播放控件平移到详情渲染控件的过渡效果

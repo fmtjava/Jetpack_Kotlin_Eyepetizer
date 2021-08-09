@@ -36,7 +36,7 @@
             <FrameLayout
                 android:id="@+id/mSurfaceContainer"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/dp_250"/>
+                android:layout_height="@dimen/dp_250" />
 
             <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
                 android:id="@+id/mSwipeRefreshLayout"
@@ -186,23 +186,23 @@
                                 app:layout_constraintTop_toBottomOf="@id/tv_title" />
 
                             <com.google.android.material.button.MaterialButton
-                                style="@style/Widget.MaterialComponents.Button.TextButton"
                                 android:id="@+id/gr_follow"
+                                style="@style/Widget.MaterialComponents.Button.TextButton"
                                 android:layout_width="@dimen/dp_50"
                                 android:layout_height="@dimen/dp_30"
                                 android:layout_marginEnd="@dimen/dp_10"
+                                android:insetTop="@dimen/dp_0"
+                                android:insetBottom="@dimen/dp_0"
+                                android:padding="@dimen/dp_0"
+                                android:text="@string/discover_add_follow"
+                                android:textColor="@color/color_grey"
+                                android:textSize="@dimen/sp_12"
+                                android:textStyle="bold"
                                 app:backgroundTint="@android:color/white"
                                 app:cornerRadius="@dimen/dp_5"
                                 app:layout_constraintBottom_toBottomOf="parent"
                                 app:layout_constraintRight_toRightOf="parent"
-                                app:layout_constraintTop_toTopOf="parent"
-                                android:text="@string/discover_add_follow"
-                                android:textColor="@color/color_grey"
-                                android:textSize="@dimen/sp_12"
-                                android:insetTop="@dimen/dp_0"
-                                android:insetBottom="@dimen/dp_0"
-                                android:padding="@dimen/dp_0"
-                                android:textStyle="bold"/>
+                                app:layout_constraintTop_toTopOf="parent" />
 
                         </androidx.constraintlayout.widget.ConstraintLayout>
 

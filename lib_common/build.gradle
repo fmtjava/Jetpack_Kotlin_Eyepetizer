@@ -72,6 +72,7 @@ dependencies {
     api rootProject.ext.dependencies["LoadingDialog"]
     api rootProject.ext.dependencies["banner"]
     api rootProject.ext.dependencies["PhotoView"]
+    api rootProject.ext.dependencies["ReadMoreTextView"]
     api rootProject.ext.dependencies["mmkv"]
     api rootProject.ext.dependencies["agentweb"]
     api rootProject.ext.dependencies["LiveDataBus"]
