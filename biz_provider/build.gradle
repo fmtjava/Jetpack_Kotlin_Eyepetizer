@@ -48,7 +48,6 @@ dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     api project(path: ':lib_common')
     testImplementation rootProject.ext.androidx["junit"]
-    androidTestImplementation rootProject.ext.androidx["androidx.test.ext-junit"]
     androidTestImplementation rootProject.ext.androidx["androidx.test.espresso:espresso-core"]
 
     kapt rootProject.ext.dependencies["arouter-compiler"]
