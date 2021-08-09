@@ -17,6 +17,7 @@ class SplashActivity : BaseBindActivity<ActivitySplashBinding>() {
         lifecycleScope.launchWhenCreated {
             delay(500)
             startActivity<HomeActivity>()
+            finish()
         }
     }
 }
