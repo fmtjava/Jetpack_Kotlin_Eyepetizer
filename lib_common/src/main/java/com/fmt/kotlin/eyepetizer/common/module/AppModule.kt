@@ -29,14 +29,11 @@ object AppModule {
     @Singleton
     @Provides
     fun provideHttpLoggingInterceptor(configurator: Configurator): HttpLoggingInterceptor {
-        return HttpLoggingInterceptor(object :
-            HttpLoggingInterceptor.Logger {
-            override fun log(message: String) {
-                if (BuildConfig.DEBUG && configurator.getConfiguration(ConfigKeys.HTTP_LOG_ENABLE)) {
-                    Log.e(TAG, message)
-                }
+        return HttpLoggingInterceptor { message ->
+            if (BuildConfig.DEBUG && configurator.getConfiguration(ConfigKeys.HTTP_LOG_ENABLE)) {
+                Log.e(TAG, message)
             }
-        }).also {
+        }.also {
             it.level = HttpLoggingInterceptor.Level.BODY
         }
     }
