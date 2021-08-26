@@ -1,6 +1,5 @@
 package com.fmt.kotlin.eyepetizer.discover.viewmodel
 
-import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.LiveData
 import com.fmt.kotlin.eyepetizer.common.base.viewmodel.BaseViewModel
 import com.fmt.kotlin.eyepetizer.common.global.ConfigKeys
@@ -8,8 +7,11 @@ import com.fmt.kotlin.eyepetizer.common.global.Configurator
 import com.fmt.kotlin.eyepetizer.discover.api.DiscoverApi
 import com.fmt.kotlin.eyepetizer.discover.model.CategoryModel
 import com.fmt.kotlin.eyepetizer.provider.model.Item
+import dagger.hilt.android.lifecycle.HiltViewModel
+import javax.inject.Inject
 
-class CategoryViewModel @ViewModelInject constructor(
+@HiltViewModel
+class CategoryViewModel @Inject constructor(
     private val mDiscoverApi: DiscoverApi,
     private val mConfigurator: Configurator
 ) : BaseViewModel() {

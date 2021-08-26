@@ -1,11 +1,13 @@
 package com.fmt.kotlin.eyepetizer.discover.viewmodel
 
-import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.LiveData
 import com.fmt.kotlin.eyepetizer.discover.api.DiscoverApi
 import com.fmt.kotlin.eyepetizer.discover.model.TopicDetailModel
+import dagger.hilt.android.lifecycle.HiltViewModel
+import javax.inject.Inject
 
-class TopicViewModel @ViewModelInject constructor(private val mDiscoverApi: DiscoverApi) : CommonListViewModel() {
+@HiltViewModel
+class TopicViewModel @Inject constructor(private val mDiscoverApi: DiscoverApi) : CommonListViewModel() {
 
     fun getTopicDetail(id: Int): LiveData<TopicDetailModel> = liveDataEx {
         mDiscoverApi.getTopicDetail(id)

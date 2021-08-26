@@ -91,7 +91,6 @@ dokitExt {
 
 dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
-    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     testImplementation rootProject.ext.androidx["junit"]
     androidTestImplementation rootProject.ext.androidx["androidx.test.espresso:espresso-core"]
 
@@ -109,5 +108,4 @@ dependencies {
     implementation project(path: ':biz_hot')
     implementation project(path: ':biz_person')
     implementation project(path: ':biz_player')
-
 }

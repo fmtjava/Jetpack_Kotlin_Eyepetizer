@@ -1,12 +1,14 @@
 package com.fmt.kotlin.eyepetizer.discover.viewmodel
 
-import androidx.hilt.lifecycle.ViewModelInject
 import com.fmt.kotlin.eyepetizer.discover.api.DiscoverApi
 import com.fmt.kotlin.eyepetizer.discover.model.NewsItemModel
 import com.fmt.kotlin.eyepetizer.discover.model.NewsModel
 import com.fmt.kotlin.eyepetizer.discover.model.NewsProviderMultiModel
+import dagger.hilt.android.lifecycle.HiltViewModel
+import javax.inject.Inject
 
-class NewsViewModel @ViewModelInject constructor(private val mDiscoverApi: DiscoverApi) : CommonListViewModel() {
+@HiltViewModel
+class NewsViewModel @Inject constructor(private val mDiscoverApi: DiscoverApi) : CommonListViewModel() {
 
     val TEXT_CARD_TYPE = "textCard"
 

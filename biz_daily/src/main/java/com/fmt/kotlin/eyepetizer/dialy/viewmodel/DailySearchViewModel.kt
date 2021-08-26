@@ -1,13 +1,15 @@
 package com.fmt.kotlin.eyepetizer.dialy.viewmodel
 
-import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.LiveData
 import com.fmt.kotlin.eyepetizer.common.base.viewmodel.BaseViewModel
 import com.fmt.kotlin.eyepetizer.dialy.api.DailyApi
 import com.fmt.kotlin.eyepetizer.provider.model.Issue
 import com.fmt.kotlin.eyepetizer.provider.model.Item
+import dagger.hilt.android.lifecycle.HiltViewModel
+import javax.inject.Inject
 
-class DailySearchViewModel @ViewModelInject constructor(private val mDailyApi: DailyApi) : BaseViewModel() {
+@HiltViewModel
+class DailySearchViewModel @Inject constructor(private val mDailyApi: DailyApi) : BaseViewModel() {
 
     private var mNextPageUrl: String? = null
     var mTotal: Int = 0

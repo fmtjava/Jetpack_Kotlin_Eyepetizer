@@ -1,12 +1,10 @@
+//抽离组件中通用的配置
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
-
-kapt {
-    arguments {
-        arg("AROUTER_MODULE_NAME", project.getName())
-    }
+if (project.name != "biz_provider") {
+    apply plugin: 'dagger.hilt.android.plugin'
 }
 
 android {
@@ -30,24 +28,16 @@ android {
         }
     }
 
-    dataBinding {
-        enabled = true
+    buildFeatures {
+        dataBinding = true
     }
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
 
-    kotlinOptions{
+    kotlinOptions {
         jvmTarget = "1.8"
     }
-}
-
-dependencies {
-    implementation fileTree(dir: "libs", include: ["*.jar"])
-    api project(path: ':lib_common')
-    testImplementation rootProject.ext.androidx["junit"]
-    androidTestImplementation rootProject.ext.androidx["androidx.test.espresso:espresso-core"]
-
-    kapt rootProject.ext.dependencies["arouter-compiler"]
 }

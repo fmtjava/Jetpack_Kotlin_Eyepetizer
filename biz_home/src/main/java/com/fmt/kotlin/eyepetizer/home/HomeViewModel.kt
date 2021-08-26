@@ -4,8 +4,11 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.SavedStateHandle
 import com.fmt.kotlin.eyepetizer.common.base.viewmodel.BaseViewModel
+import dagger.hilt.android.lifecycle.HiltViewModel
+import javax.inject.Inject
 
-class HomeViewModel(private val savedStateHandle: SavedStateHandle) : BaseViewModel() {
+@HiltViewModel
+class HomeViewModel @Inject constructor(private val savedStateHandle: SavedStateHandle) : BaseViewModel() {
 
     private val HOME_PAGE_INDEX = "home_page_index"
     private val mLiveData = MutableLiveData<Int>()

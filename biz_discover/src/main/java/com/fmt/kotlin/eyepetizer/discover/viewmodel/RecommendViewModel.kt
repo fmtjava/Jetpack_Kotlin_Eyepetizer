@@ -1,10 +1,13 @@
 package com.fmt.kotlin.eyepetizer.discover.viewmodel
 
-import androidx.hilt.lifecycle.ViewModelInject
 import com.fmt.kotlin.eyepetizer.discover.api.DiscoverApi
 import com.fmt.kotlin.eyepetizer.discover.model.RecommendModel
+import dagger.hilt.android.lifecycle.HiltViewModel
+import javax.inject.Inject
 
-class RecommendViewModel @ViewModelInject constructor(private val mDiscoverApi: DiscoverApi) : CommonListViewModel() {
+@HiltViewModel
+class RecommendViewModel @Inject constructor(private val mDiscoverApi: DiscoverApi) :
+    CommonListViewModel() {
 
     private val HORIZONTAL_SCROLL_CARD = "horizontalScrollCard"
 

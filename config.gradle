@@ -25,11 +25,11 @@ ext {
             "androidx.startup-runtime"            : "androidx.startup:startup-runtime:1.0.0",
             "junit"                               : "junit:junit:4.13.1",
             "androidx.test.espresso:espresso-core": "androidx.test.espresso:espresso-core:3.3.0",
-            "hilt-lifecycle-viewmodel"            : "androidx.hilt:hilt-lifecycle-viewmodel:1.0.0-alpha02",
-            "hilt-compiler"                       : "androidx.hilt:hilt-compiler:1.0.0-alpha02"
+            "hilt-compiler"                       : "androidx.hilt:hilt-compiler:1.0.0"
     ]
 
     dependencies = [
+            "kotlin-stdlib"                : "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version",
             "okhttp3"                      : "com.squareup.okhttp3:okhttp:4.9.1",
             "logging-interceptor"          : "com.squareup.okhttp3:logging-interceptor:4.9.1",
             "retrofit2"                    : "com.squareup.retrofit2:retrofit:2.9.0",
@@ -51,8 +51,8 @@ ext {
             "jiaozivideoplayer"            : "cn.jzvd:jiaozivideoplayer:7.5.0",
             "arouter-api"                  : "com.alibaba:arouter-api:1.5.0",
             "arouter-compiler"             : "com.alibaba:arouter-compiler:1.2.2",
-            "hilt-android"                 : "com.google.dagger:hilt-android:2.32-alpha",
-            "hilt-android-compiler"        : "com.google.dagger:hilt-android-compiler:2.32-alpha",
+            "hilt-android"                 : "com.google.dagger:hilt-android:2.38.1",
+            "hilt-android-compiler"        : "com.google.dagger:hilt-android-compiler:2.38.1",
             "dokitx"                       : "com.didichuxing.doraemonkit:dokitx:3.3.5",
             "dokitx-no-op"                 : "com.didichuxing.doraemonkit:dokitx-no-op:3.3.5",
             "doraemonkit-leakcanary"       : "com.didichuxing.doraemonkit:doraemonkit-leakcanary:3.1.5",

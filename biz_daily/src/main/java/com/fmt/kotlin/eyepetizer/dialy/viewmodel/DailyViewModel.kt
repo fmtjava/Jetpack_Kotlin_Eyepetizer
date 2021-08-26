@@ -1,12 +1,14 @@
 package com.fmt.kotlin.eyepetizer.dialy.viewmodel
 
-import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.LiveData
 import com.fmt.kotlin.eyepetizer.common.base.viewmodel.BaseViewModel
 import com.fmt.kotlin.eyepetizer.dialy.api.DailyApi
 import com.fmt.kotlin.eyepetizer.dialy.model.ProviderMultiModel
+import dagger.hilt.android.lifecycle.HiltViewModel
+import javax.inject.Inject
 
-class DailyViewModel @ViewModelInject constructor(private val mDailyApi: DailyApi) : BaseViewModel() {
+@HiltViewModel
+class DailyViewModel @Inject constructor(private val mDailyApi: DailyApi) : BaseViewModel() {
 
     private val BANNER_TYPE = "banner2"
     private val TEXT_HEADER_TYPE = "textHeader"

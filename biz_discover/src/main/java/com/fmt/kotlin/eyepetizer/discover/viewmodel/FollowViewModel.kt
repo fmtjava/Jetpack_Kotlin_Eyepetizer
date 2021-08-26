@@ -1,10 +1,11 @@
 package com.fmt.kotlin.eyepetizer.discover.viewmodel
 
-import androidx.hilt.lifecycle.ViewModelInject
 import com.fmt.kotlin.eyepetizer.discover.api.DiscoverApi
+import dagger.hilt.android.lifecycle.HiltViewModel
+import javax.inject.Inject
 
-
-class FollowViewModel @ViewModelInject constructor(private val mDiscoverApi: DiscoverApi) :CommonListViewModel() {
+@HiltViewModel
+class FollowViewModel @Inject constructor(private val mDiscoverApi: DiscoverApi) :CommonListViewModel() {
 
     override suspend fun <M> getRefreshList(): List<M> {
         val issue = mDiscoverApi.getFollowList()

@@ -1,86 +1,28 @@
-apply plugin: 'com.android.library'
-apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-android-extensions'
-apply plugin: 'kotlin-kapt'
-apply plugin: 'dagger.hilt.android.plugin'
+apply from: "../common_module_config.gradle"
 
-android {
-    compileSdkVersion rootProject.ext.android.compileSdkVersion
-    buildToolsVersion rootProject.ext.android.buildToolsVersion
-
-    defaultConfig {
-        minSdkVersion rootProject.ext.android.minSdkVersion
-        targetSdkVersion rootProject.ext.android.targetSdkVersion
-        versionCode rootProject.ext.android.versionCode
-        versionName rootProject.ext.android.versionName
-
-        consumerProguardFiles 'consumer-rules.pro'
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-    }
-
-    buildTypes {
-        release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-        }
-    }
-    dataBinding {
-        enabled = true
-    }
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
-    }
-
-    kotlinOptions{
-        jvmTarget = "1.8"
-    }
-}
+def androidx = rootProject.ext.androidx
+def thirdDependencies = rootProject.ext.dependencies
 
 dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
-    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
-    testImplementation rootProject.ext.androidx["junit"]
-    androidTestImplementation rootProject.ext.androidx["androidx.test.espresso:espresso-core"]
 
-    api rootProject.ext.androidx["androidx-appcompat"]
-    api rootProject.ext.androidx["androidx.swiperefreshlayout"]
-    api rootProject.ext.androidx["androidx.recyclerview"]
-    api rootProject.ext.androidx["androidx.constraintlayout"]
-    api rootProject.ext.androidx["android.material"]
-    api rootProject.ext.androidx["androidx.fragment"]
-    api rootProject.ext.androidx["androidx.core"]
-    api rootProject.ext.androidx["androidx.lifecycle-runtime"]
-    api rootProject.ext.androidx["lifecycle-common-java8"]
-    api rootProject.ext.androidx["androidx.lifecycle-viewmodel"]
-    api rootProject.ext.androidx["androidx.lifecycle-livedata"]
-    api rootProject.ext.androidx["androidx.startup-runtime"]
-    api rootProject.ext.androidx["hilt-lifecycle-viewmodel"]
+    androidx.each { k, v ->
+        if (k.contains("junit")) {
+            testImplementation v
+        } else if (k.contains("espresso")) {
+            androidTestImplementation v
+        } else if (k.contains("compiler")) {
+            kapt v
+        } else {
+            api v
+        }
+    }
 
-    kapt rootProject.ext.androidx["hilt-compiler"]
-
-    api rootProject.ext.dependencies["logging-interceptor"]
-    api rootProject.ext.dependencies["retrofit2"]
-    api rootProject.ext.dependencies["okhttp3"]
-    api rootProject.ext.dependencies["converter-gson"]
-    api rootProject.ext.dependencies["immersionbar"]
-    api rootProject.ext.dependencies["immersionbar-ktx"]
-    api rootProject.ext.dependencies["BaseRecyclerViewAdapterHelper"]
-    api rootProject.ext.dependencies["coil"]
-    api rootProject.ext.dependencies["tastytoast"]
-    api rootProject.ext.dependencies["LoadingDialog"]
-    api rootProject.ext.dependencies["banner"]
-    api rootProject.ext.dependencies["PhotoView"]
-    api rootProject.ext.dependencies["ReadMoreTextView"]
-    api rootProject.ext.dependencies["mmkv"]
-    api rootProject.ext.dependencies["agentweb"]
-    api rootProject.ext.dependencies["LiveDataBus"]
-    api rootProject.ext.dependencies["recycler-view-divider"]
-    api rootProject.ext.dependencies["SwipeRecyclerView"]
-    api rootProject.ext.dependencies["jiaozivideoplayer"]
-    api rootProject.ext.dependencies["arouter-api"]
-    api rootProject.ext.dependencies["hilt-android"]
-
-    kapt rootProject.ext.dependencies["hilt-android-compiler"]
-
+    thirdDependencies.each { k, v ->
+        if (k.contains("compiler") && !k.startsWith("arouter")) {
+            kapt v
+        } else if (!k.contains("dokitx") && !k.contains("compiler")) {
+            api v
+        }
+    }
 }

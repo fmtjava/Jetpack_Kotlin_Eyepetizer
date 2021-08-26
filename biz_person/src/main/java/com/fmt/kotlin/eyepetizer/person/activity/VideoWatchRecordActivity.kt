@@ -89,6 +89,7 @@ class VideoWatchRecordActivity : AppCompatActivity() {
                     newDataList
                 )
             )
+            //更新数据应当切换到主现场中
             withContext(Dispatchers.Main) {
                 //更新新的数据源
                 mAdapter.newData(newDataList)
