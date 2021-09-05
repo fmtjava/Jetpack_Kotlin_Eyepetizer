@@ -1,6 +1,2 @@
 
-android {
-    //自定义自模块资源命名前缀，防止资源重复
-    resourcePrefix "daily_"
-}
 

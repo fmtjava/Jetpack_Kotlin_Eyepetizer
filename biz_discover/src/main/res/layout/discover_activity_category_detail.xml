@@ -32,7 +32,8 @@
                 app:statusBarScrim="@android:color/white"
                 app:contentScrim="@android:color/white"
                 app:expandedTitleTextAppearance="@style/discover_expandedTitleTextAppearance"
-                app:layout_scrollFlags="scroll|exitUntilCollapsed">
+                app:layout_scrollFlags="scroll|exitUntilCollapsed"
+                app:title="@{title}">
 
                 <androidx.appcompat.widget.AppCompatImageView
                     android:id="@+id/detail_img"

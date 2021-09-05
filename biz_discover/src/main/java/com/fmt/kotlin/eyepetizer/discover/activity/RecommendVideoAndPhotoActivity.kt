@@ -46,7 +46,7 @@ class RecommendVideoAndPhotoActivity : AppCompatActivity() {
             R.layout.discover_activity_recommend_video_and_photo
         )
         mModel =
-            fromJson(intent.getStringExtra(RECOMMEND_DATA_KEY).toString(), Item::class.java)
+            fromJson(intent.getStringExtra(RECOMMEND_DATA_KEY).toString())
         binding.model = mModel
         if (isVideoType()) {
             jzvdStd.setUp(mModel.data.content.data.playUrl, mModel.data.content.data.title)

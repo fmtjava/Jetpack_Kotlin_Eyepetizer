@@ -5,7 +5,7 @@ def thirdDependencies = rootProject.ext.dependencies
 
 dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
-
+    //配置通用依赖项
     androidx.each { k, v ->
         if (k.contains("junit")) {
             testImplementation v

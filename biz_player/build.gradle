@@ -1,5 +1,1 @@
 
-android {
-
-    resourcePrefix "player_"
-}

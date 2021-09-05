@@ -30,27 +30,31 @@ allprojects {
 
 //子工程模块通用配置信息
 subprojects { subproject ->
-    if (subproject.getName().startsWith("biz_") && subproject.getName() != "biz_provider") {
+    if (subproject.getName().startsWith("biz_")) {
 
         apply from: "../common_module_config.gradle"
+        apply from: "../arouter.gradle"
 
-        kapt {
-            arguments {
-                arg("AROUTER_MODULE_NAME", subproject.getName())
-            }
+        android {
+            //自定义自模块资源命名前缀，防止资源重复
+            resourcePrefix subproject.getName().substring(subproject.getName().indexOf("_") + 1) + "_"
         }
 
         dependencies {
             implementation fileTree(dir: "libs", include: ["*.jar"])
             testImplementation rootProject.ext.androidx["junit"]
             androidTestImplementation rootProject.ext.androidx["androidx.test.espresso:espresso-core"]
-            api project(path: ':biz_provider')
 
-            //组件化使用hilt时，目前需要在每一个module中都以下配置
-            implementation rootProject.ext.dependencies["hilt-android"]
-            kapt rootProject.ext.dependencies["arouter-compiler"]
-            kapt rootProject.ext.dependencies["hilt-android-compiler"]
-            kapt rootProject.ext.androidx["hilt-compiler"]
+            if (subproject.getName() != "biz_provider") {
+                api project(path: ':biz_provider')
+
+                //组件化使用hilt时，目前需要在每一个module中都以下配置
+                implementation rootProject.ext.dependencies["hilt-android"]
+                kapt rootProject.ext.dependencies["hilt-android-compiler"]
+                kapt rootProject.ext.androidx["hilt-compiler"]
+            }else{
+                api project(path: ':lib_common')
+            }
         }
     }
 }

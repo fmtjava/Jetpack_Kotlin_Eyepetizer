@@ -1,4 +1,1 @@
-android {
 
-    resourcePrefix "home_"
-}
