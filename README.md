@@ -1,7 +1,8 @@
 # Eyepetizer
 一款基于Kotlin + Jetpack核心组件 + 协程 + 组件化实现的精美仿开眼视频App。<br /><br />
 Flutter版：[flutter_eyepetizer](https://github.com/fmtjava/flutter_eyepetizer)<br /><br />
-ReactNative版：[ReactNative_Eyepetizer](https://github.com/fmtjava/ReactNative_Eyepetizer)
+ReactNative版：[ReactNative_Eyepetizer](https://github.com/fmtjava/ReactNative_Eyepetizer)<br /><br />
+小程序版：[wx_eyepetizer](https://github.com/fmtjava/wx_eyepetizer)<br /><br />
 
 **如果喜欢的话希望给个 `Star` 或 `Fork` ^_^ ，谢谢**
 
