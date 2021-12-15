@@ -57,6 +57,12 @@ ReactNative版：[ReactNative_Eyepetizer](https://github.com/fmtjava/ReactNative
   <img src="http://m.qpic.cn/psc?/V526iEgm3HgG9w0K6aQL2X9HJE4OnV96/45NBuzDIW489QBoVep5mcQUqJZ4KbPa4QaiwmVmQ.zM7tqZczV3CUBQXYO6A..R9uZi2PiwdT7P4XFs7N9LBi6a3iPfKRpAjRBt3Qy9C54A!/b&bo=0gaYAwAAAAADF30!&rf=viewer_4"/>
 </div>
 
+# 技术栈
+<div>
+  <img src="http://m.qpic.cn/psc?/V526iEgm3HgG9w0K6aQL2X9HJE4OnV96/45NBuzDIW489QBoVep5mcZLnnAOG7l4.LC*eJ*3vQ1IiIBj8GFEjoeOGbjktQ9q*JCQZXJnNaWn45YBv7*IyH0n*JGTJI.7mdpUEj.N2pu4!/b&bo=WQc4BAAAAAADN3A!&rf=viewer_4"/>
+</div>
+图片可能不够清晰，可clone工程源码，源码工程中包含了XMind文档
+
 # 下载体验 
  - 点击[![](https://img.shields.io/badge/Download-apk-green.svg)](https://www.pgyer.com/Bbn8)
  - 下方二维码下载(每日上限100次，如达到上限，还是 clone 源码吧！✧(≖ ◡ ≖✿))）<br/>
