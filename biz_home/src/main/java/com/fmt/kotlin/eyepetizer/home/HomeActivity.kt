@@ -1,6 +1,11 @@
 package com.fmt.kotlin.eyepetizer.home
 
+import android.app.SharedElementCallback
+import android.graphics.Matrix
+import android.graphics.RectF
+import android.os.Parcelable
 import android.view.KeyEvent
+import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
 import com.alibaba.android.arouter.launcher.ARouter
@@ -27,7 +32,20 @@ class HomeActivity : BaseMVActivity<HomeViewModel>() {
 
     override fun initWindow() {
         window.sharedElementsUseOverlay = false
-        setExitSharedElementCallback(MaterialContainerTransformSharedElementCallback())
+        setExitSharedElementCallback(object : SharedElementCallback(){
+            override fun onCaptureSharedElementSnapshot(
+                sharedElement: View,
+                viewToGlobalMatrix: Matrix?,
+                screenBounds: RectF?
+            ): Parcelable {
+                sharedElement.alpha = 1f
+                return super.onCaptureSharedElementSnapshot(
+                    sharedElement,
+                    viewToGlobalMatrix,
+                    screenBounds
+                )
+            }
+        })
     }
 
     override fun initView() {
