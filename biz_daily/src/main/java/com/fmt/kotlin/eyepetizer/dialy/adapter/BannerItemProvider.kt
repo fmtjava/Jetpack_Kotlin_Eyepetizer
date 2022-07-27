@@ -2,9 +2,9 @@ package com.fmt.kotlin.eyepetizer.dialy.adapter
 
 import android.app.Activity
 import androidx.databinding.BindingAdapter
+import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.LifecycleOwner
 import com.chad.library.adapter.base.provider.BaseItemProvider
-import com.chad.library.adapter.base.viewholder.BaseDataBindingHolder
 import com.chad.library.adapter.base.viewholder.BaseViewHolder
 import com.fmt.kotlin.eyepetizer.dialy.R
 import com.fmt.kotlin.eyepetizer.dialy.databinding.DailyItemBannerBinding
@@ -22,11 +22,15 @@ class BannerItemProvider(private val owner: LifecycleOwner, private val activity
     override val layoutId: Int
         get() = R.layout.daily_item_banner
 
+    override fun onViewHolderCreated(viewHolder: BaseViewHolder, viewType: Int) {
+        DataBindingUtil.bind<DailyItemBannerBinding>(viewHolder.itemView)
+    }
+
     override fun convert(helper: BaseViewHolder, item: ProviderMultiModel) {
-        val bindingHolder = BaseDataBindingHolder<DailyItemBannerBinding>(helper.itemView)
-        bindingHolder.dataBinding?.model = item
-        bindingHolder.dataBinding?.owner = owner
-        bindingHolder.dataBinding?.activity = activity
+        val binding = DataBindingUtil.getBinding<DailyItemBannerBinding>(helper.itemView)
+        binding?.model = item
+        binding?.owner = owner
+        binding?.activity = activity
     }
 
     companion object {

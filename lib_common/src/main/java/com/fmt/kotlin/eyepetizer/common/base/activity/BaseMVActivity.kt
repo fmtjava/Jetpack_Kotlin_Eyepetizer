@@ -34,7 +34,7 @@ abstract class BaseMVActivity<VM : BaseViewModel> : AppCompatActivity() {
     private fun initViewModel() {
         val parameterizedType = javaClass.genericSuperclass as ParameterizedType
         mViewModel = ViewModelProvider(this)[parameterizedType.actualTypeArguments[0] as Class<VM>]
-        mViewModel.mStateLiveData.observe(this, { state ->
+        mViewModel.mStateLiveData.observe(this) { state ->
             when (state) {
                 LoadState -> {
                     showLoading()
@@ -48,7 +48,7 @@ abstract class BaseMVActivity<VM : BaseViewModel> : AppCompatActivity() {
                     handlerError()
                 }
             }
-        })
+        }
     }
 
     //扩展liveData的observe函数

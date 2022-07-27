@@ -2,11 +2,11 @@ package com.fmt.kotlin.eyepetizer.discover.adapter
 
 import android.app.Activity
 import androidx.databinding.BindingAdapter
+import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.chad.library.adapter.base.module.LoadMoreModule
-import com.chad.library.adapter.base.viewholder.BaseDataBindingHolder
 import com.chad.library.adapter.base.viewholder.BaseViewHolder
 import com.fmt.kotlin.eyepetizer.common.ext.dp2px
 import com.fmt.kotlin.eyepetizer.discover.R
@@ -18,27 +18,42 @@ import com.fmt.kotlin.eyepetizer.provider.router.go2VideoPlayerActivity
 class FollowAdapter(private val mActivity: Activity) :
     BaseQuickAdapter<Item, BaseViewHolder>(R.layout.discover_item_follow), LoadMoreModule {
 
+    override fun onItemViewHolderCreated(viewHolder: BaseViewHolder, viewType: Int) {
+        DataBindingUtil.bind<DiscoverItemFollowBinding>(viewHolder.itemView)
+    }
+
     override fun convert(holder: BaseViewHolder, item: Item) {
-        val bindingHolder = BaseDataBindingHolder<DiscoverItemFollowBinding>(holder.itemView)
-        bindingHolder.dataBinding?.model = item
-        bindingHolder.dataBinding?.activity = mActivity
+        val binding = DataBindingUtil.getBinding<DiscoverItemFollowBinding>(holder.itemView)
+        binding?.model = item
+        binding?.activity = mActivity
     }
 
     class FollowWorksAdapter(private val activity: Activity) :
         BaseQuickAdapter<Item, BaseViewHolder>(R.layout.discover_item_works) {
 
-        override fun convert(holder: BaseViewHolder, item: Item) {
-            val bindingHolder = BaseDataBindingHolder<DiscoverItemWorksBinding>(holder.itemView)
-            bindingHolder.dataBinding?.model = item
-            bindingHolder.dataBinding?.ivCover?.setOnClickListener {
-                go2VideoPlayerActivity(
-                    activity,
-                    it,
-                    item.data
-                )
+        init {
+            addChildClickViewIds(R.id.iv_cover)
+            setOnItemChildClickListener { adapter, view, position ->
+                val itemData = data[position].data
+                if (view.id == R.id.iv_cover) {
+                    go2VideoPlayerActivity(
+                        activity,
+                        view,
+                        itemData
+                    )
+                }
             }
+        }
+
+        override fun onItemViewHolderCreated(viewHolder: BaseViewHolder, viewType: Int) {
+            DataBindingUtil.bind<DiscoverItemWorksBinding>(viewHolder.itemView)
+        }
+
+        override fun convert(holder: BaseViewHolder, item: Item) {
+            val binding = DataBindingUtil.getBinding<DiscoverItemWorksBinding>(holder.itemView)
+            binding?.model = item
             if (data.indexOf(item) == data.size - 1) {
-                bindingHolder.dataBinding?.llCover?.setPadding(dp2px(15f), 0, dp2px(15f), 0)
+                binding?.llCover?.setPadding(dp2px(15f), 0, dp2px(15f), 0)
             }
         }
     }

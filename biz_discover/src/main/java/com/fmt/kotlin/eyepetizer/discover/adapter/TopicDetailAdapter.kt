@@ -8,10 +8,10 @@ import android.view.ViewOutlineProvider
 import android.widget.FrameLayout
 import android.widget.LinearLayout
 import androidx.databinding.BindingAdapter
+import androidx.databinding.DataBindingUtil
 import coil.load
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.chad.library.adapter.base.module.LoadMoreModule
-import com.chad.library.adapter.base.viewholder.BaseDataBindingHolder
 import com.chad.library.adapter.base.viewholder.BaseViewHolder
 import com.fmt.kotlin.eyepetizer.common.ext.dp2px
 import com.fmt.kotlin.eyepetizer.common.util.ShareUtils
@@ -27,17 +27,28 @@ import com.fmt.kotlin.eyepetizer.provider.model.Tag
 class TopicDetailAdapter(private val mActivity: Activity, val mVideoClick: OnVideoClick) :
     BaseQuickAdapter<Item, BaseViewHolder>(R.layout.discover_item_topic_detail), LoadMoreModule {
 
-    override fun convert(holder: BaseViewHolder, item: Item) {
-        val bindingHolder = BaseDataBindingHolder<DiscoverItemTopicDetailBinding>(holder.itemView)
-        bindingHolder.dataBinding?.model = item
-        bindingHolder.dataBinding?.activity = mActivity
-
-        val container = bindingHolder.dataBinding!!.surfaceContainer
-        dealJzvdStdRv(container, item)
-
-        bindingHolder.dataBinding!!.tvShare.setOnClickListener {
-            ShareUtils.shareText(mActivity, item.data.content.data.playUrl)
+    init {
+        addChildClickViewIds(R.id.tv_share)
+        setOnItemChildClickListener { adapter, view, position ->
+            if (view.id == R.id.tv_share) {
+                val itemData = data[position].data
+                ShareUtils.shareText(mActivity, itemData.content.data.playUrl)
+            }
         }
+    }
+
+    override fun onItemViewHolderCreated(viewHolder: BaseViewHolder, viewType: Int) {
+        DataBindingUtil.bind<DiscoverItemTopicDetailBinding>(viewHolder.itemView)
+    }
+
+    override fun convert(holder: BaseViewHolder, item: Item) {
+        val binding =
+            DataBindingUtil.getBinding<DiscoverItemTopicDetailBinding>(holder.itemView)
+        binding?.model = item
+        binding?.activity = mActivity
+
+        val container = binding!!.surfaceContainer
+        dealJzvdStdRv(container, item)
     }
 
     private fun dealJzvdStdRv(container: FrameLayout, item: Item) {

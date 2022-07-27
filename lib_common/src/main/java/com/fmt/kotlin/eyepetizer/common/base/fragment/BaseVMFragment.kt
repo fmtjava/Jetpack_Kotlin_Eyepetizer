@@ -21,7 +21,7 @@ abstract class BaseVMFragment<VM : BaseViewModel> : BaseFragment() {
     private fun initViewModel() {
         val parameterizedType = javaClass.genericSuperclass as ParameterizedType
         mViewModel = ViewModelProvider(this)[parameterizedType.actualTypeArguments[0] as Class<VM>]
-        mViewModel.mStateLiveData.observe(viewLifecycleOwner, { state ->
+        mViewModel.mStateLiveData.observe(viewLifecycleOwner) { state ->
             when (state) {
                 LoadState -> {
                     showLoading()
@@ -35,7 +35,7 @@ abstract class BaseVMFragment<VM : BaseViewModel> : BaseFragment() {
                     handlerError()
                 }
             }
-        })
+        }
     }
 
     protected fun <T : Any> LiveData<T>.observerKt(block: (T) -> Unit) {

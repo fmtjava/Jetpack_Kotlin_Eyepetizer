@@ -1,8 +1,8 @@
 package com.fmt.kotlin.eyepetizer.discover.adapter
 
+import androidx.databinding.DataBindingUtil
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.chad.library.adapter.base.module.LoadMoreModule
-import com.chad.library.adapter.base.viewholder.BaseDataBindingHolder
 import com.chad.library.adapter.base.viewholder.BaseViewHolder
 import com.fmt.kotlin.eyepetizer.common.ext.dp2px
 import com.fmt.kotlin.eyepetizer.common.ext.getScreenW
@@ -15,11 +15,15 @@ class RecommendAdapter : BaseQuickAdapter<Item, BaseViewHolder>(R.layout.discove
 
     private val mMaxImageWidth = (getScreenW() - dp2px(12f)) / 2
 
+    override fun onItemViewHolderCreated(viewHolder: BaseViewHolder, viewType: Int) {
+        DataBindingUtil.bind<DiscoverItemRecommendBinding>(viewHolder.itemView)
+    }
+
     override fun convert(holder: BaseViewHolder, item: Item) {
-        val bindingHolder = BaseDataBindingHolder<DiscoverItemRecommendBinding>(holder.itemView)
-        bindingHolder.dataBinding!!.model = item
-        bindingHolder.dataBinding!!.ivCover.layoutParams.width = mMaxImageWidth
-        bindingHolder.dataBinding!!.ivCover.layoutParams.height =
+        val binding = DataBindingUtil.getBinding<DiscoverItemRecommendBinding>(holder.itemView)
+        binding!!.model = item
+        binding.ivCover.layoutParams.width = mMaxImageWidth
+        binding.ivCover.layoutParams.height =
             calculateImageHeight(item.data.content.data.width, item.data.content.data.height)
     }
 

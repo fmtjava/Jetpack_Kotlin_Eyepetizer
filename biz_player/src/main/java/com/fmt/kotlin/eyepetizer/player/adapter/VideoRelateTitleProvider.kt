@@ -1,7 +1,7 @@
 package com.fmt.kotlin.eyepetizer.player.adapter
 
+import androidx.databinding.DataBindingUtil
 import com.chad.library.adapter.base.provider.BaseItemProvider
-import com.chad.library.adapter.base.viewholder.BaseDataBindingHolder
 import com.chad.library.adapter.base.viewholder.BaseViewHolder
 import com.fmt.kotlin.eyepetizer.player.R
 import com.fmt.kotlin.eyepetizer.player.databinding.PlayerItemRelateTitleBinding
@@ -13,9 +13,13 @@ class VideoRelateTitleProvider : BaseItemProvider<Item>() {
     override val layoutId: Int
         get() = R.layout.player_item_relate_title
 
+    override fun onViewHolderCreated(viewHolder: BaseViewHolder, viewType: Int) {
+        DataBindingUtil.bind<PlayerItemRelateTitleBinding>(viewHolder.itemView)
+    }
+
     override fun convert(helper: BaseViewHolder, item: Item) {
-        val baseDataBindingHolder = BaseDataBindingHolder<PlayerItemRelateTitleBinding>(helper.itemView)
-        baseDataBindingHolder.dataBinding?.model = item
+        val binding = DataBindingUtil.getBinding<PlayerItemRelateTitleBinding>(helper.itemView)
+        binding?.model = item
     }
 
 }
