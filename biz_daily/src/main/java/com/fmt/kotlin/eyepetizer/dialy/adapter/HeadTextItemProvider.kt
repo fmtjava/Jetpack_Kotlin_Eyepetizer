@@ -20,6 +20,6 @@ class HeadTextItemProvider : BaseItemProvider<ProviderMultiModel>() {
 
     override fun convert(helper: BaseViewHolder, item: ProviderMultiModel) {
         val binding = DataBindingUtil.getBinding<DailyItemHeadTextBinding>(helper.itemView)
-        binding?.model = item
+        binding?.model = item.item
     }
 }

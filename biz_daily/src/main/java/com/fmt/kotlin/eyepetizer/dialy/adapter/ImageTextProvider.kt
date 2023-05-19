@@ -21,6 +21,6 @@ class ImageTextProvider : BaseItemProvider<ProviderMultiModel>() {
 
     override fun convert(helper: BaseViewHolder, item: ProviderMultiModel) {
         val binding = DataBindingUtil.getBinding<DailyItemImageTextBinding>(helper.itemView)
-        binding?.model = item
+        binding?.model = item.item?.data?.content
     }
 }

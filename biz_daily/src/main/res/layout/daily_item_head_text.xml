@@ -5,7 +5,7 @@
 
         <variable
             name="model"
-            type="com.fmt.kotlin.eyepetizer.dialy.model.ProviderMultiModel" />
+            type="com.fmt.kotlin.eyepetizer.dialy.model.DailyItem" />
     </data>
 
 
@@ -15,7 +15,7 @@
         android:paddingTop="@dimen/dp_5"
         android:gravity="center"
         android:paddingBottom="@dimen/dp_10"
-        android:text="@{model.item.data.text}"
+        android:text="@{model.data.text}"
         android:textColor="@android:color/black"
         android:textSize="@dimen/sp_20"
         android:textStyle="bold" />

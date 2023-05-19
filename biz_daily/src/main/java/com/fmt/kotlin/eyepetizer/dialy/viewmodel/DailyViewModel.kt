@@ -1,5 +1,6 @@
 package com.fmt.kotlin.eyepetizer.dialy.viewmodel
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import com.fmt.kotlin.eyepetizer.common.base.viewmodel.BaseViewModel
 import com.fmt.kotlin.eyepetizer.dialy.api.DailyApi
@@ -10,8 +11,7 @@ import javax.inject.Inject
 @HiltViewModel
 class DailyViewModel @Inject constructor(private val mDailyApi: DailyApi) : BaseViewModel() {
 
-    private val BANNER_TYPE = "banner2"
-    private val TEXT_HEADER_TYPE = "textHeader"
+    private val TEXT_HEADER_TYPE = "textCard"
     private var mNextPageUrl: String? = null
 
 
@@ -19,9 +19,9 @@ class DailyViewModel @Inject constructor(private val mDailyApi: DailyApi) : Base
         liveDataEx {
             val dailyModel = mDailyApi.getDailyBanner()
             mNextPageUrl = dailyModel.nextPageUrl
-            val list = dailyModel.issueList[0].itemList
+            val list = dailyModel.itemList
             list.removeAll {
-                it.type == BANNER_TYPE
+                it.type == TEXT_HEADER_TYPE
             }
             val providerMultiModel =
                 ProviderMultiModel(type = ProviderMultiModel.Type.TYPE_BANNER, items = list)
@@ -35,10 +35,7 @@ class DailyViewModel @Inject constructor(private val mDailyApi: DailyApi) : Base
             } else {
                 val dailyModel = mDailyApi.getDailyList(mNextPageUrl!!)
                 mNextPageUrl = dailyModel.nextPageUrl
-                val list = dailyModel.issueList[0].itemList
-                list.removeAll {
-                    it.type == BANNER_TYPE
-                }
+                val list = dailyModel.itemList
                 val providerMultiModels = mutableListOf<ProviderMultiModel>()
                 list.forEach {
                     if (it.type == TEXT_HEADER_TYPE) {

@@ -24,11 +24,11 @@ class DailyAdapter(activity: Activity, owner: LifecycleOwner) :
                     go2VideoPlayerActivity(
                         activity,
                         view,
-                        itemData.item?.data!!
+                        itemData.item?.data?.content?.data!!
                     )
                 }
                 R.id.tv_share -> {
-                    ShareUtils.shareText(activity, itemData.item!!.data.playUrl)
+                    ShareUtils.shareText(activity, itemData.item!!.data.content.data.playUrl)
                 }
             }
         }

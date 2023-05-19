@@ -51,7 +51,7 @@ class BannerItemProvider(private val owner: LifecycleOwner, private val activity
                     go2VideoPlayerActivity(
                         activity,
                         null,
-                        data.items[position].data,
+                        data.items[position].data.content.data,
                         true
                     )
                 }

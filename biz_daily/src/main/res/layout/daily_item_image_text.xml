@@ -7,7 +7,7 @@
 
         <variable
             name="model"
-            type="com.fmt.kotlin.eyepetizer.dialy.model.ProviderMultiModel" />
+            type="com.fmt.kotlin.eyepetizer.provider.model.Item" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -28,7 +28,7 @@
             android:transitionName="@string/share_image"
             app:layout_constraintTop_toTopOf="parent"
             app:shapeAppearance="@style/roundedCornerStyle"
-            bind:url="@{model.item.data.component9().feed}" />
+            bind:url="@{model.data.component9().feed}" />
 
         <com.google.android.material.button.MaterialButton
             style="@style/Widget.MaterialComponents.Button.TextButton"
@@ -39,7 +39,7 @@
             android:insetTop="@dimen/dp_0"
             android:insetBottom="@dimen/dp_0"
             android:padding="@dimen/dp_0"
-            android:text="@{model.item.data.category}"
+            android:text="@{model.data.category}"
             android:textColor="@android:color/white"
             android:textSize="@dimen/sp_14"
             app:backgroundTint="@color/color_white_54"
@@ -56,7 +56,7 @@
             android:insetTop="@dimen/dp_0"
             android:insetBottom="@dimen/dp_0"
             android:padding="@dimen/dp_0"
-            android:text="@{DateUtils.INSTANCE.formatDateMsByMS(model.item.data.duration * 1000)}"
+            android:text="@{DateUtils.INSTANCE.formatDateMsByMS(model.data.duration * 1000)}"
             android:textColor="@android:color/white"
             android:textSize="@dimen/sp_12"
             app:backgroundTint="@color/color_black_54"
@@ -73,7 +73,7 @@
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toBottomOf="@id/iv_cover"
             app:shapeAppearance="@style/circleStyle"
-            app:url="@{model.item.data.author == null ? model.item.data.tags[0].headerImage : model.item.data.author.icon}" />
+            app:url="@{model.data.author == null ? model.data.tags[0].headerImage : model.data.author.icon}" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tv_title"
@@ -83,7 +83,7 @@
             android:layout_marginTop="@dimen/dp_10"
             android:ellipsize="end"
             android:maxLines="1"
-            android:text="@{model.item.data.title}"
+            android:text="@{model.data.title}"
             android:textColor="@android:color/black"
             android:textSize="@dimen/sp_14"
             android:textStyle="bold"
@@ -95,7 +95,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/dp_10"
             android:layout_marginTop="@dimen/dp_2"
-            android:text="@{model.item.data.author == null ? model.item.data.tags[0].name : model.item.data.author.name}"
+            android:text="@{model.data.author == null ? model.data.tags[0].name : model.data.author.name}"
             android:textColor="@color/common_sub_title_color"
             android:textSize="@dimen/sp_12"
             app:layout_constraintLeft_toRightOf="@id/iv_author"

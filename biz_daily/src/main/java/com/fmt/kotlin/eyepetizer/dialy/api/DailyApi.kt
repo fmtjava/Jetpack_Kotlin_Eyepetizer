@@ -8,7 +8,7 @@ import retrofit2.http.Url
 
 interface DailyApi {
 
-    @GET("v2/feed?num=1")
+    @GET("v5/index/tab/feed")
     suspend fun getDailyBanner(): DailyModel
 
     @GET
